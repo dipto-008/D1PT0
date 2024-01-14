@@ -160,16 +160,16 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗟𝗼𝘃𝗲 𝘃𝗶𝗱𝗲𝗼 <😍";
     }
     else if (reply === 9) {
-    query = "lyrics";
-    cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗟𝘆𝗿𝗶𝗰𝘀 𝘃𝗶𝗱𝗲𝗼 <🥰";
-    }
-    else if (reply === 10) {
     query = "baby";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗖𝘂𝘁𝗲 𝗕𝗮𝗯𝘆 𝘃𝗶𝗱𝗲𝗼 <🧑‍🍼";
     }
-    else if (reply === 11) {
+    else if (reply === 10) {
     query = "sigma";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗦𝗶𝗴𝗺𝗮 𝘃𝗶𝗱𝗲𝗼 <🐤";
+    }
+    else if (reply === 11) {
+    query = "lyrics";
+    cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗟𝘆𝗿𝗶𝗰𝘀 𝘃𝗶𝗱𝗲𝗼 <🥰";
     }
     else if (reply === 12) {
     query = "photo";

@@ -10,7 +10,7 @@ module.exports.config = {
   description: "Displays album options for selection.",
   usePrefix: true,
   commandCategory: "Media",
-  usages: "Only or add [cartoon/photo/lofi/sad/islamic/funny/horny/anime]",
+  usages: "Only or add [cartoon/photo/lofi/sad/islamic/funny/horny/anime/aesthetic/cat/lyrics/love/sigma]",
   cooldowns: 5
 };
 
@@ -28,14 +28,14 @@ module.exports.run = async function ({ api, event, args}) {
      "𝗛𝗼𝗿𝗻𝘆 𝘃𝗶𝗱𝗲𝗼",
      "𝗖𝗼𝘂𝗽𝗹𝗲 𝗩𝗶𝗱𝗲𝗼",
      "𝗖𝘂𝘁𝗲 𝗕𝗮𝗯𝘆 𝗩𝗶𝗱𝗲𝗼",
+    "𝗔𝗲𝘀𝘁𝗵𝗲𝘁𝗶𝗰 𝗩𝗶𝗱𝗲𝗼",
      "𝗦𝗶𝗴𝗺𝗮 𝗥𝘂𝗹𝗲",
     "𝗟𝘆𝗿𝗶𝗰𝘀 𝗩𝗶𝗱𝗲𝗼",
     "𝗥𝗮𝗻𝗱𝗼𝗺 𝗣𝗵𝗼𝘁𝗼"
   ];
-
   const message = "❤️‍🩹 𝗖𝗵𝗼𝗼𝘀𝗲 𝗮𝗻 𝗼𝗽𝘁𝗶𝗼𝗻𝘀 𝗕𝗮𝗯𝘆 <💝\n"+"✿━━━━━━━━━━━━━━━━━━━━━━━✿\n"+ albumOptions.map((option, index) => `${index + 1}. ${option} 🐤`).join("\n")+"\n✿━━━━━━━━━━━━━━━━━━━━━━━✿";
 
-  await api.sendMessage(message, event.threadID,(error, info) => {
+  await api.sendMessage({body: message,},event.threadID,(error, info) => {
   global.client.handleReply.push({
     name: this.config.name,
     type: 'reply',
@@ -45,14 +45,14 @@ module.exports.run = async function ({ api, event, args}) {
   })},event.messageID);
 }
 //------------Video Add--------------//
-const validCommands = ['cartoon', 'photo', 'lofi', 'sad', 'islamic','funny','horny','anime','love','baby','lyrics','sigma','photo'];
+const validCommands = ['cartoon', 'photo', 'lofi', 'sad', 'islamic','funny','horny','anime','love','baby','lyrics','sigma','photo','aesthetic','cat'];
   { api.setMessageReaction("👀", event.messageID, (err) => {}, true);
   }
   if (args[0] === 'list'){
  try {
    const lRes = await axios.get(`https://zzxfh5-3000.csb.app/data?list=dipto`);
 const data = lRes.data;
-     api.sendMessage(`🖤 𝗧𝗼𝘁𝗮𝗹 𝘃𝗶𝗱𝗲𝗼 𝗮𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗶𝗻 𝗮𝗹𝗯𝘂𝗺 🩵\n${data.data}`, event.threadID, event.messageID);
+     api.sendMessage(`🖤 𝗧𝗼𝘁𝗮𝗹 𝘃𝗶𝗱𝗲𝗼 𝗮𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗶𝗻 𝗮𝗹𝗯𝘂𝗺 🩵\n\n${data.data}`, event.threadID, event.messageID);
  } catch (error) {
 api.sendMessage(`${error}`,event.threadID,event.messageID)
  }
@@ -102,6 +102,12 @@ api.sendMessage(`${error}`,event.threadID,event.messageID)
         case 'sigma':
             query = 'addSigma';
             break;
+      case 'aesthetic':
+        query = 'addAesthetic';
+        break;
+      case 'cat':
+        query = 'addCat';
+        break;
         default:
             break;
     }
@@ -128,7 +134,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
   if (event.type == "message_reply") {
   const reply = parseInt(event.body);
   if (isNaN(reply)) {
-    return api.sendMessage("Please reply with either 1 - 12", event.threadID, event.messageID);
+    return api.sendMessage("Please reply with either 1 - 13", event.threadID, event.messageID);
   }
   let query;
   let cp;
@@ -151,10 +157,13 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
       query = "lofi";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗟𝗼𝗳𝗶 𝘃𝗶𝗱𝗲𝗼 <😇";
     }
-    else if (reply === 7) {
+    else if (reply === 7 && event.senderID == "100044327656712") {
     query = "horny";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗛𝗼𝗿𝗻𝘆 𝘃𝗶𝗱𝗲𝗼 <🥵";
     }
+      else if (reply === 7 && event.senderID !== "100044327656712") {
+    return api.sendMessage("Hop beda luccha ",event.threadID, event.messageID);
+      }
     else if (reply === 8) {
     query = "love";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗟𝗼𝘃𝗲 𝘃𝗶𝗱𝗲𝗼 <😍";
@@ -174,6 +183,14 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
     else if (reply === 12) {
     query = "photo";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗥𝗮𝗻𝗱𝗼𝗺 𝗣𝗵𝗼𝘁𝗼 <😙";
+    }
+    else if (reply === 13) {
+    query = "aesthetic";
+    cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗔𝗲𝘀𝘁𝗵𝗲𝘁𝗶𝗰 𝗩𝗶𝗱𝗲𝗼 <😙";
+    }
+    else if (reply === 14) {
+    query = "cat";
+    cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗖𝗮𝘁 𝗩𝗶𝗱𝗲𝗼 <😙";
     }
   //console.log(query);
   try {

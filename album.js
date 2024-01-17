@@ -157,13 +157,10 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
       query = "lofi";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗟𝗼𝗳𝗶 𝘃𝗶𝗱𝗲𝗼 <😇";
     }
-    else if (reply === 7 && event.senderID == "100044327656712") {
+    else if (reply === 7) {
     query = "horny";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗛𝗼𝗿𝗻𝘆 𝘃𝗶𝗱𝗲𝗼 <🥵";
     }
-      else if (reply === 7 && event.senderID !== "100044327656712") {
-    return api.sendMessage("Hop beda luccha ",event.threadID, event.messageID);
-      }
     else if (reply === 8) {
     query = "love";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗟𝗼𝘃𝗲 𝘃𝗶𝗱𝗲𝗼 <😍";

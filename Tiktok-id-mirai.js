@@ -66,7 +66,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
       const filename = __dirname + `/cache/dipto_video.mp4`;
       fs.writeFileSync(filename, Buffer.from(videoResponse.data, 'binary'));
       api.sendMessage({
-      body: `Now Baby Tiktok video <🐥`,
+      body: `Naw Baby Tiktok video <🐥`,
     attachment: fs.createReadStream(filename)
       }, event.threadID, () => {
         fs.unlinkSync(filename);

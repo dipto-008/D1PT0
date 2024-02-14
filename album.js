@@ -112,7 +112,7 @@ api.sendMessage(`${error}`,event.threadID,event.messageID)
             break;
     }
     try {
-        const response = await axios.get(`https://d1p-imgur.onrender.com/dip?url=${encodeURIComponent(URL)}`);
+        const response = await axios.get(`https://imgur-api-yd3t.onrender.com/dip?url=${encodeURIComponent(URL)}`);
         const imgurLink = response.data.data;
         const fileExtension = path.extname(imgurLink);
    let query2;

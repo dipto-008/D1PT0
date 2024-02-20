@@ -3,10 +3,10 @@ const axios = require('axios');
 module.exports = {
   config: {
     name: "baby",
-    aliases: "bby",
+    aliases: ["baby", "bbe", "babe" ],
     version: "6.9.0",
     author: "dipto",
-    countDown: 10,
+    countDown: 0,
     role: 0,
     shortDescription: "Chat with bot",
     longDescription: "Chat with bot",
@@ -107,4 +107,5 @@ onStart: async ({ api, event, args }) => {
         console.log(e)
         api.sendMessage("Check console for error ",event.threadID,event.messageID);
       }
-    };
+    }
+}

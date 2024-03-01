@@ -237,6 +237,10 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
     query = "football";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗙𝗼𝗼𝘁𝗯𝗮𝗹𝗹 𝘃𝗶𝗱𝗲𝗼<😙";
     }
+    else if (reply === 18) {
+    query = "girl";
+    cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗚𝗶𝗿𝗹 𝘃𝗶𝗱𝗲𝗼<😙";
+    }
   try {
     const res = await axios.get(`https://all-image-genator-d1p.onrender.com/dipto/album?type=${query}`);
     const imgUrl = res.data.data;

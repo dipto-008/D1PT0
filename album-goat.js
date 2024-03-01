@@ -37,7 +37,7 @@ onStart:async function ({ api, event, args}) {
 
   await api.sendMessage({body: message,},event.threadID,(error, info) => {
   global.GoatBot.onReply.set(info.messageID,{
-    commadName: this.config.name,
+    commandName: this.config.name,
     type: 'reply',
     messageID: info.messageID,
     author: event.senderID,

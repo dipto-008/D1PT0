@@ -191,7 +191,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
       query = "lofi";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗟𝗼𝗳𝗶 𝘃𝗶𝗱𝗲𝗼 <😇";
     }
-    else if (reply === 7 && event.senderID == admin) {
+    else if (reply === 7 && event.senderID === admin) {
     query = "horny";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗛𝗼𝗿𝗻𝘆 𝘃𝗶𝗱𝗲𝗼 <🥵";
     }
@@ -229,7 +229,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
       query = "ff";
       cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗙𝗿𝗲𝗲 𝗙𝗶𝗿𝗲 𝗩𝗶𝗱𝗲𝗼 <😙";
       }
-  else if (reply === 16  && event.senderID == admin) {
+  else if (reply === 16  && event.senderID === admin) {
     query = "sex";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗦𝗲𝘅 𝘃𝗶𝗱𝗲𝗼 <😙";
   }

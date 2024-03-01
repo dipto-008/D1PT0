@@ -225,7 +225,7 @@ onReply: async function ({ api, event, Reply }) {
     query = "cat";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗖𝗮𝘁 𝗩𝗶𝗱𝗲𝗼 <😙";
     }
-  else if (reply === 15 && event.senderID == admin) {
+  else if (reply === 15 && event.senderID === admin) {
     query = "sex";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗦𝗲𝘅 𝘃𝗶𝗱𝗲𝗼 <😙";
   }

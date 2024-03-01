@@ -17,7 +17,6 @@ module.exports = {
 },
 
 onStart:async function ({ api, event, args}) {
-  const admin = "100044327656712";
   if (!args[0]){
     { api.setMessageReaction("😘", event.messageID, (err) => {}, true);
     }
@@ -166,6 +165,7 @@ const data = svRes.data;
 }
 },
 onReply: async function ({ api, event, Reply }) {
+        const admin = "100044327656712";
         api.unsendMessage(Reply.messageID);
         if (event.type == "message_reply") {
         const reply = parseInt(event.body);
@@ -206,30 +206,32 @@ onReply: async function ({ api, event, Reply }) {
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗖𝘂𝘁𝗲 𝗕𝗮𝗯𝘆 𝘃𝗶𝗱𝗲𝗼 <🧑‍🍼";
     }
     else if (reply === 10) {
+    query = "photo";
+    cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗥𝗮𝗻𝗱𝗼𝗺 𝗣𝗵𝗼𝘁𝗼 <😙";
+      }
+    else if (reply === 11) {
+    query = "aesthetic";
+    cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗔𝗲𝘀𝘁𝗵𝗲𝘁𝗶𝗰 𝗩𝗶𝗱𝗲𝗼 <😙";
+    }
+    else if (reply === 12) {
     query = "sigma";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗦𝗶𝗴𝗺𝗮 𝘃𝗶𝗱𝗲𝗼 <🐤";
     }
-    else if (reply === 11) {
+    else if (reply === 13) {
     query = "lyrics";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗟𝘆𝗿𝗶𝗰𝘀 𝘃𝗶𝗱𝗲𝗼 <🥰";
     }
-    else if (reply === 12) {
-    query = "photo";
-    cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗥𝗮𝗻𝗱𝗼𝗺 𝗣𝗵𝗼𝘁𝗼 <😙";
-    }else if (reply === 13) {
+    else if (reply === 14) {
     query = "cat";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗖𝗮𝘁 𝗩𝗶𝗱𝗲𝗼 <😙";
-      }
-    else if (reply === 14) {
-    query = "photo";
-    cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗥𝗮𝗻𝗱𝗼𝗺 𝗣𝗵𝗼𝘁𝗼 <😙";
-    }else if (reply === 15) {
-      query = "ff";
-      cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗙𝗿𝗲𝗲 𝗙𝗶𝗿𝗲 𝗩𝗶𝗱𝗲𝗼 <😙";
-      }
-  else if (reply === 16  && event.senderID == admin) {
+    }
+  else if (reply === 15 && event.senderID == admin) {
     query = "sex";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗦𝗲𝘅 𝘃𝗶𝗱𝗲𝗼 <😙";
+  }
+  else if (reply === 16) {
+      query = "ff";
+      cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗙𝗿𝗲𝗲 𝗙𝗶𝗿𝗲 𝗩𝗶𝗱𝗲𝗼 <😙";
   }
     else if (reply === 17) {
     query = "football";

@@ -15,7 +15,6 @@ module.exports.config = {
 };
 
 module.exports.run = async function ({ api, event, args}) {
-  const admin = "100044327656712";
   if (!args[0]){
     { api.setMessageReaction("😘", event.messageID, (err) => {}, true);
     }
@@ -29,7 +28,7 @@ module.exports.run = async function ({ api, event, args}) {
      "𝗛𝗼𝗿𝗻𝘆 𝘃𝗶𝗱𝗲𝗼",
      "𝗖𝗼𝘂𝗽𝗹𝗲 𝗩𝗶𝗱𝗲𝗼",
      "𝗙𝗹𝗼𝘄𝗲𝗿 𝗩𝗶𝗱𝗲𝗼",
-    "𝗥𝗮𝗻𝗱𝗼𝗺 𝗣𝗵𝗼𝘁𝗼"
+    "𝗔𝗲𝘀𝘁𝗵𝗲𝘁𝗶𝗰 𝗩𝗶𝗱𝗲𝗼"
   ];
   const message = "❤️‍🩹 𝗖𝗵𝗼𝗼𝘀𝗲 𝗮𝗻 𝗼𝗽𝘁𝗶𝗼𝗻𝘀 𝗕𝗮𝗯𝘆 <💝\n"+"✿━━━━━━━━━━━━━━━━━━━━━━━✿\n"+ albumOptions.map((option, index) => `${index + 1}. ${option} 🐤`).join("\n")+"\n✿━━━━━━━━━━━━━━━━━━━━━━━✿";
 
@@ -45,10 +44,10 @@ module.exports.run = async function ({ api, event, args}) {
     { api.setMessageReaction("😘", event.messageID, (err) => {}, true);
     }
   const albumOptions = [
-    "𝗔𝗲𝘀𝘁𝗵𝗲𝘁𝗶𝗰 𝗩𝗶𝗱𝗲𝗼",
     "𝗦𝗶𝗴𝗺𝗮 𝗥𝘂𝗹𝗲",
     "𝗟𝘆𝗿𝗶𝗰𝘀 𝗩𝗶𝗱𝗲𝗼",
     "𝗖𝗮𝘁 𝗩𝗶𝗱𝗲𝗼",
+    "𝗥𝗮𝗻𝗱𝗼𝗺 𝗣𝗵𝗼𝘁𝗼",
     "18+ 𝘃𝗶𝗱𝗲𝗼",
     "𝗙𝗿𝗲𝗲 𝗙𝗶𝗿𝗲 𝘃𝗶𝗱𝗲𝗼",
     "𝗙𝗼𝗼𝘁𝗕𝗮𝗹𝗹 𝘃𝗶𝗱𝗲𝗼",
@@ -164,7 +163,8 @@ const data = svRes.data;
 }
 };
 module.exports.handleReply = async function ({ api, event, handleReply }) {
-  api.unsendMessage(handleReply.messageID);
+ const admin = "100044327656712";
+ api.unsendMessage(handleReply.messageID);
   if (event.type == "message_reply") {
   const reply = parseInt(event.body);
   if (isNaN(reply)) {

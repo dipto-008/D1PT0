@@ -193,7 +193,7 @@ onReply: async function ({ api, event, Reply }) {
       query = "lofi";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗟𝗼𝗳𝗶 𝘃𝗶𝗱𝗲𝗼 <😇";
     }
-    else if (reply === 7 && event.senderID === admin)) {
+    else if (reply === 7 && event.senderID === admin) {
     query = "horny";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗛𝗼𝗿𝗻𝘆 𝘃𝗶𝗱𝗲𝗼 <🥵";
     }

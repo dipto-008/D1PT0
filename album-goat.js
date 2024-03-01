@@ -53,7 +53,8 @@ onStart:async function ({ api, event, args}) {
     "18+ 𝘃𝗶𝗱𝗲𝗼",
     "𝗙𝗿𝗲𝗲 𝗙𝗶𝗿𝗲 𝘃𝗶𝗱𝗲𝗼",
     "𝗙𝗼𝗼𝘁𝗕𝗮𝗹𝗹 𝘃𝗶𝗱𝗲𝗼",
-    "𝗚𝗶𝗿𝗹 𝘃𝗶𝗱𝗲𝗼"
+    "𝗚𝗶𝗿𝗹 𝘃𝗶𝗱𝗲𝗼",
+    "𝗙𝗿𝗶𝗲𝗻𝗱𝘀 𝗩𝗶𝗱𝗲𝗼"
   ];
     const message = "❤️‍🩹 𝗖𝗵𝗼𝗼𝘀𝗲 𝗮𝗻 𝗼𝗽𝘁𝗶𝗼𝗻𝘀 𝗕𝗮𝗯𝘆 <💝\n"+"✿━━━━━━━━━━━━━━━━━━━━━━━✿\n"+ albumOptions.map((option, index) => `${index + 11}. ${option} 🐤`).join("\n")+"\n✿━━━━━━━━━━━━━━━━━━━━━━━✿";
 
@@ -67,7 +68,7 @@ onStart:async function ({ api, event, args}) {
   })},event.messageID);
   }
 //------------Video Add--------------//
-const validCommands = ['cartoon', 'photo', 'lofi', 'sad', 'islamic','funny','horny','anime','love','baby','lyrics','sigma','photo','aesthetic','cat','flower','ff','sex','girl','football'];
+const validCommands = ['cartoon', 'photo', 'lofi', 'sad', 'islamic','funny','horny','anime','love','baby','lyrics','sigma','photo','aesthetic','cat','flower','ff','sex','girl','football',"friend"];
   { api.setMessageReaction("👀", event.messageID, (err) => {}, true);
   }
   if (args[0] === 'list'){
@@ -142,6 +143,9 @@ const d1 = args[1]?args[1].toLowerCase() : '' ;
          break;
         case 'girl':
             query = 'addGirl';
+        break;
+        case 'friend':
+            query = 'addFriend';
         break;
          default:
             break;
@@ -240,6 +244,9 @@ onReply: async function ({ api, event, Reply }) {
     else if (reply === 18) {
     query = "girl";
     cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗚𝗶𝗿𝗹 𝘃𝗶𝗱𝗲𝗼<😙";
+    }else if (reply === 19) {
+    query = "friend";
+    cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗙𝗿𝗶𝗲𝗻𝗱𝘀 𝘃𝗶𝗱𝗲𝗼<😙";
     }
   try {
     const res = await axios.get(`https://all-image-genator-d1p.onrender.com/dipto/album?type=${query}`);

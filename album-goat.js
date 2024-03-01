@@ -35,7 +35,7 @@ onStart:async function ({ api, event, args}) {
   ];
   const message = "❤️‍🩹 𝗖𝗵𝗼𝗼𝘀𝗲 𝗮𝗻 𝗼𝗽𝘁𝗶𝗼𝗻𝘀 𝗕𝗮𝗯𝘆 <💝\n"+"✿━━━━━━━━━━━━━━━━━━━━━━━✿\n"+ albumOptions.map((option, index) => `${index + 1}. ${option} 🐤`).join("\n")+"\n✿━━━━━━━━━━━━━━━━━━━━━━━✿";
 
-  await api.sendMessage({body: message,},event.threadID,(error, info) => {
+  await api.sendMessage(message,event.threadID,(error, info) => {
   global.GoatBot.onReply.set(info.messageID,{
     commandName: this.config.name,
     type: 'reply',
@@ -58,7 +58,7 @@ onStart:async function ({ api, event, args}) {
   ];
     const message = "❤️‍🩹 𝗖𝗵𝗼𝗼𝘀𝗲 𝗮𝗻 𝗼𝗽𝘁𝗶𝗼𝗻𝘀 𝗕𝗮𝗯𝘆 <💝\n"+"✿━━━━━━━━━━━━━━━━━━━━━━━✿\n"+ albumOptions.map((option, index) => `${index + 11}. ${option} 🐤`).join("\n")+"\n✿━━━━━━━━━━━━━━━━━━━━━━━✿";
 
-  await api.sendMessage({body: message,},event.threadID,(error, info) => {
+  await api.sendMessage(message,event.threadID,(error, info) => {
     global.GoatBot.onReply.set(info.messageID,{
     commandName: this.config.name,
     type: 'reply',
@@ -170,7 +170,7 @@ onReply: async function ({ api, event, Reply }) {
         if (event.type == "message_reply") {
         const reply = parseInt(event.body);
         if (isNaN(reply)) {
-    return api.sendMessage("Please reply with either 1 - 12", event.threadID, event.messageID);
+    return api.sendMessage("🔰 | Please reply with either 1 - 14", event.threadID, event.messageID);
   }
   let query;
   let cp;

@@ -251,11 +251,10 @@ onReply: async function ({ api, event, Reply }) {
   try {
     const res = await axios.get(`https://all-image-genator-d1p.onrender.com/dipto/album?type=${query}`);
     const imgUrl = res.data.data;
+    const ex = path.extname(imgUrl);
     const imgRes = await axios.get(imgUrl, { responseType: 'arraybuffer' });
-
-    const filename = __dirname + '/assets/dipto.mp4';
+    const filename = __dirname + `/assets/dipto${ex}`;
     fs.writeFileSync(filename, Buffer.from(imgRes.data, 'binary'));
-
     api.sendMessage({
         body: cp,
         attachment: fs.createReadStream(filename),

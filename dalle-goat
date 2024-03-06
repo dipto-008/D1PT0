@@ -24,8 +24,8 @@ module.exports = {
    return api.sendMessage("❌| Wrong Formet .✅ | Use 17/18 years old boy/girl watching football match on tv and written Dipto and 69 on the back of his Dress , 4k",event.threadID,event.messageID);
   }
     try {
-const cookies = [" cookies 1 ","cookies 2"];
-const 
+const tl = [" cookies 1 ","cookies 2"];
+const cookies = tl[Math.floor(Math.random() * tl.length)];
       const w = await api.sendMessage("Wait koro baby < 😽", event.threadID);
   
 const response = await axios.get(`https://all-image-genator-d1p.onrender.com/dipto/dalle?prompt=${prompt}&key=dipto008&cookie=${cookies}`)

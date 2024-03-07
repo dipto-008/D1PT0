@@ -16,6 +16,7 @@ module.exports = {
     }
   },
 onStart: async ({ api, event, args }) => {
+const link = "https://noobs-apihouse.onrender.com/dipto/baby";
   const dipto = args.join(" ").toLowerCase();
       const uid = event.senderID;
       let command;
@@ -30,7 +31,7 @@ onStart: async ({ api, event, args }) => {
 //-------------------------------------------//
       else if (args[0] === 'remove') {
       const fina = dipto.replace("remove ", "");
-            const respons = await axios.get(`https://3hj6dy-3000.csb.app/dipto?remove=${fina}`);
+            const respons = await axios.get(`${link}?remove=${fina}`);
             const dat = respons.data.message;
             api.sendMessage(`${dat}`, event.threadID, event.messageID);
         }
@@ -39,20 +40,20 @@ onStart: async ({ api, event, args }) => {
           const fina = dipto.replace("rm ", "");
          const fi = fina.split(' - ')[0]
          const f = fina.split(' - ')[1]
-            const respons = await axios.get(`https://3hj6dy-3000.csb.app/dipto?remove=${fi}&index=${f}`);
+            const respons = await axios.get(`${link}?remove=${fi}&index=${f}`);
             const da = respons.data.message;
             api.sendMessage(`${da}`, event.threadID, event.messageID);
     }
   //-------------------------------------//
        else if (args[0] === 'list') {
-            const respo = await axios.get(`https://3hj6dy-3000.csb.app/dipto?list=all`);
+            const respo = await axios.get(`${link}?list=all`);
             const d = respo.data.length;
-            api.sendMessage(`Total Teach ${d}`, event.threadID, event.messageID);
+            api.sendMessage(`Total Teach = ${d}`, event.threadID, event.messageID);
         }
     //-------------------------------------//
           else if (args[0] === 'msg' || args[0] === 'message') {
       const fuk = dipto.replace("msg ", "");
-            const respo = await axios.get(`https://3hj6dy-3000.csb.app/dipto?list=${fuk}`);
+            const respo = await axios.get(`${link}?list=${fuk}`);
             const d = respo.data.data;
             api.sendMessage(`Message ${fuk} = ${d}`, event.threadID, event.messageID);
           }
@@ -62,7 +63,7 @@ onStart: async ({ api, event, args }) => {
             if (command.length < 2) {
                 return api.sendMessage('❌ | Invalid format! Use edit [YourMessage] - [NewReply]', event.threadID, event.messageID);
             }
-            const res = await axios.get(`https://3hj6dy-3000.csb.app/dipto?edit=${args[1]}&replace=${command}`);
+            const res = await axios.get(`${link}?edit=${args[1]}&replace=${command}`);
             const dA = res.data.message;
             api.sendMessage(`changed ${dA}`, event.threadID, event.messageID);
         } 
@@ -75,7 +76,7 @@ onStart: async ({ api, event, args }) => {
                 if (command.length < 2) {
                 return api.sendMessage('❌ | Invalid format! Use [YourMessage] - [Reply1], [Reply2], [Reply3]... OR remove [YourMessage] OR list OR edit [YourMessage] - [NewReply]', event.threadID, event.messageID);
             }
-            const re = await axios.get(`https://3hj6dy-3000.csb.app/dipto?teach=${final}&reply=${command}`);
+            const re = await axios.get(`${link}?teach=${final}&reply=${command}`);
             const tex = re.data.message;
             api.sendMessage(`✅ Replies added ${tex}`, event.threadID, event.messageID);
         }
@@ -87,19 +88,19 @@ onStart: async ({ api, event, args }) => {
             if (command.length < 2) {
                 return api.sendMessage('❌ | Invalid format! Use [YourMessage] - [Reply1], [Reply2], [Reply3]... OR remove [YourMessage] OR list OR edit [YourMessage] - [NewReply]', event.threadID, event.messageID);
             }
-            const re = await axios.get(`https://3hj6dy-3000.csb.app/dipto?teach=${final}&senderID=${uid}&reply=${command}`);
+            const re = await axios.get(`${link}?teach=${final}&senderID=${uid}&reply=${command}`);
             const tex = re.data.message;
             api.sendMessage(`✅ Replies added ${tex}`, event.threadID, event.messageID);
         }
      //-------------------------------------//
         else if (dipto.includes('amar name ki') || dipto.includes('amr nam ki') || dipto.includes('amar nam ki') || dipto.includes('amr name ki')){
-        const response = await axios.get(`https://3hj6dy-3000.csb.app/dipto?text=amar name ki&senderID=${uid}`);
+        const response = await axios.get(`${link}?text=amar name ki&senderID=${uid}`);
         const data = response.data.reply;
         api.sendMessage(`${data}`, event.threadID, event.messageID);
            }
   //----------------------------------//
       else {
-        const response = await axios.get(`https://3hj6dy-3000.csb.app/dipto?text=${dipto}`);
+        const response = await axios.get(`${link}?text=${dipto}`);
         const data = response.data.reply;
         api.sendMessage(`${data}`, event.threadID, event.messageID);
            }

@@ -115,7 +115,7 @@ const d1 = args[1]?args[1].toLowerCase() : '' ;
             query = 'addLyrics';
             break;
         case 'flower':
-            query = 'addBaby';
+            query = 'addFlower';
             break;
         case 'photo':
             query = 'addPhoto';

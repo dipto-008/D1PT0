@@ -4,15 +4,12 @@ module.exports.config = {
     name: "baby",
     aliases: ["baby", "bbe", "babe" ],
     version: "6.9.0",
-    author: "dipto",
+    credits: "dipto",
     countDown: 0,
-    role: 0,
-    shortDescription: "Chat with bot",
-    longDescription: "Chat with bot",
-    category: "chat",
-    guide: {
-      en: "{pn}[anyMessage] teach [YourMessage] - [Reply1], [Reply2], [Reply3]... OR remove [YourMessage] OR remove [YourMessage] - [indexNumber] or msg or list OR edit [YourMessage] - [NewReply]"
-    }
+    hasPermssion: 0,
+    description: "Chat with bot",
+    commandCategory: "chat",
+    usages: "{pn}[anyMessage] teach [YourMessage] - [Reply1], [Reply2], [Reply3]... OR remove [YourMessage] OR remove [YourMessage] - [indexNumber] or msg or list OR edit [YourMessage] - [NewReply]"
   },
 module.exports.run = async ({ api, event, args }) => {
 const link = "https://noobs-apihouse.onrender.com/dipto/baby";

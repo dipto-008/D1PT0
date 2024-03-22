@@ -5,7 +5,7 @@ module.exports.config = {
     aliases: ["baby", "bbe", "babe" ],
     version: "6.9.0",
     credits: "dipto",
-    countDown: 0,
+    cooldowns: 0,
     hasPermssion: 0,
     description: "Chat with bot",
     commandCategory: "chat",

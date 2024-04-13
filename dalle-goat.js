@@ -1,3 +1,6 @@
+global.GoatBot.config = {
+  api:"https://noobs-api.onrender.com/dipto"
+}
 const axios = require('axios');
 const fs = require('fs-extra');
 const path = require('path');

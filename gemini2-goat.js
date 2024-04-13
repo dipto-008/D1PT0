@@ -1,14 +1,14 @@
 const axios = require("axios");
 
 module.exports.config = {
-  name: "bby",
+  name: "gemini2",
   version: "1.0.0",
   role: 0, 
   author: "dipto", 
-  description: "better then all Sim simi with multiple conversation",
+  description: "gemini ai with multiple conversation",
   usePrefix: true,
   guide: "[message]",
-  category: "ChatBots",
+  category: "Ai",
   coolDowns: 5,
 };
 module.exports.onReply = async function ({ api, event}) {

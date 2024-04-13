@@ -1,6 +1,3 @@
-global.config = {
-  api:"https://noobs-api.onrender.com/dipto"
-}
 const axios = require("axios");
 
 module.exports.config = {
@@ -23,7 +20,7 @@ module.exports.handleReply = async function ({ api, event,handleReply}) {
   if (event.type == "message_reply") {
   const reply = event.body.toLowerCase();;
   if (isNaN(reply)) {
-    const response = await axios.get(`${global.config.api}/gemini2?text=${encodeURIComponent(reply)}&senderID=${uid}`)
+    const response = await axios.get(`https://noobs-api.onrender.com/dipto/gemini2?text=${encodeURIComponent(reply)}&senderID=${uid}`)
        const ok = response.data.response;
     await api.sendMessage(ok ,event.threadID,(error, info) => {
   global.client.handleReply.push({
@@ -45,7 +42,7 @@ module.exports.run = async function ({ api, args, event }) {
         "Please provide a question to answer\n\nExample:\ngemini2 hey",
   event.threadID,  event.messageID ); return;}
     if (dipto) {
-      const response = await axios.get(`${global.config.api}/gemini2?text=${encodeURIComponent(dipto)}&senderID=${uid}`);
+      const response = await axios.get(`https://noobs-api.onrender.com/dipto/gemini2?text=${encodeURIComponent(dipto)}&senderID=${uid}`);
          const mg = response.data.response;
       await api.sendMessage({body: mg ,},event.threadID,(error, info) => {
   global.client.handleReply.push({

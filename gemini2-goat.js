@@ -42,7 +42,7 @@ module.exports.onStart = async function ({ api, args, event }) {
     const dipto = args.join(" ").toLowerCase();
     if (!args[0]) {
       api.sendMessage(
-        "Please provide a question to answer\n\nExample:\nbaby ki koro",
+        "Please provide a question to answer\n\nExample:\ngemini2 hey",
   event.threadID,  event.messageID ); return;}
     if (dipto) {
       const response = await axios.get(`${global.GoatBot.config.api}/gemini2?text=${encodeURIComponent(dipto)}&senderID=${uid}`);

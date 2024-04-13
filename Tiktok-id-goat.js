@@ -22,7 +22,7 @@ module.exports = {
     const ok = this.config.author;
     if (!user) return api.sendMessage("Please provide a username.", event.threadID, event.messageID);
     try {
-      const response = await axios.get(`https://noobs-apihouse.onrender.com/${ok}/tiktokid?url=${user}&num=${limit}`);
+      const response = await axios.get(`https://noobs-api.onrender.com/${ok}/tiktokid?url=${user}&num=${limit}`);
       const videos = response.data.data.videos;
       if (!videos || videos.length === 0) return api.sendMessage("No videos found for the provided username.🐤", event.threadID, event.messageID);
       const options = videos.map((video, index) => `${index + 1}. ${video.title}`);

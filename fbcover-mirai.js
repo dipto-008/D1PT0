@@ -37,7 +37,7 @@ api.sendMessage(`Processing your cover,Wait koro baby < 😘`, event.threadID,
   (err, info) => 
   setTimeout(() => { api.unsendMessage(info.messageID) 
         }, 4000));
-  const img = `https://noobs-apihouse.onrender.com/dipto/cover/${v}?name=${encodeURIComponent(name)}&subname=${encodeURIComponent(subname)}&number=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&email=${encodeURIComponent(email)}&colour=${encodeURIComponent(color)}&uid=${id}`; 
+  const img = `https://noobs-api.onrender.com/dipto/cover/${v}?name=${encodeURIComponent(name)}&subname=${encodeURIComponent(subname)}&number=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&email=${encodeURIComponent(email)}&colour=${encodeURIComponent(color)}&uid=${id}`; 
   
   try { 
 const response = await axios.get(img, { responseType: 'arraybuffer' }); 

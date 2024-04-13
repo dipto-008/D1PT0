@@ -10,7 +10,7 @@ module.exports = {
     author: "Dipto",
     countDown: 15,
     role: 0,
-    shortDescription: "Generate images powerby by Dalle3",
+    description: "Generate images powerby by Dalle3",
     longDescription: "Generate images by Unofficial Dalle3",
     category: "download",
     guide: {

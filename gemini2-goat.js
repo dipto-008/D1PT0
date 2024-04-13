@@ -14,8 +14,11 @@ module.exports.config = {
   category: "Ai",
   coolDowns: 5,
 };
-module.exports.onReply = async function ({ api, event}) {
- //api.unsendMessage(handleReply.messageID);
+module.exports.onReply = async function ({ api, event, Reply}) {
+ //api.unsendMessage(Reply.messageID);
+  const { author } = Reply;
+  if(author != event.senderID)
+  return;
   const uid = event.senderID
   if (event.type == "message_reply") {
   const reply = event.body.toLowerCase();;

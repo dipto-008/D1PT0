@@ -20,7 +20,7 @@ module.exports.handleReply = async function ({ api, event}) {
     const response = await axios.get(`${global.config.api}/gemini2?text=${encodeURIComponent(reply)}&senderID=${uid}`)
        const ok = response.data.response;
     await api.sendMessage(ok ,event.threadID,(error, info) => {
-  global.GoatBot.onReply.set(info.messageID,{
+  global.client.handleReply.push({
     commandName: this.config.name,
     type: 'reply',
     messageID: info.messageID,
@@ -42,7 +42,7 @@ module.exports.run = async function ({ api, args, event }) {
       const response = await axios.get(`${global.config.api}/gemini2?text=${encodeURIComponent(dipto)}&senderID=${uid}`);
          const mg = response.data.response;
       await api.sendMessage({body: mg ,},event.threadID,(error, info) => {
-  global.GoatBot.onReply.set(info.messageID,{
+  global.client.handleReply.push({
     commandName: this.config.name,
     type: 'reply',
     messageID: info.messageID,

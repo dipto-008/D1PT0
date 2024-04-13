@@ -1,3 +1,6 @@
+global.config = {
+  api:"https://noobs-api.onrender.com/dipto"
+}
 const axios = require("axios");
 
 module.exports.config = {

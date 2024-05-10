@@ -13,12 +13,12 @@ config:{
 },
 run: async function ({ args, event, api }) {
   try {
-    const api = "http://noobs-api.onrender.com";
+    const apiUrl = "http://noobs-api.onrender.com";
     const prompt = args.join(" ");
     const wait = await api.sendMessage("𝗪𝗮𝗶𝘁 𝗸𝗼𝗿𝗼 𝗕𝗮𝗯𝘆 <😘", event.threadID);
     const response = await axios.get(`${api}/dipto/meta?prompt=${encodeURIComponent(prompt)}&key=dipto008`);
     const data = response.data.imgUrls;
-	   const vid = await axios.get(data,{ responseType: 'arraybuffer' });
+	   const vid = await axios.get(data,{ responseType: 'stream' });
      await api.unsendMessage(wait.messageID);
     await api.sendMessage({
       body: `✅ | Generated your images`,

@@ -3,10 +3,11 @@ const axios = require('axios')
 module.exports.config = {
   name: "ss",
   version: "1.0",
-  author: "Dipto",
-  role: 2,
+  credits: "Dipto",
+  role: 0,
+  usePrefix: true,
   description: "Take a screenshot of a website",
-  category: "utility",
+  commabdCategory: "utility",
   guide: {en:"screenshot [URL]"},
   coolDowns: 5
 };

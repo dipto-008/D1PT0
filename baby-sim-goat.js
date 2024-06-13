@@ -16,7 +16,7 @@ module.exports = {
     }
   },
 onStart: async ({ api, event, args }) => {
-const link = "https://noobs-api2.onrender.com/dipto/baby";
+const link = "https://nubs-apis.onrender.com/baby";
   const dipto = args.join(" ").toLowerCase();
       const uid = event.senderID;
       let command;

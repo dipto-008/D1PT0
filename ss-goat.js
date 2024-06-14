@@ -1,4 +1,9 @@
-const link = "https://noobs-api2.onrender.com/dipto"
+const axios = require('axios');
+const baseApiUrl = async () => {
+  const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+  return base.data.api;
+}; 
+
 module.exports.config = {
   name: "ss",
   version: "1.0",
@@ -16,7 +21,7 @@ exports.onStart= async function ({api, event, args }) {
   }
   try {
     api.sendMessage(
-      { body: "Screenshot Saved <😽", attachment: await global.utils.getStreamFromURL(`${link}/ss?url=${url}`)}, 
+      { body: "Screenshot Saved <😽", attachment: await global.utils.getStreamFromURL(`${await baseApiUrl()}/ss?url=${url}`)}, 
       event.threadID,
       event.messageID
     );

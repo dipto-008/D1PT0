@@ -1,6 +1,11 @@
 const axios = require('axios');
 const fs = require('fs-extra');
 const jimp = require('jimp');
+const baseApiUrl = async () => {
+  const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+  return base.data.api;
+}; 
+
 module.exports.config = {
 name: "fbcover",
   version: "6.9",
@@ -37,7 +42,7 @@ api.sendMessage(`Processing your cover,Wait koro baby < 😘`, event.threadID,
   (err, info) => 
   setTimeout(() => { api.unsendMessage(info.messageID) 
         }, 4000));
-  const img = `https://noobs-api.onrender.com/dipto/cover/${v}?name=${encodeURIComponent(name)}&subname=${encodeURIComponent(subname)}&number=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&email=${encodeURIComponent(email)}&colour=${encodeURIComponent(color)}&uid=${id}`; 
+  const img = `${await baseApiUrl()}/cover/${v}?name=${encodeURIComponent(name)}&subname=${encodeURIComponent(subname)}&number=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&email=${encodeURIComponent(email)}&colour=${encodeURIComponent(color)}&uid=${id}`; 
   
   try { 
 const response = await axios.get(img, { responseType: 'arraybuffer' }); 

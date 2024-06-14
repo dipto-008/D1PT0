@@ -1,4 +1,8 @@
-const axios = require("axios");
+const axios = require('axios');
+const baseApiUrl = async () => {
+  const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+  return base.data.api;
+}; 
 
 module.exports.config = {
   name: "gemini2",
@@ -20,7 +24,7 @@ module.exports.onReply = async function ({ api, event, Reply}) {
   if (event.type == "message_reply") {
   const reply = event.body.toLowerCase();;
   if (isNaN(reply)) {
-    const response = await axios.get(`https://noobs-api.onrender.com/dipto/gemini2?text=${encodeURIComponent(reply)}&senderID=${uid}`)
+    const response = await axios.get(`${await baseApiUrl()}/gemini2?text=${encodeURIComponent(reply)}&senderID=${uid}`)
        const ok = response.data.response;
     await api.sendMessage(ok ,event.threadID,(error, info) => {
   global.GoatBot.onReply.set(info.messageID,{
@@ -42,7 +46,7 @@ module.exports.onStart = async function ({ api, args, event }) {
         "Please provide a question to answer\n\nExample:\ngemini2 hey",
   event.threadID,  event.messageID ); return;}
     if (dipto) {
-      const response = await axios.get(`https://noobs-api.onrender.com/dipto/gemini2?text=${encodeURIComponent(dipto)}&senderID=${uid}`);
+      const response = await axios.get(`${await baseApiUrl()}/gemini2?text=${encodeURIComponent(dipto)}&senderID=${uid}`);
          const mg = response.data.response;
       await api.sendMessage({body: mg ,},event.threadID,(error, info) => {
   global.GoatBot.onReply.set(info.messageID,{

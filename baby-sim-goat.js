@@ -1,4 +1,8 @@
 const axios = require('axios');
+const baseApiUrl = async () => {
+  const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+  return base.data.api;
+}; 
 
 module.exports = {
   config: {
@@ -16,7 +20,7 @@ module.exports = {
     }
   },
 onStart: async ({ api, event, args }) => {
-const link = "https://nubs-apis.onrender.com/baby";
+  const link = await baseApiUrl();
   const dipto = args.join(" ").toLowerCase();
       const uid = event.senderID;
       let command;

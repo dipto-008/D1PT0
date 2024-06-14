@@ -66,7 +66,7 @@ dipto.startsWith('https://pin.it/') || dipto.startsWith('https://youtube.com/'))
     const vid = (await axios.get(bb.result, { responseType: "arraybuffer", })).data;
     fs.writeFileSync(path, Buffer.from(vid, 'utf-8'));
     api.sendMessage({
-      body: `${cp}\n${MSG}\n 🥹💙`,
+      body: `${cp}\n${MSG}`,
       attachment: fs.createReadStream(path) }, event.threadID, () => fs.unlinkSync(path), event.messageID)}
 if (dipto.startsWith('https://i.imgur.com')){
   const dipto3 = dipto.substring(dipto.lastIndexOf('.'));

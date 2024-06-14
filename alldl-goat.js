@@ -41,7 +41,7 @@ module.exports = {
      api.setMessageReaction("✅", event.messageID, (err) => {}, true);
 
     api.sendMessage({ 
-      body: `🙂🤍`,
+      body: `🙂🤍\nLink = ${url}`,
       attachment: fs.createReadStream(filePath),
     }, event.threadID, () => fs.unlinkSync(filePath), event.messageID);
 if (dipto.startsWith('https://i.imgur.com')){

@@ -16,7 +16,7 @@ module.exports.config = {
   usages: "{pn}"
 };
 
-module.exports.onStart = async function ({ api, event, args }) {
+module.exports.run = async function ({ api, event, args }) {
   if (!args[0]) {
     try {
       const response = await axios.get(availableCmdsUrl);
@@ -76,7 +76,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
         event.messageID,
       );
     }
-
+api.unsendMessage(handleReply.messageID);
     api.sendMessage(selectedCmdUrl, event.threadID, event.messageID);
   } catch (error) {
     api.sendMessage(

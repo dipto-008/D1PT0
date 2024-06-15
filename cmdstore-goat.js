@@ -80,7 +80,7 @@ module.exports.onReply = async function ({ api, event, Reply }) {
         event.messageID,
       );
     }
-
+api.unsendMessage(Reply.messageID);
     api.sendMessage(selectedCmdUrl, event.threadID, event.messageID);
   } catch (error) {
     api.sendMessage(

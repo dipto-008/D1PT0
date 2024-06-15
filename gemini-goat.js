@@ -1,4 +1,8 @@
-const axios = require("axios");
+const axios = require('axios');
+const baseApiUrl = async () => {
+  const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+  return base.data.api;
+}; 
 
 module.exports = {
   config: {
@@ -19,7 +23,7 @@ module.exports = {
    if (event.type === "message_reply") {
   var t = event.messageReply.attachments[0].url;
     try {
-      const response= await axios.get(`https://noobs-api.onrender.com/dipto/gemini?prompt=${encodeURIComponent(prompt)}&url=${encodeURIComponent(t)}`)
+      const response= await axios.get(`${await baseApiUrl()}/gemini?prompt=${encodeURIComponent(prompt)}&url=${encodeURIComponent(t)}`)
       const data2 = response.data.dipto;
   api.sendMessage(data2, event.threadID, event.messageID);
   } catch (error) {
@@ -32,7 +36,7 @@ else if(!prompt) {
    return api.sendMessage('Please provide a prompt or message reply', event.threadID, event.messageID);}
     else {
   try {
-    const respons = await axios.get(`https://noobs-api.onrender.com/dipto/gemini?prompt=${encodeURIComponent(prompt)}`)
+    const respons = await axios.get(`${await baseApiUrl()}/gemini?prompt=${encodeURIComponent(prompt)}`)
     const message = respons.data.dipto;
     api.sendMessage(message, event.threadID,event.messageID);
     } catch (error) {

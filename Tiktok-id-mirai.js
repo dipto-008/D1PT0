@@ -1,5 +1,9 @@
 const axios = require('axios');
 const fs = require('fs');
+const baseApiUrl = async () => {
+  const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+  return base.data.api;
+}; 
 
 module.exports.config = {
   name: "tiktokid",
@@ -19,7 +23,7 @@ module.exports.run = async function ({ api, event, args }) {
   const ok = this.config.credits;
   if (!user) return api.sendMessage("Please provide a username.", event.threadID, event.messageID);
   try {
-    const response = await axios.get(`https://noobs-api.onrender.com/${ok}/tiktokid?url=${user}&num=${limit}`);
+    const response = await axios.get(`${await baseApiUrl()}/tiktokid?url=${user}&num=${limit}`);
     const videos = response.data.data.videos;
   if (!videos.length) return api.sendMessage("No videos found for the provided username.🐤", event.threadID, event.messageID);
 const options = videos.map((video, index) => `${index + 1}. ${video.title}`);

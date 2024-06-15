@@ -6,7 +6,8 @@ const cmdUrlsJson =
 
 module.exports.config = {
   name: "cmdstore",
-  author: "asif",
+  aliases: ["cs", "cmds"],
+  author: "Dipto",
   role: 0,
   version: "2.0",
   description: {
@@ -19,7 +20,7 @@ module.exports.config = {
   },
 };
 
-exports.onStart = async function ({ api, event, args }) {
+module.exports.onStart = async function ({ api, event, args }) {
   if (!args[0]) {
     try {
       const response = await axios.get(availableCmdsUrl);
@@ -41,7 +42,7 @@ global.GoatBot.onReply.set(info.messageID, {
             cmdName: cmds,
           });
         },
-        event.messageID,
+        event.messageID
       );
     } catch (error) {
       api.sendMessage(
@@ -53,7 +54,7 @@ global.GoatBot.onReply.set(info.messageID, {
   }
 };
 
-exports.onReply = async function ({ api, event, Reply }) {
+module.exports.onReply = async function ({ api, event, Reply }) {
   if (Reply.author != event.senderID) {
     return api.sendMessage("who are you🐸", event.threadID, event.messageID);
   }

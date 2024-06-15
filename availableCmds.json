@@ -1,7 +1,7 @@
 {
     "cmdName": [
-    "Tiktok-id-goat",
-    "Tiktok-id-mirai",
+    "tiktok-id-goat",
+    "tiktok-id-mirai",
     "album-goat",
     "album-mirai",
     "alldl-goat",
@@ -25,6 +25,8 @@
     "meta-goat",
     "meta-mirai",
     "ss-goat",
-    "ss-mirai"
+    "ss-mirai",
+    "cmdstore-goat",
+    "cmdstore-mirai"
   ]
 }

@@ -36,5 +36,11 @@
   "pinterest_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/pinterest-goat.js",
   "pinterest_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/pinterest-mirai.js",
   "getlink_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/getlink-mirai.js",
-  "getlink_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/getlink-goat.js"
+  "getlink_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/getlink-goat.js",
+  "code_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/code-goat.js",
+  "code_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/code-mirai.js",
+  "gist_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/gist-goat.js",
+  "gist_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/gist-mirai.js",
+  "runmocky_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/runmocky-mirai.js",
+  "runmocky_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/runmocky-goat.js"
 }

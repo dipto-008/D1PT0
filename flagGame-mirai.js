@@ -80,7 +80,7 @@ module.exports = {
                 const attachment = createReadStream(path);
                 await api.sendMessage({
                     body: "Guess this flag name.", attachment
-                }, event.threadID, () => unlinkFileSync(path), (error, info) => {
+                }, event.threadID, () => unlinkSync(path), (error, info) => {
                     global.client.handleReply.push({
                         name: this.config.name,
                         type: 'reply',

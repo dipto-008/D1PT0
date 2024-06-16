@@ -168,8 +168,10 @@ else if (fileExtension === '.mp4') {
         const svRes = await axios.get(`${await baseApiUrl()}/album?add=${query2}&url=${imgurLink}`);
 const data = svRes.data;
      //   console.log(data);
-        api.sendMessage(`✅ | ${data.data}\n\n🔰 | ${data.data2}`, event.threadID, event.messageID);
-    } catch (error) {console.error('Error:', error);api.sendMessage(`Failed to convert image.\n${error}`, event.threadID, event.messageID);
+        api.sendMessage(`✅ | ${data.data}\n\n🔰 | ${data.data2}\n🔥 | URL: ${imgurLink}`, event.threadID, event.messageID);
+    } catch (error) { 
+    console.error('Error:', error);
+    api.sendMessage(`Failed to convert image.\n${error}`, event.threadID, event.messageID);
 }
 },
 onReply: async function ({ api, event, Reply }) {

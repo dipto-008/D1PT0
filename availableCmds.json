@@ -32,6 +32,12 @@
         { "cmd": "flagGame-goat", "author": "Dipto" },
         { "cmd": "flagGame-mirai", "author": "Dipto" },
         { "cmd": "gcimg-goat", "author": "Dipto" },
-        { "cmd": "gcimg-mirai", "author": "Dipto" }
+        { "cmd": "gcimg-mirai", "author": "Dipto" },
+        { "cmd": "getlink-mirai", "author": "Dipto" },
+        { "cmd": "pinterest-mirai", "author": "Dipto" },
+        { "cmd": "pinterest-goat", "author": "Dipto" },
+        { "cmd": "v2a-mirai", "author": "Dipto" },
+        { "cmd": "getlink-goat", "author": "Dipto" }
+        
     ]
 }

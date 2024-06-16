@@ -19,7 +19,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
   if (event.type == "message_reply") {
   const reply = event.body.toLowerCase();;
   if (isNaN(reply)) {
-    const response = await axios.get(`${await baseApiUrl()}?text=${encodeURIComponent(reply)}`)
+    const response = await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}`)
        const ok = response.data.reply;
     await api.sendMessage(ok ,event.threadID,(error, info) => {
   global.client.handleReply.push({
@@ -35,7 +35,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
   if (event.type == "message_reply") {
   const reply = event.body.toLowerCase();;
   if (isNaN(reply)) {
-    const response = await axios.get(`${await baseApiUrl()}?text=${encodeURIComponent(reply)}`)
+    const response = await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}`)
        const yy = response.data.reply;
     await api.sendMessage(yy,event.threadID,event.messageID)
   }

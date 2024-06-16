@@ -2,6 +2,11 @@ const axios = require("axios");
 const fs = require('fs-extra');
 const path = require('path');
 
+const baseApiUrl = async () => {
+    const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+    return base.data.api;
+};
+
 module.exports.config = {
     name: "tiksr",
     version: "1.0",
@@ -29,11 +34,11 @@ module.exports.onStart = async function ({ api, args, event }) {
         searchLimit = parseInt(match[2], 10);
     }
 
-    const apiUrl = `https://nobs-api.onrender.com/dipto/tiktoksearch?search=${encodeURIComponent(search)}&limit=${searchLimit}`;
+    const apiUrl = `${await baseApiUrl()}/tiktoksearch?search=${encodeURIComponent(search)}&limit=${searchLimit}`;
 
     try {
         const response = await axios.get(apiUrl);
-        const data = response.data.data; // Access 'data' array in the response
+        const data = response.data.data;
 
         if (!data || data.length === 0) {
             api.sendMessage(`No results found for '${search}'. Please try again with a different search term.`, event.threadID);

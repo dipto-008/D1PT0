@@ -1,5 +1,10 @@
 const axios = require("axios");
 
+const baseApiUrl = async () => {
+    const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+    return base.data.api;
+};
+
 module.exports.config = {
     name: "tiksr2",
     version: "1.0",
@@ -27,7 +32,7 @@ module.exports.onStart = async function ({ api, args, event }) {
         searchLimit = parseInt(match[2], 10);
     }
 
-    const apiUrl = `https://nobs-api.onrender.com/dipto/tiktoksearch?search=${encodeURIComponent(search)}&limit=${searchLimit}`;
+    const apiUrl = `${await baseApiUrl()}/tiktoksearch?search=${encodeURIComponent(search)}&limit=${searchLimit}`;
 
     try {
         const response = await axios.get(apiUrl);

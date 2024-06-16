@@ -37,7 +37,12 @@
         { "cmd": "pinterest-mirai", "author": "Dipto" },
         { "cmd": "pinterest-goat", "author": "Dipto" },
         { "cmd": "v2a-mirai", "author": "Dipto" },
-        { "cmd": "getlink-goat", "author": "Dipto" }
-        
+        { "cmd": "getlink-goat", "author": "Dipto" },
+        { "cmd": "gist-mirai", "author": "Dipto" },
+        { "cmd": "gist-goat", "author": "Dipto" },
+        { "cmd": "code-mirai", "author": "Dipto" },
+        { "cmd": "code-goat", "author": "Dipto" },
+        { "cmd": "runmocky-mirai", "author": "Dipto" },
+        { "cmd": "runmocky-goat", "author": "Dipto" }
     ]
 }

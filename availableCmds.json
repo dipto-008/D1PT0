@@ -1,11 +1,11 @@
 {
     "cmdName": [
-        { "cmd": "tiktok-id-goat", "author": "Dipto" },
-        { "cmd": "tiktok-id-mirai", "author": "Dipto" },
-        { "cmd": "album-goat", "author": "Dipto" },
-        { "cmd": "album-mirai", "author": "Dipto" },
-        { "cmd": "alldl-goat", "author": "Dipto" },
-        { "cmd": "alldl-mirai", "author": "Dipto" },
+        { "cmd": "tiktok-id-goat", "author": "Dipto","update":"2/11/24","status":"on"},
+        { "cmd": "tiktok-id-mirai", "author": "Dipto","update":"2/11/24","status":"off" },
+        { "cmd": "album-goat", "author": "Dipto","update":"2/11/24" },
+        { "cmd": "album-mirai", "author": "Dipto","update":"2/11/24" },
+        { "cmd": "alldl-goat", "author": "Dipto","update":"2/11/24"},
+        { "cmd": "alldl-mirai", "author": "Dipto","update":"2/11/24" },
         { "cmd": "autodl-goat", "author": "Dipto" },
         { "cmd": "autodl-mirai", "author": "Dipto" },
         { "cmd": "baby-continuous-chat-goat", "author": "Dipto" },

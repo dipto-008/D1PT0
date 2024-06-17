@@ -41,7 +41,7 @@ const response = await axios.get(`${await baseApiUrl()}/dalle?prompt=${prompt}&k
       for (let i = 0; i < data.length; i++) {
         const imgUrl = data[i];
         const imgResponse = await axios.get(imgUrl, { responseType: 'arraybuffer' });
-        const imgPath = path.join(__dirname, 'assests', `${i + 1}.jpg`);
+        const imgPath = path.join(__dirname, 'cache', `${i + 1}.jpg`);
         await fs.outputFile(imgPath, imgResponse.data);
         diptoo.push(fs.createReadStream(imgPath));
       }

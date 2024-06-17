@@ -85,7 +85,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
   }
 
   try {
-    const cmdName = handleReply.cmdName[reply - 1].cmd.replace(/-/g, "_");
+    const cmdName = handleReply.cmdName[reply - 1].cmd
     const { status } = handleReply.cmdName[reply - 1];
     const response = await axios.get(cmdUrlsJson);
     const selectedCmdUrl = response.data[cmdName];

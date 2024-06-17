@@ -30,7 +30,7 @@ module.exports = {
         return;
       }
       const { data } = await axios.get(dipto.url, { method: 'GET', responseType: 'arraybuffer' });
- const path = __dirname + `/assets/dvia.m4a`
+ const path = __dirname + `/cache/dvia.m4a`
       fs.writeFileSync(path, Buffer.from(data, 'utf-8'));
 
       const audioReadStream = fs.createReadStream(path);

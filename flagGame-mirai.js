@@ -1,28 +1,30 @@
 const axios = require("axios");
-const {
-    createReadStream,
-    unlinkSync,
-    writeFileSync
-} = require("fs-extra");
 
 const baseApiUrl = async () => {
-    const base = await axios.get('https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json');
+    const base = await axios.get(
+        "https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json",
+    );
     return base.data.api;
 };
 
 module.exports.config = {
-    name: 'flag',
-    version: '3.0',
-    credits: 'Dipto',
+    name: "flag",
+    version: "3.0",
+    credits: "Dipto",
     cooldowns: 1,
     hasPermission: 0,
-    description: 'Guess the flag name',
-    commandCategory: 'game',
-    usages: '-flagGame',
-    usePrefix: true
+    description: "Guess the flag name",
+    commandCategory: "game",
+    usages: "-flagGame",
+    usePrefix: true,
 };
 
-module.exports.handleReply = async function ({ api, event, handleReply, Users }) {
+module.exports.handleReply = async function ({
+    api,
+    event,
+    handleReply,
+    Users,
+}) {
     const { country, attempts } = handleReply;
     const maxAttempts = 5;
 
@@ -33,7 +35,11 @@ module.exports.handleReply = async function ({ api, event, handleReply, Users })
         const userData = await Users.get(event.senderID);
 
         if (attempts >= maxAttempts) {
-            await api.sendMessage("🚫 | You have reached the maximum number of attempts (5).", event.threadID, event.messageID);
+            await api.sendMessage(
+                "🚫 | You have reached the maximum number of attempts (5).",
+                event.threadID,
+                event.messageID,
+            );
             return;
         }
 
@@ -44,18 +50,29 @@ module.exports.handleReply = async function ({ api, event, handleReply, Users })
                     await Users.set(event.senderID, {
                         money: userData.money + getCoin,
                         exp: userData.exp + getExp,
-                        data: userData.data
+                        data: userData.data,
                     });
                 } catch (err) {
                     console.log("Error: ", err.message);
                 } finally {
                     const message = `✅ | Correct answer!\nYou have earned ${getCoin} coins and ${getExp} exp.`;
-                    await api.sendMessage(message, event.threadID, event.messageID);
+                    await api.sendMessage(
+                        message,
+                        event.threadID,
+                        event.messageID,
+                    );
                 }
             } else {
                 handleReply.attempts += 1;
-                global.client.handleReply.push(handleReply.messageID, handleReply);
-                api.sendMessage(`❌ | Wrong Answer. You have ${maxAttempts - handleReply.attempts} attempts left.\n✅ | Try Again baby!`, event.threadID, event.messageID);
+                global.client.handleReply.push(
+                    handleReply.messageID,
+                    handleReply,
+                );
+                api.sendMessage(
+                    `❌ | Wrong Answer. You have ${maxAttempts - handleReply.attempts} attempts left.\n✅ | Try Again baby!`,
+                    event.threadID,
+                    event.messageID,
+                );
             }
         }
     }
@@ -64,32 +81,42 @@ module.exports.handleReply = async function ({ api, event, handleReply, Users })
 module.exports.run = async function ({ api, args, event }) {
     try {
         if (!args[0]) {
-            const response = await axios.get(`${await baseApiUrl()}/flagGame?randomFlag=random`);
+            const response = await axios.get(
+                `${await baseApiUrl()}/flagGame?randomFlag=random`,
+            );
             const { link, country } = response.data;
-            const path = __dirname + "/cache/flag.jpg";
-            const img = (await axios.get(link, { responseType: "arraybuffer" })).data;
-            writeFileSync(path, Buffer.from(img, 'utf-8'));
-            const attachment = createReadStream(path);
 
-            await api.sendMessage({
-                body: "Guess this flag name.",
-                attachment
-            }, event.threadID, async (error, info) => {
-                unlinkSync(path);
-                if (error) return console.error(error);
-                global.client.handleReply.push({
-                    name: this.config.name,
-                    type: 'reply',
-                    messageID: info.messageID,
-                    author: event.senderID,
-                    link,
-                    country,
-                    attempts: 0
-                });
-            }, event.messageID);
+            const img = (await axios.get(link, { responseType: "stream" }))
+                .data;
+
+            const attachment = img;
+
+            await api.sendMessage(
+                {
+                    body: "Guess this flag name.",
+                    attachment,
+                },
+                event.threadID,
+                (error, info) => {
+                    global.client.handleReply.push({
+                        name: this.config.name,
+                        type: "reply",
+                        messageID: info.messageID,
+                        author: event.senderID,
+                        link,
+                        country,
+                        attempts: 0,
+                    });
+                },
+                event.messageID,
+            );
         }
     } catch (error) {
         console.error(`Error: ${error.message}`);
-        api.sendMessage(`Error: ${error.message}`, event.threadID, event.messageID);
+        api.sendMessage(
+            `Error: ${error.message}`,
+            event.threadID,
+            event.messageID,
+        );
     }
 };

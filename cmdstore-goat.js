@@ -1,37 +1,51 @@
 const axios = require("axios");
-const availableCmdsUrl =
-  "https://raw.githubusercontent.com/Blankid018/D1PT0/main/availableCmds.json";
-const cmdUrlsJson =
-  "https://raw.githubusercontent.com/Blankid018/D1PT0/main/cmdUrls.json";
-
-const ITEMS_PER_PAGE = 20;
+const availableCmdsUrl = "https://raw.githubusercontent.com/Blankid018/D1PT0/main/availableCmds.json";
+const cmdUrlsJson = "https://raw.githubusercontent.com/Blankid018/D1PT0/main/cmdUrls.json";
+const ITEMS_PER_PAGE = 10;
 
 module.exports.config = {
   name: "cmdstore",
   aliases: ["cs", "cmds"],
   author: "Dipto",
   role: 0,
-  version: "2.0",
+  version: "6.9",
   description: {
     en: "Commands Store of Dipto",
   },
   countDown: 3,
   category: "goatbot",
   guide: {
-    en: "{pn} [page number]",
+    en: "{pn} [command name | single character | page number]",
   },
 };
-
 module.exports.onStart = async function ({ api, event, args }) {
-  const page = parseInt(args[0]) || 1;
+  const query = args.join(" ").trim();
   try {
     const response = await axios.get(availableCmdsUrl);
-    const cmds = response.data.cmdName;
-    const totalPages = Math.ceil(cmds.length / ITEMS_PER_PAGE);
+    let cmds = response.data.cmdName;
+    let finalArray = cmds;
+    let page = 1;
 
+    if (query) {
+      if (!isNaN(query)) {
+        page = parseInt(query);
+      } else if (query.length === 1) {
+        finalArray = cmds.filter(cmd => cmd.cmd.startsWith(query));
+        if (finalArray.length === 0) {
+          return api.sendMessage(`❌ | No commands found starting with "${query}".`, event.threadID, event.messageID);
+        }
+      } else {
+        finalArray = cmds.filter(cmd => cmd.cmd.includes(query));
+        if (finalArray.length === 0) {
+          return api.sendMessage(`❌ | Command "${query}" not found.`, event.threadID, event.messageID);
+        }
+      }
+    }
+
+    const totalPages = Math.ceil(finalArray.length / ITEMS_PER_PAGE);
     if (page < 1 || page > totalPages) {
       return api.sendMessage(
-        `❌ | 𝗜𝗻𝘃𝗮𝗹𝗶𝗱 𝗽𝗮𝗴𝗲 𝗻𝘂𝗺𝗯𝗲𝗿. 𝗣𝗹𝗲𝗮𝘀𝗲 𝗲𝗻𝘁𝗲𝗿 𝗮 𝗻𝘂𝗺𝗯𝗲𝗿 𝗯𝗲𝘁𝘄𝗲𝗲𝗻 1 𝗮𝗻𝗱 ${totalPages}.`,
+        `❌ | Invalid page number. Please enter a number between 1 and ${totalPages}.`,
         event.threadID,
         event.messageID
       );
@@ -39,32 +53,32 @@ module.exports.onStart = async function ({ api, event, args }) {
 
     const startIndex = (page - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    const cmdsToShow = cmds.slice(startIndex, endIndex);
-    let msg = `🧾 | 𝗖𝗠𝗗 𝗦𝗧𝗢𝗥𝗘 | 📌\n𝙿𝚊𝚐𝚎 ${page} 𝚘𝚏 ${totalPages}\n\n`;
-
+    const cmdsToShow = finalArray.slice(startIndex, endIndex);
+    let msg = `╭───✦ Cmd Store ✦───╮\n│ Page ${page} of ${totalPages} page(s)\n│ Total ${finalArray.length} commands\n`;
     cmdsToShow.forEach((cmd, index) => {
-      msg += `${startIndex + index + 1}. ${cmd.cmd} (𝐀𝐮𝐭𝐡𝐨𝐫: ${cmd.author})\n`;
+      msg += `│ ───✦ ${startIndex + index + 1}. ${cmd.cmd}\n│ AUTHOR: ${cmd.author}\n│ UPDATE: ${cmd.update || null}\n`;
     });
+    msg += `╰─────────────⧕`;
 
     if (page < totalPages) {
-      msg += `\n𝚃𝚢𝚙𝚎 "${this.config.name} ${page + 1}" 𝚏𝚘𝚛 𝚖𝚘𝚛𝚎 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜.`;
+      msg += `\nType "${this.config.name} ${page + 1}" for more commands.`;
     }
-
     api.sendMessage(
       msg,
       event.threadID,
       (error, info) => {
-        global.GoatBot.onReply.set(info.messageID, {
+global.GoatBot.onReply.set(info.messageID, {
           commandName: this.config.name,
           type: "reply",
           messageID: info.messageID,
           author: event.senderID,
-          cmdName: cmds,
+          cmdName: finalArray,
           page: page
         });
       },
       event.messageID
     );
+    console.log(finalArray)
   } catch (error) {
     api.sendMessage(
       "❌ | Failed to retrieve commands.",
@@ -75,10 +89,10 @@ module.exports.onStart = async function ({ api, event, args }) {
 };
 
 module.exports.onReply = async function ({ api, event, Reply }) {
-  if (Reply.author != event.senderID) {
-    return api.sendMessage("𝗪𝗵𝗼 𝗮𝗿𝗲 𝘆𝗼𝘂🐸", event.threadID, event.messageID);
-  }
 
+  if (Reply.author != event.senderID) {
+    return api.sendMessage("Who are you? 🐸", event.threadID, event.messageID);
+  }
   const reply = parseInt(event.body);
   const startIndex = (Reply.page - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
@@ -90,12 +104,11 @@ module.exports.onReply = async function ({ api, event, Reply }) {
       event.messageID
     );
   }
-
   try {
-    const cmdName = Reply.cmdName[reply - 1].cmd.replace(/-/g, "_");
+  const cmdName = Reply.cmdName[reply - 1].cmd.replace(/-/g, "_");
+const  { status }  = Reply.cmdName[reply - 1]
     const response = await axios.get(cmdUrlsJson);
     const selectedCmdUrl = response.data[cmdName];
-
     if (!selectedCmdUrl) {
       return api.sendMessage(
         "❌ | Command URL not found.",
@@ -103,9 +116,9 @@ module.exports.onReply = async function ({ api, event, Reply }) {
         event.messageID
       );
     }
-
     api.unsendMessage(Reply.messageID);
-    api.sendMessage(selectedCmdUrl, event.threadID, event.messageID);
+    const msg = `╭───────⭓\n│ STATUS :${status || null}\n│ Command Url: ${selectedCmdUrl}\n╰─────────────⭓`;
+    api.sendMessage(msg, event.threadID, event.messageID);
   } catch (error) {
     api.sendMessage(
       "❌ | Failed to retrieve the command URL.",

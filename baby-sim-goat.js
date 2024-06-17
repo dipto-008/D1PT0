@@ -20,7 +20,7 @@ module.exports = {
     }
   },
 onStart: async ({ api, event, args }) => {
-  const link = `${await baseapiurl()}/baby`;
+  const link = `${await baseApiUrl()}/baby`;
   const dipto = args.join(" ").toLowerCase();
       const uid = event.senderID;
       let command;

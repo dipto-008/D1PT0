@@ -104,13 +104,13 @@
     },
     {
       "cmd": "cricket_goat",
-      "author": "Dipto",
+      "author": "Samir",
       "update": "06/17/2024",
       "status": "on"
     },
     {
       "cmd": "cricket_mirai",
-      "author": "Dipto",
+      "author": "Samir",
       "update": "06/17/2024",
       "status": "on"
     },
@@ -182,13 +182,13 @@
     },
     {
       "cmd": "getlink_goat",
-      "author": "Dipto",
+      "author": "Asif",
       "update": "06/17/2024",
       "status": "on"
     },
     {
       "cmd": "getlink_mirai",
-      "author": "Dipto",
+      "author": "Asif",
       "update": "06/17/2024",
       "status": "on"
     },
@@ -220,13 +220,13 @@
       "cmd": "meta_goat",
       "author": "Dipto",
       "update": "06/17/2024",
-      "status": "on"
+      "status": "hold"
     },
     {
       "cmd": "meta_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
-      "status": "on"
+      "status": "hold"
     },
     {
       "cmd": "pinterest_goat",
@@ -272,25 +272,25 @@
     },
     {
       "cmd": "tiksr2_goat",
-      "author": "Dipto",
+      "author": "Mesbah",
       "update": "06/17/2024",
       "status": "on"
     },
     {
       "cmd": "tiksr2_mirai",
-      "author": "Dipto",
+      "author": "Mesbah",
       "update": "06/17/2024",
       "status": "on"
     },
     {
       "cmd": "tiksr_goat",
-      "author": "Dipto",
+      "author": "Mesbah",
       "update": "06/17/2024",
       "status": "on"
     },
     {
       "cmd": "tiksr_mirai",
-      "author": "Dipto",
+      "author": "Mesbah",
       "update": "06/17/2024",
       "status": "on"
     },

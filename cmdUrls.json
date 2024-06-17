@@ -42,5 +42,9 @@
   "gist_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/gist-goat.js",
   "gist_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/gist-mirai.js",
   "runmocky_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/runmocky-mirai.js",
-  "runmocky_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/runmocky-goat.js"
+  "runmocky_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/runmocky-goat.js",
+  "tiksr_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/tiksr_goat.js",
+  "tiksr_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/tiksr_mirai.js",
+  "tiksr2_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/tiksr2_goat.js",
+  "tiksr2_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/tiksr2_mirai.js"
 }

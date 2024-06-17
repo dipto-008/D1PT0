@@ -1,307 +1,307 @@
 {
   "cmdName": [
     {
-      "cmd": "tiktok_id_goat.js",
+      "cmd": "tiktok_id_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "tiktok_id_mirai.js",
+      "cmd": "tiktok_id_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "album_goat.js",
+      "cmd": "album_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "album_mirai.js",
+      "cmd": "album_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "alldl_goat.js",
+      "cmd": "alldl_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "alldl_mirai.js",
+      "cmd": "alldl_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "autodl_goat.js",
+      "cmd": "autodl_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "autodl_mirai.js",
+      "cmd": "autodl_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "baby_continuous_chat_goat.js",
+      "cmd": "baby_continuous_chat_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "baby_continuous_chat_mirai.js",
+      "cmd": "baby_continuous_chat_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "baby_sim_goat.js",
+      "cmd": "baby_sim_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "baby_sim_mirai.js",
+      "cmd": "baby_sim_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "claude2_goat.js",
+      "cmd": "claude2_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "cmdstore_goat.js",
+      "cmd": "cmdstore_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "cmdstore_mirai.js",
+      "cmd": "cmdstore_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "code_goat.js",
+      "cmd": "code_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "code_mirai.js",
+      "cmd": "code_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "cricket_goat.js",
-      "author": "Samir",
-      "update": "06/17/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "cricket_mirai.js",
-      "author": "Samir",
-      "update": "06/17/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "dalle_goat.js",
+      "cmd": "cricket_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "dalle_mirai.js",
+      "cmd": "cricket_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "fbcover_goat.js",
+      "cmd": "dalle_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "fbcover_mirai.js",
+      "cmd": "dalle_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "flaggame_goat.js",
+      "cmd": "fbcover_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "flaggame_mirai.js",
+      "cmd": "fbcover_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "gcimg_goat.js",
+      "cmd": "flaggame_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "gcimg_mirai.js",
+      "cmd": "flaggame_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "gemini_goat.js",
+      "cmd": "gcimg_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "gemini2_goat.js",
+      "cmd": "gcimg_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "gemini2_mirai.js",
+      "cmd": "gemini_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "getlink_goat.js",
-      "author": "Asif",
-      "update": "06/17/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "getlink_mirai.js",
-      "author": "Asif",
-      "update": "06/17/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "gist_goat.js",
+      "cmd": "gemini2_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "gist_mirai.js",
+      "cmd": "gemini2_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "imgur_goat.js",
+      "cmd": "getlink_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "imgur_mirai.js",
+      "cmd": "getlink_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "meta_goat.js",
-      "author": "Dipto",
-      "update": "06/17/2024",
-      "status": "hold"
-    },
-    {
-      "cmd": "meta_mirai.js",
-      "author": "Dipto",
-      "update": "06/17/2024",
-      "status": "hold"
-    },
-    {
-      "cmd": "pinterest_goat.js",
+      "cmd": "gist_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "pinterest_mirai.js",
+      "cmd": "gist_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "profile_goat.js",
-      "author": "Mesbah",
-      "update": "06/17/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "runmocky_goat.js",
+      "cmd": "imgur_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "runmocky_mirai.js",
+      "cmd": "imgur_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "ss_goat.js",
+      "cmd": "meta_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "ss_mirai.js",
+      "cmd": "meta_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "tiksr2_goat.js",
-      "author": "Mesbah",
-      "update": "06/17/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "tiksr2_mirai.js",
-      "author": "Mesbah",
-      "update": "06/17/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "tiksr_goat.js",
-      "author": "Mesbah",
-      "update": "06/17/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "tiksr_mirai.js",
-      "author": "Mesbah",
-      "update": "06/17/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "v2a_goat.js",
+      "cmd": "pinterest_goat",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"
     },
     {
-      "cmd": "v2a_mirai.js",
+      "cmd": "pinterest_mirai",
+      "author": "Dipto",
+      "update": "06/17/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "profile_goat",
+      "author": "Dipto",
+      "update": "06/17/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "runmocky_goat",
+      "author": "Dipto",
+      "update": "06/17/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "runmocky_mirai",
+      "author": "Dipto",
+      "update": "06/17/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "ss_goat",
+      "author": "Dipto",
+      "update": "06/17/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "ss_mirai",
+      "author": "Dipto",
+      "update": "06/17/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "tiksr2_goat",
+      "author": "Dipto",
+      "update": "06/17/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "tiksr2_mirai",
+      "author": "Dipto",
+      "update": "06/17/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "tiksr_goat",
+      "author": "Dipto",
+      "update": "06/17/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "tiksr_mirai",
+      "author": "Dipto",
+      "update": "06/17/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "v2a_goat",
+      "author": "Dipto",
+      "update": "06/17/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "v2a_mirai",
       "author": "Dipto",
       "update": "06/17/2024",
       "status": "on"

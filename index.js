@@ -10,7 +10,8 @@ function getCurrentDate() {
   return `${month}/${day}/${year}`;
 }
 function fileNameToCmdName(fileName) {
-  return fileName.replace(/-/g, '_').toLowerCase();
+  const fileNam = fileName.replace(/-/g, '_').toLowerCase();
+  return fileNam.split('.')[0];
 }
 function collectCommandFiles(directory) {
   return fs.readdirSync(directory)

@@ -16,7 +16,7 @@ module.exports.config = {
     usages: "{pn}[anyMessage] teach [YourMessage] - [Reply1], [Reply2], [Reply3]... OR remove [YourMessage] OR remove [YourMessage] - [indexNumber] or msg or list OR edit [YourMessage] - [NewReply]"
   },
 module.exports.run = async ({ api, event, args }) => {
-const link = `${await baseapiurl()}/baby`;
+const link = `${await baseApiUrl()}/baby`;
   const dipto = args.join(" ").toLowerCase();
       const uid = event.senderID;
       let command;

@@ -1,7 +1,9 @@
 const axios = require("axios");
 
 const baseApiUrl = async () => {
-    const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+    const base = await axios.get(
+        `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
+    );
     return base.data.api;
 };
 
@@ -19,7 +21,7 @@ module.exports.config = {
 
 module.exports.run = async function ({ api, args, event }) {
     let search = args.join(" ");
-    let searchLimit = 10;
+    let searchLimit = 30;
 
     const match = search.match(/^(.+)\s*-\s*(\d+)$/);
     if (match) {
@@ -33,19 +35,25 @@ module.exports.run = async function ({ api, args, event }) {
         const response = await axios.get(apiUrl);
         const data = response.data.data;
         const videoData = data[Math.floor(Math.random() * data.length)];
-        
+
         const stream = await axios({
-            method: 'get',
+            method: "get",
             url: videoData.video,
-            responseType: 'stream'
+            responseType: "stream",
         });
-        
+
         let infoMessage = `🎥 Video Title: ${videoData.title}\n`;
         infoMessage += `🔗 Video URL: ${videoData.video}\n`;
 
-        api.sendMessage({ body: infoMessage, attachment: stream.data }, event.threadID);
+        api.sendMessage(
+            { body: infoMessage, attachment: stream.data },
+            event.threadID,
+        );
     } catch (error) {
         console.error(error);
-        api.sendMessage("An error occurred while downloading the TikTok video.", event.threadID);
+        api.sendMessage(
+            "An error occurred while downloading the TikTok video.",
+            event.threadID,
+        );
     }
 };

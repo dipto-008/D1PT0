@@ -10,7 +10,7 @@ module.exports = {
     commandCategory: "media",
     usages: "{p}{n}",
     usePrefix: true, 
-    hasPermission: 0
+    hasPermssion: 0
   },
   run: async function ({ api, event }) {
     try {

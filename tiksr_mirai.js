@@ -1,9 +1,11 @@
 const axios = require("axios");
-const fs = require('fs-extra');
-const path = require('path');
+const fs = require("fs-extra");
+const path = require("path");
 
 const baseApiUrl = async () => {
-    const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+    const base = await axios.get(
+        `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
+    );
     return base.data.api;
 };
 
@@ -36,7 +38,10 @@ module.exports.run = async function ({ api, args, event }) {
         const data = response.data.data;
 
         if (!data || data.length === 0) {
-            api.sendMessage(`No results found for '${search}'. Please try again with a different search term.`, event.threadID);
+            api.sendMessage(
+                `No results found for '${search}'. Please try again with a different search term.`,
+                event.threadID,
+            );
             return;
         }
 
@@ -45,7 +50,8 @@ module.exports.run = async function ({ api, args, event }) {
             const video = data[i];
             replyOption += `${i + 1}. ${video.title}\n\n`;
         }
-        replyOption += "Reply with the number of the video you want to download.";
+        replyOption +=
+            "Reply with the number of the video you want to download.";
 
         const reply = await api.sendMessage(replyOption, event.threadID);
         const replyMessageID = reply.messageID;
@@ -63,14 +69,21 @@ module.exports.run = async function ({ api, args, event }) {
 };
 
 module.exports.handleReply = async function ({ event, api, handleReply }) {
-    const { author, messageID, results } = handleReply;
+    const { author, results } = handleReply;
 
     if (event.senderID !== author) return;
 
     const selectedNumber = parseInt(event.body);
 
-    if (isNaN(selectedNumber) || selectedNumber <= 0 || selectedNumber > results.length) {
-        api.sendMessage("Invalid option selected. Please reply with a valid number.", event.threadID);
+    if (
+        isNaN(selectedNumber) ||
+        selectedNumber <= 0 ||
+        selectedNumber > results.length
+    ) {
+        api.sendMessage(
+            "Invalid option selected. Please reply with a valid number.",
+            event.threadID,
+        );
         return;
     }
 
@@ -78,10 +91,12 @@ module.exports.handleReply = async function ({ event, api, handleReply }) {
     const selectedVideo = results[selectedNumber - 1];
 
     try {
-        const response = await axios.get(selectedVideo.video, { responseType: 'arraybuffer' });
+        const response = await axios.get(selectedVideo.video, {
+            responseType: "arraybuffer",
+        });
         const videoBuffer = response.data;
 
-        const filename = `${selectedVideo.title.replace(/[^\w\s]/gi, '')}.mp4`;
+        const filename = `${selectedVideo.title.replace(/[^\w\s]/gi, "")}.mp4`;
         const filepath = path.join(__dirname, filename);
 
         await fs.writeFile(filepath, videoBuffer);
@@ -89,10 +104,16 @@ module.exports.handleReply = async function ({ event, api, handleReply }) {
         let infoMessage = `🎥 Video Title: ${selectedVideo.title}\n`;
         infoMessage += `🔗 Video URL: ${selectedVideo.video}\n`;
 
-        api.sendMessage({ body: infoMessage, attachment: fs.createReadStream(filepath) }, event.threadID);
+        api.sendMessage(
+            { body: infoMessage, attachment: fs.createReadStream(filepath) },
+            event.threadID,
+        );
         await fs.unlink(filepath);
     } catch (error) {
         console.error(error);
-        api.sendMessage("An error occurred while downloading the TikTok video.", event.threadID);
+        api.sendMessage(
+            "An error occurred while downloading the TikTok video.",
+            event.threadID,
+        );
     }
 };

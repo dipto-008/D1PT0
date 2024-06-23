@@ -128,10 +128,25 @@ module.exports = {
     }
     if (args[0] === "list") {
       try {
-        const lRes = await axios.get(`${await baseApiUrl()}/album?list=dipto`);
-        const data = lRes.data;
+        const res = await axios.get(`${await baseApiUrl()}/album?list=dipto`);
+        const data = res.data.data;
+        const videoCount = data.match(/\d+/g).reduce((acc, num) => acc + parseInt(num), 0);
         api.sendMessage(
-          `🖤 𝗧𝗼𝘁𝗮𝗹 𝘃𝗶𝗱𝗲𝗼 𝗮𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗶𝗻 𝗮𝗹𝗯𝘂𝗺 🩵\n\n${data.data}`,
+          `𝘁𝗼𝘁𝗮𝗹 𝘃𝗶𝗱𝗲𝗼 𝗰𝗼𝘂𝗻𝘁: ${videoCount}`,
+          event.threadID,
+          event.messageID,
+        );
+      } catch (error) {
+        api.sendMessage(`${error}`, event.threadID, event.messageID);
+      }
+    }
+    if (args[0] === "listAll" || args[0] === "listall") {
+      try {
+        const lRes = await axios.get(`${await baseApiUrl()}/album?list=dipto`);
+        const data = lRes.data.data;
+        const videoCount = data.match(/\d+/g).reduce((acc, num) => acc + parseInt(num), 0);
+        api.sendMessage(
+          `🖤 𝗧𝗼𝘁𝗮𝗹 𝘃𝗶𝗱𝗲𝗼 𝗮𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗶𝗻 𝗮𝗹𝗯𝘂𝗺 🩵\n\n${data}\n\n𝘁𝗼𝘁𝗮𝗹 𝘃𝗶𝗱𝗲𝗼 𝗰𝗼𝘂𝗻𝘁: ${videoCount}`,
           event.threadID,
           event.messageID,
         );
@@ -213,7 +228,8 @@ module.exports = {
       const response = await axios.get(
         `${await baseApiUrl()}/imgur?url=${encodeURIComponent(URL)}`,
       );
-      const imgurLink = response.data.data;
+      let imgurLink = response.data.data;
+      imgurLink = args.join(" ");
       const fileExtension = path.extname(imgurLink);
       let query2;
       if (
@@ -334,7 +350,7 @@ module.exports = {
         fs.writeFileSync(filename, Buffer.from(imgRes.data, "binary"));
         api.sendMessage(
           {
-            body: cp,
+            body: `${cp}\n\n𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗨𝗿𝗹: ${imgUrl}`,
             attachment: fs.createReadStream(filename),
           },
           event.threadID,

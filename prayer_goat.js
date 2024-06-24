@@ -36,14 +36,14 @@ module.exports.onStart = async function ({ api, args, event }) {
     } = response.data.prayerTimes;
 
     const prayerTimes =
-      "🕋🌙 Prayer times 🕋🌙\n" +
-      "🏙️ City Name: " + cityName + "\n\n" +
+      "🕋🌙 𝙿𝚛𝚊𝚢𝚎𝚛 𝚝𝚒𝚖𝚎𝚜 🕋🌙\n" +
+      "🏙️ 𝙲𝚒𝚝𝚢 𝙽𝚊𝚖𝚎: " + cityName + "\n\n" +
       "🕌 𝙵𝚊𝚓𝚛: " + fajr + "\n" +
-      "🕌 Sunrise: " + sunrise + "\n" +
-      "🕌 Dhuhr: " + dhuhr + "\n\n" +
+      "🕌 𝚂𝚞𝚗𝚛𝚒𝚜𝚎: " + sunrise + "\n" +
+      "🕌 𝙳𝚑𝚞𝚛: " + dhuhr + "\n\n" +
       "🕌 𝙰𝚜𝚛: " + asr + "\n" +
-      "🕌 Maghrib: " + maghrib + "\n" +
-      "🕌 Isha: " + isha + "\n";
+      "🕌 𝙼𝚊𝚐𝚑𝚛𝚒𝚋: " + maghrib + "\n" +
+      "🕌 𝙸𝚜𝚑𝚊: " + isha + "\n";
 
     api.sendMessage(prayerTimes, event.threadID);
   } catch (e) {

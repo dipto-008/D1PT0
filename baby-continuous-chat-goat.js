@@ -6,6 +6,30 @@ const baseApiUrl = async () => {
   return base.data.api;
 };
 
+const languagesMap = {
+  ar: "arabic",
+  bn: "bangla",
+  en: "english",
+  hi: "hindi",
+  id: "indonesian",
+  ne: "nepali",
+  tl: "tagalog (filipino)",
+  te: "telugu",
+  ur: "urdu",
+  vi: "vietnamese",
+  // you can add more language 
+};
+
+// Default language set Bangla
+const shortLang = "bn"; 
+
+// You can change this language to your preferred language code
+// Example:
+// const shortLang = "hi"; // For Hindi
+// const shortLang = "en"; // For English
+
+const lang = languagesMap[shortLang] || "bangla";
+
 module.exports.config = {
   name: "bby",
   version: "1.0.0",

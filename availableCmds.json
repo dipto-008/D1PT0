@@ -169,6 +169,12 @@
       "status": "on"
     },
     {
+      "cmd": "gemini_mirai",
+      "author": "Meabah Bb'e",
+      "update": "06/20/2024",
+      "status": "on"
+    },
+    {
       "cmd": "gemini2_goat",
       "author": "Dipto",
       "update": "06/17/2024",

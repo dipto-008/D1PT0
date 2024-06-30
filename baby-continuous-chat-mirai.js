@@ -46,8 +46,11 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
   if (event.type == "message_reply") {
     const reply = event.body.toLowerCase();
     if (isNaN(reply)) {
-      const response = await axios.get(
+   // const response = await axios.get(
         `${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}&language=${lang}`,
+      );
+      const response = await axios.get(
+        `${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}`,
       );
       const ok = response.data.reply;
       await api.sendMessage(
@@ -90,7 +93,8 @@ module.exports.run = async function ({ api, args, event }) {
       return;
     }
     if (dipto) {
-      const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}&language=${lang}`);
+      // const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}&language=${lang}`);
+      const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}`);
       const mg = response.data.reply;
       await api.sendMessage(
         { body: mg },

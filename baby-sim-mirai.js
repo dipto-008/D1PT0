@@ -1,7 +1,6 @@
 const axios = require('axios');
 
 const baseApiUrl = async () => {
-  try {
     const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
     console.log(base.data.api);
     return base.data.api;
@@ -56,7 +55,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
         }));
         teachers.sort((a, b) => b.value - a.value);
         const output = teachers.map((teacher, index) => `${index + 1}/ ${teacher.name}: ${teacher.value}`).join('\n');
-        return api.sendMessage(`Total Teach = ${data.length}\n\n👑 | List of Teachers of baby\n${output}`, event.threadID, event.messageID);
+        return api.sendMessage(`Total Teach = ${res.data.length}\n\n👑 | List of Teachers of baby\n${output}`, event.threadID, event.messageID);
       } else {
         const respo = await axios.get(`${link}?list=all`);
         return api.sendMessage(`Total Teach = ${respo.data.length}`, event.threadID, event.messageID);

@@ -72,6 +72,9 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
   if (event.type == "message_reply") {
     const reply = event.body.toLowerCase();
     if (isNaN(reply)) {
+      /* const response = await axios.get(
+        `${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}&language=${lang}`,
+      );*/
       const response = await axios.get(
         `${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}`,
       );

@@ -13,22 +13,21 @@ const languagesMap = {
   hi: "hindi",
   id: "indonesian",
   ne: "nepali",
-  tl: "tagalog (filipino)",
+  tl: "tagalog",
   te: "telugu",
   ur: "urdu",
-  vi: "vietnamese",
-  // you can add more language 
+  vi: "vietnamese" 
 };
 
 // Default language set Bangla
-const shortLang = "bn"; 
+const shortLang = "en"; 
 
 // You can change this language to your preferred language code
 // Example:
 // const shortLang = "hi"; // For Hindi
 // const shortLang = "en"; // For English
 
-const lang = languagesMap[shortLang] || "bangla";
+const lang = languagesMap[shortLang];
 
 module.exports.config = {
   name: "bby",
@@ -46,9 +45,9 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
   if (event.type == "message_reply") {
     const reply = event.body.toLowerCase();
     if (isNaN(reply)) {
-   // const response = await axios.get(
+   /* const response = await axios.get(
         `${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}&language=${lang}`,
-      );
+      );*/
       const response = await axios.get(
         `${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}`,
       );
@@ -93,7 +92,7 @@ module.exports.run = async function ({ api, args, event }) {
       return;
     }
     if (dipto) {
-      // const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}&language=${lang}`);
+      /* const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}&language=${lang}`);*/
       const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}`);
       const mg = response.data.reply;
       await api.sendMessage(

@@ -13,11 +13,10 @@ const languagesMap = {
   hi: "hindi",
   id: "indonesian",
   ne: "nepali",
-  tl: "tagalog (filipino)",
+  tl: "tagalog",
   te: "telugu",
   ur: "urdu",
-  vi: "vietnamese",
-  // you can add more language 
+  vi: "vietnamese" 
 };
 
 // Default language set Bangla

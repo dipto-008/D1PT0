@@ -20,14 +20,14 @@ const languagesMap = {
 };
 
 // Default language set Bangla
-const shortLang = "bn"; 
+const shortLang = "en"; 
 
 // You can change this language to your preferred language code
 // Example:
 // const shortLang = "hi"; // For Hindi
 // const shortLang = "en"; // For English
 
-const lang = languagesMap[shortLang] || "bangla";
+const lang = languagesMap[shortLang];
 
 module.exports.config = {
   name: "bby",
@@ -95,7 +95,7 @@ module.exports.run = async function ({ api, args, event }) {
       return;
     }
     if (dipto) {
-      // const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}&language=${lang}`);
+      /* const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}&language=${lang}`);*/
       const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}`);
       const mg = response.data.reply;
       await api.sendMessage(

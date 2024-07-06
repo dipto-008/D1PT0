@@ -335,6 +335,18 @@
       "author": "Nazrul",
       "update": "07/07/2024",
       "status": "on"
+    },
+    {
+      "cmd": "quiz_goat.js",
+      "author": "Mesbah Bb'e",
+      "update": "07/07/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "quiz_mirai.js",
+      "author": "Mesbah Bb'e",
+      "update": "07/07/2024",
+      "status": "on"
     }
   ]
 }

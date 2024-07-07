@@ -12,10 +12,10 @@ module.exports.config = {
     credits: "Mesbah Bb'e",
     cooldowns: 5,
     hasPermission: 0,
-    description: "",
+    description: "quiz",
     commandCategory: "MEDIA",
     usePrefix: true,
-    guide: "/quiz",
+    usages: "/quiz",
 };
 
 module.exports.run = async function ({ api, event }) {
@@ -32,10 +32,6 @@ module.exports.run = async function ({ api, event }) {
             body: "Please reply to this photo with your answer:",
             attachment: imageStream.data
         }, t, (error, info) => {
-            if (error) {
-                console.error(error);
-                return;
-            }
             global.client.handleReply.push(info.messageID, {
                 commandName: this.config.name,
                 author: event.senderID,
@@ -45,9 +41,8 @@ module.exports.run = async function ({ api, event }) {
             });
             setTimeout(async () => {
                 await api.unsendMessage(info.messageID);
-                global.client.handleReply.pop(info.messageID);
             }, 30000);
-        });
+        },m);
 
     } catch (error) {
         console.error(error);
@@ -68,7 +63,6 @@ module.exports.handleReply = async function ({ api, Users, handleReply, args, ev
 
         if (isCorrect) {
      	   await api.unsendMessage(messageID);
-     	   global.client.handleReply.pop(messageID);
             userData.money += rewardAmount;
             await usersData.set(s, userData);
             await api.sendMessage({

@@ -14,9 +14,9 @@ module.exports.config = {
     countDown: 5,
     role: 0,
     description: {
-        en: "",
+        en: "quiz game",
     },
-    category: "MEDIA",
+    category: "GAME",
     guide: {
         en: "{pn}"
     },
@@ -31,15 +31,10 @@ module.exports.onStart = async function ({ api, event }) {
             url: response.data.link,
             responseType: 'stream'
         });
-
         api.sendMessage({
             body: "Please reply to this photo with your answer:",
             attachment: imageStream.data
         }, t, (error, info) => {
-            if (error) {
-                console.error(error);
-                return;
-            }
             global.GoatBot.onReply.set(info.messageID, {
                 commandName: this.config.name,
                 author: event.senderID,
@@ -51,7 +46,7 @@ module.exports.onStart = async function ({ api, event }) {
                 await api.unsendMessage(info.messageID);
                 global.GoatBot.onReply.delete(info.messageID);
             }, 30000);
-        });
+        },m);
 
     } catch (error) {
         console.error(error);
@@ -62,7 +57,8 @@ module.exports.onStart = async function ({ api, event }) {
 module.exports.onReply = async function ({ api, usersData, args, event, Reply }) {
     const { threadID: t, senderID: s, messageID: m } = event;
     const { author, correctAnswer, messageID, rewardAmount } = Reply;
-    if (s !== author) return;
+    if (s !== author) 
+        return api.sendMessage("who are you 🐸",t,m);
 
     try {
         const userAnswer = args.join(" ").trim();

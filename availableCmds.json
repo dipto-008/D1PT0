@@ -337,13 +337,13 @@
       "status": "on"
     },
     {
-      "cmd": "quiz_goat.js",
+      "cmd": "quiz_goat",
       "author": "Mesbah Bb'e",
       "update": "07/07/2024",
       "status": "on"
     },
     {
-      "cmd": "quiz_mirai.js",
+      "cmd": "quiz_mirai",
       "author": "Mesbah Bb'e",
       "update": "07/07/2024",
       "status": "on"

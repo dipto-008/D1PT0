@@ -19,7 +19,7 @@ module.exports.config = {
   },
 };
 module.exports.onStart = async function ({ api, event, args }) {
-  const query = args.join(" ").trim();
+  const query = args.join(" ").trim().toLowerCase();
   try {
     const response = await axios.get(availableCmdsUrl);
     let cmds = response.data.cmdName;

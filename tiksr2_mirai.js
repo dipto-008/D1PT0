@@ -15,7 +15,9 @@ module.exports.config = {
     hasPermssion: 0,
     description: "Search for TikTok videos",
     commandCategory: "MEDIA",
+    category: "MEDIA",
     usePrefix: true,
+    prefix: true,
     usages: "<search> - <optional: number of results | blank>",
 };
 

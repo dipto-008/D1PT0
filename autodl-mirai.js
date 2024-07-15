@@ -15,8 +15,10 @@ module.exports.config = {
   credits: "Dipto",
   description: "Fb Vid Downloader",
   commandCategory: "other",
-  usages: "fb video link",
+  category: "others",
+  usags: "fb video link",
   usePrefix: true,
+  prefix: true,
   cooldowns: 2,
   dependencies: {
     axios: "",

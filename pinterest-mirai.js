@@ -15,8 +15,11 @@ module.exports = {
         credits: "Dipto",
         cooldowns: 15,
         hasPermission: 0,
+        usePrefix: true,
+        prefix, true,
         description: "Pinterest Image Search",
         commandCategory: "download",
+        category: " download",
         guide: "-pin [query] - [limit]",
     },
 

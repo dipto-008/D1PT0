@@ -13,8 +13,10 @@ module.exports.config = {
   credits: "dipto",
   description: "gemini ai with multiple conversation",
   usePrefix: true,
+  prefix: true,
   usages: "[message]",
   commandCategory: "Ai",
+  category: " ai",
   coolddowns: 5,
 };
 module.exports.handleReply = async function ({ api, event, handleReply }) {

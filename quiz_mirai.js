@@ -14,7 +14,9 @@ module.exports.config = {
     hasPermission: 0,
     description: "quiz",
     commandCategory: "MEDIA",
+    category: "MEDIA",
     usePrefix: true,
+    prefix: true,
     usages: "/quiz",
 };
 

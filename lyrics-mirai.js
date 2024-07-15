@@ -14,8 +14,11 @@ const baseApiUrl = async () => {
     credits: "Nazrul",
     cooldowns: 5,
     hasPermission: 0,
+    usePrefix: true,
+    prefix: true,
     description: "Get song lyrics with their Images",
     commandCategory: "song",
+    category: " song",
     usages: "lyrics"
   },
 

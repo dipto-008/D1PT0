@@ -13,8 +13,10 @@ module.exports.config = {
   credits: "dipto",
   hasPermssion: 0,
   usePrefix: true,
+  prefix: true,
   description: "Generate images by Dalle-3 AI",
   commandCategory: "download",
+  category: "download",
   usages:
     "[text] \nJamon [A 17/18/19 years old boy/girl watching football match on tv and written Dipto and 69 on the back of his Dress , 4k]",
   cooldowns: 5,

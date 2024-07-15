@@ -12,8 +12,11 @@ config:{
     credits: "dipto",
     cooldowns: 15,
     hasPremssion: 0,
+    usePrefix: true,
+	prefix: true,
     description: "Photo genarate from meta ai",
     commandCategory: "imagination",
+	category: "imagination",
     usages: "{pn} [prompt]"
 },
 run: async function ({ args, event, api }) {

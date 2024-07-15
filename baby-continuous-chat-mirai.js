@@ -95,8 +95,8 @@ module.exports.run = async function ({ api, args, event }) {
       return;
     }
     if (dipto) {
-      /* const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}&language=${lang}`);*/
-      const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}`);
+      /* const response = await axios.get(`${await baseApiUrl()}/baby?text=${dipto}&language=${lang}`);*/
+      const response = await axios.get(`${await baseApiUrl()}/baby?text=${dipto}`);
       const mg = response.data.reply;
       await api.sendMessage(
         { body: mg },

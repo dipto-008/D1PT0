@@ -8,8 +8,10 @@ module.exports = {
     credits: "dipto",
     cooldowns: 20,
     commandCategory: "media",
+    category: " media",
     usages: "{p}{n}",
     usePrefix: true, 
+    prefix: true,
     hasPermssion: 0
   },
   run: async function ({ api, event }) {

@@ -13,8 +13,10 @@ module.exports.config = {
   hasPermission: 2,
   credits: "dipto",
   usePrefix: true,
+  prefix: true,
   description: "Convert code into link",
   commandCategory: "goatbot",
+  category: " goatbot",
   usages: "[filename]/[reply and file name]",
   cooldowns: 1,
 };

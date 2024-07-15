@@ -15,8 +15,10 @@ module.exports.config = {
     hasPermission: 0,
     description: "Guess the flag name",
     commandCategory: "game",
+    category: "game",
     usages: "-flagGame",
     usePrefix: true,
+    ptefix: true,
 };
 
 module.exports.handleReply = async function ({

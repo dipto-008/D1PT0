@@ -17,8 +17,9 @@ module.exports = {
     role: 0,
     description: "𝗚𝗲𝘁 𝗱𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝘂𝗿𝗹 𝗳𝗿𝗼𝗺 𝘃𝗶𝗱𝗲𝗼, 𝗮𝘂𝗱𝗶𝗼 𝘀𝗲𝗻𝘁 𝗳𝗿𝗼𝗺 𝗴𝗿𝗼𝘂𝗽",
     category: "𝗨𝗧𝗜𝗟𝗜𝗧𝗬",
-    guide:
-      "{pn} [--t/t/tinyurl] [reply_attachment]\n{pn} [--i/i/imgbb] [reply_attachment]\n{pn} [--tg/tg/telegraph] [reply_attachment]\n{pn} [reply_attachment]\n{pn} [--p/postimg/postimage] [reply_attachment]\n{pn} [--dc/-d/dc] reply or add link image\n{pn} [--sl/s/shortlink] [reply_attachment]\n{pn} [imgur/imgurl] [reply_attachment]",
+    guide:{
+     en: "{pn} [--t/t/tinyurl] [reply_attachment]\n{pn} [--i/i/imgbb] [reply_attachment]\n{pn} [--tg/tg/telegraph] [reply_attachment]\n{pn} [reply_attachment]\n{pn} [--p/postimg/postimage] [reply_attachment]\n{pn} [--dc/-d/dc] reply or add link image\n{pn} [--sl/s/shortlink] [reply_attachment]\n{pn} [imgur/imgurl] [reply_attachment]"
+    }
   },
 
   onStart: async function ({ message, args, event }) {

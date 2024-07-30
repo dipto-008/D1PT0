@@ -1,7 +1,7 @@
 const shortenURL = require("tinyurl").shorten;
 const { get } = require("axios");
 const baseApiUrl = async () => {
-  const base = await axios.get(
+  const base = await get(
     `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
   );
   return base.data.api;

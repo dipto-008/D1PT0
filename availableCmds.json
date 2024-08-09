@@ -353,6 +353,18 @@
       "author": "dipto",
       "update": "08/07/2024",
       "status": "on"
+    },
+    {
+      "cmd": "sing_mirai",
+      "author": "dipto",
+      "update": "08/09/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "sing_goat_v2",
+      "author": "dipto",
+      "update": "08/09/2024",
+      "status": "on"
     }
   ]
 }

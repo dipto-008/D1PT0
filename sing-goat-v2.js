@@ -8,7 +8,7 @@ const baseApiUrl = async () => {
 module.exports = {
   config: {
     name: "sing",
-    version: "1.14",
+    version: "1.1.5",
     aliases: ["song", "music", "play"],
     author: "dipto",
     countDown: 5,
@@ -40,7 +40,7 @@ if (urlYtb) {
     try {
       result = ((await axios.get(`${await baseApiUrl()}/ytFullSearch?songName=${keyWord}`)).data).slice(0, maxResults);
     } catch (err) {
-      return api.sendMessage("❌ An error occurred:"+err,message,event.threadID,event.messageID);
+      return api.sendMessage("❌ An error occurred:"+err.message,event.threadID,event.messageID);
     }
     if (result.length == 0)
       return api.sendMessage("⭕ No search results match the keyword:"+ keyWord,event.threadID,event.messageID);

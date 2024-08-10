@@ -11,7 +11,7 @@ const baseApiUrl = async () => {
 module.exports = {
   config: {
     name: "alldl",
-    version: "1.0.1",
+    version: "1.0.5",
     author: "Dipto",
     countDown: 2,
     role: 0,
@@ -23,50 +23,38 @@ module.exports = {
       en: "[video_link]",
     },
   },
-
   onStart: async function ({ api, args, event }) {
-    const dipto = event.messageReply?.attachments[0]?.url || args[0];
-
+    const dipto = event.messageReply.body || args[0];
     if (!dipto) {
       api.setMessageReaction("❌", event.messageID, (err) => {}, true);
     }
     try {
       api.setMessageReaction("⏳", event.messageID, (err) => {}, true);
-
-      const { data } = await axios.get(
-        `${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`,
-      );
-      const ext = path.extname(data.result);
+      const { data } = await axios.get(`${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`);
+      const ext = path.extname(data.result) || 'mp4';
       const filePath = __dirname + `/cache/vid${ext}`;
       const vid = (
         await axios.get(data.result, { responseType: "arraybuffer" })
       ).data;
-
       fs.writeFileSync(filePath, Buffer.from(vid, "utf-8"));
       const url = await global.utils.shortenURL(data.result);
       api.setMessageReaction("✅", event.messageID, (err) => {}, true);
-
-      api.sendMessage(
-        {
+      api.sendMessage({
           body: `${data.cp || null}\nLink = ${url || null}`,
           attachment: fs.createReadStream(filePath),
         },
         event.threadID,
         () => fs.unlinkSync(filePath),
-        event.messageID,
+        event.messageID
       );
       if (dipto.startsWith("https://i.imgur.com")) {
         const dipto3 = dipto.substring(dipto.lastIndexOf("."));
-
         const response = await axios.get(dipto, {
           responseType: "arraybuffer",
         });
-
         const filename = __dirname + `/cache/dipto${dipto3}`;
-
         fs.writeFileSync(filename, Buffer.from(response.data, "binary"));
-        api.sendMessage(
-          {
+        api.sendMessage({
             body: `✅ | Downloaded from link`,
             attachment: fs.createReadStream(filename),
           },

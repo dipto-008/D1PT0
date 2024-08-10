@@ -9,7 +9,6 @@ module.exports = {
   config: {
     name: "sing",
     version: "1.14",
-    aliases: ["song", "music", "play"],
     credits: "dipto",
     countDown: 5,
     hasPermssion: 0,

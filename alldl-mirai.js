@@ -32,7 +32,7 @@ module.exports = {
   },
 
   run: async function ({ api, args, event }) {
-    const dipto = event.messageReply?.attachments[0]?.url || args[0];
+    const dipto = event.messageReply.body || args[0];
 
     if (!dipto) {
       api.setMessageReaction("❌", event.messageID, (err) => {}, true);
@@ -41,7 +41,7 @@ module.exports = {
       api.setMessageReaction("⏳", event.messageID, (err) => {}, true);
 
       const { data } = await axios.get(
-        `${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`,
+        `${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`
       );
       const ext = path.extname(data.result);
       const filePath = __dirname + `/cache/vid${ext}`;

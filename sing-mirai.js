@@ -54,7 +54,7 @@ thumbnails.push(dipto(info.thumbnail,'photo.jpg'));
       attachment: await Promise.all(thumbnails)
     },event.threadID, (err, info) => {
 global.client.handleReply.push({
-        name:'sing',
+        name: this.config.name,
         messageID: info.messageID,
         author: event.senderID,
         result

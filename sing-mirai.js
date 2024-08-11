@@ -8,7 +8,7 @@ const baseApiUrl = async () => {
 module.exports = {
   config: {
     name: "sing",
-    version: "1.14",
+    version: "2.0.0",
     credits: "dipto",
     countDown: 5,
     hasPermssion: 0,
@@ -61,7 +61,7 @@ global.client.handleEvent.push({
       });
     },event.messageID);
   },
-  handleEvent: async ({ event, api, handleReply }) => {
+  handleReply: async ({ event, api, handleReply }) => {
     try {
     const { result } = handleReply;
     const choice = parseInt(event.body);

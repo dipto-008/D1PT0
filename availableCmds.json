@@ -341,6 +341,12 @@
       "author": "Dipto",
       "update": "13/08/2024",
       "status": "on"
+    },
+    {
+      "cmd": "spamkick_mirai",
+      "author": "Dipto",
+      "update": "13/08/2024",
+      "status": "on"
     }
   ]
 }

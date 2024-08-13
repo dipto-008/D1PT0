@@ -337,6 +337,19 @@
       "status": "on"
     },
     {
+
+      "cmd": "spamkick_goat",
+      "author": "Dipto",
+      "update": "13/08/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "spamkick_mirai",
+      "author": "Dipto",
+      "update": "13/08/2024",
+       "status": "on"
+      },
+    {
       "cmd": "quiz_goat",
       "author": "Mesbah Bb'e",
       "update": "07/07/2024",

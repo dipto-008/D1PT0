@@ -74,6 +74,9 @@ module.exports.config = {
   hasPermssion: 0,
   description: "Fetch live cricket scores",
   commandCategory: "𝗨𝗧𝗜𝗟𝗜𝗧𝗬",
+  category: " Utility",
+  usePrefix: true,
+  prefix: true,
 };
 
 module.exports.run = async function ({ message, api, event }) {

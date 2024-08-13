@@ -11,9 +11,12 @@ module.exports.config = {
   version: "1.0",
   credits: "Dipto",
   role: 0,
+  hasPermssion 0,
   usePrefix: true,
+  prefix: true,
   description: "Take a screenshot of a website",
   commabdCategory: "utility",
+  category: "utility",
   guide: { en: "screenshot [URL]" },
   coolDowns: 5,
 };

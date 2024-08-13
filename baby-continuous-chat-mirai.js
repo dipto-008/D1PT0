@@ -1,7 +1,7 @@
 const axios = require("axios");
 const baseApiUrl = async () => {
   const base = await axios.get(
-    `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
+`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
   );
   return base.data.api;
 };
@@ -36,12 +36,13 @@ module.exports.config = {
   credits: "dipto",
   description: "better than all Sim simi",
   usePrefix: true,
+  prefix:true,
+  category: "ChatBots",
   commandCategory: "ChatBots",
   cooldowns: 5,
 };
 
 module.exports.handleReply = async function ({ api, event, handleReply }) {
-  //api.unsendMessage(handleReply.messageID);
   if (event.type == "message_reply") {
     const reply = event.body.toLowerCase();
     if (isNaN(reply)) {
@@ -68,20 +69,6 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
       );
     }
   }
-  //----------//
-  if (event.type == "message_reply") {
-    const reply = event.body.toLowerCase();
-    if (isNaN(reply)) {
-      /* const response = await axios.get(
-        `${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}&language=${lang}`,
-      );*/
-      const response = await axios.get(
-        `${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}`,
-      );
-      const yy = response.data.reply;
-      await api.sendMessage(yy, event.threadID, event.messageID);
-    }
-  }
 };
 module.exports.run = async function ({ api, args, event }) {
   try {
@@ -95,8 +82,8 @@ module.exports.run = async function ({ api, args, event }) {
       return;
     }
     if (dipto) {
-      /* const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}&language=${lang}`);*/
-      const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}`);
+      /* const response = await axios.get(`${await baseApiUrl()}/baby?text=${dipto}&language=${lang}`);*/
+      const response = await axios.get(`${await baseApiUrl()}/baby?text=${dipto}`);
       const mg = response.data.reply;
       await api.sendMessage(
         { body: mg },

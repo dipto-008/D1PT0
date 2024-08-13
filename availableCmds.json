@@ -81,13 +81,13 @@
     {
       "cmd": "cmdstore_goat",
       "author": "Dipto",
-      "update": "06/17/2024",
+      "update": "07/15/2024",
       "status": "on"
     },
     {
       "cmd": "cmdstore_mirai",
       "author": "Dipto",
-      "update": "06/17/2024",
+      "update": "07/15/2024",
       "status": "on"
     },
     {
@@ -337,6 +337,7 @@
       "status": "on"
     },
     {
+
       "cmd": "spamkick_goat",
       "author": "Dipto",
       "update": "13/08/2024",
@@ -346,6 +347,36 @@
       "cmd": "spamkick_mirai",
       "author": "Dipto",
       "update": "13/08/2024",
+       "status": "on"
+      },
+    {
+      "cmd": "quiz_goat",
+      "author": "Mesbah Bb'e",
+      "update": "07/07/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "quiz_mirai",
+      "author": "Mesbah Bb'e",
+      "update": "07/07/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "sing_goat",
+      "author": "dipto",
+      "update": "08/07/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "sing_mirai",
+      "author": "dipto",
+      "update": "08/09/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "sing_goat_v2",
+      "author": "dipto",
+      "update": "08/09/2024",
       "status": "on"
     }
   ]

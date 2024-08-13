@@ -29,7 +29,10 @@ module.exports = {
         cooldowns: 5,
         hasPermission: 0,
         description: "𝗚𝗲𝘁 𝗚𝗿𝗼𝘂𝗽 𝗜𝗺𝗮𝗴𝗲",
+        usePrefix: true,
+        prefix: true,
         commandCategory: "𝗜𝗠𝗔𝗚𝗘",
+        category: " image",
         usages: "{pn} --color [color] --bgcolor [color] --admincolor [color] --membercolor [color]",
     },
 

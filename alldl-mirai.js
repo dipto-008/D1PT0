@@ -15,12 +15,14 @@ module.exports = {
     version: "1.0.1",
     credits: "Dipto",
     cooldowns: 6,
-    hasPermission: 0,
+    hasPermssion: 0,
     description:
       "𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝘃𝗶𝗱𝗲𝗼 𝗳𝗿𝗼𝗺 𝘁𝗶𝗸𝘁𝗼𝗸, 𝗳𝗮𝗰𝗲𝗯𝗼𝗼𝗸, 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺, 𝗬𝗼𝘂𝗧𝘂𝗯𝗲, 𝗮𝗻𝗱 𝗺𝗼𝗿𝗲",
-    commandCategory: "𝗠𝗘𝗗𝗜𝗔",
+    category: "𝗠𝗘𝗗𝗜𝗔",
+    commandCategory: "media",
     usages: "[video_link]",
     usePrefix: true,
+    Prefix: true,
     dependencies: {
       axios: "",
       "fs-extra": "",
@@ -30,7 +32,7 @@ module.exports = {
   },
 
   run: async function ({ api, args, event }) {
-    const dipto = event.messageReply?.attachments[0]?.url || args[0];
+    const dipto = event.messageReply.body || args[0];
 
     if (!dipto) {
       api.setMessageReaction("❌", event.messageID, (err) => {}, true);
@@ -39,7 +41,7 @@ module.exports = {
       api.setMessageReaction("⏳", event.messageID, (err) => {}, true);
 
       const { data } = await axios.get(
-        `${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`,
+        `${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`
       );
       const ext = path.extname(data.result);
       const filePath = __dirname + `/cache/vid${ext}`;

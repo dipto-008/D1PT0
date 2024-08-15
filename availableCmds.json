@@ -390,6 +390,30 @@
       "author": "dipto",
       "update": "08/15/2024",
       "status": "on"
+    },
+    {
+      "cmd": "font_mirai",
+      "author": "dipto",
+      "update": "08/15/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "prompt_mirai",
+      "author": "dipto",
+      "update": "08/15/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "prompt_goat",
+      "author": "dipto",
+      "update": "08/15/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "font_goat",
+      "author": "dipto",
+      "update": "08/15/2024",
+      "status": "on"
     }
   ]
 }

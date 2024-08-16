@@ -103,9 +103,10 @@ module.exports = {
       }
       case "mode":
       case "-m":{
-			config.whiteListMode.enable = value;
-			message.reply(getLang(value ? "turnedOn" : "turnedOff"));
-      fs.writeFileSync(client.dirConfig, JSON.stringify(config, null, 2));
+	 const value = args[1] && args[1].toLowerCase() === "on";
+	config.whiteListMode.enable = value;
+      writeFileSync(client.dirConfig, JSON.stringify(config, null, 2));
+     return message.reply(getLang(value ? "turnedOn" : "turnedOff"));
 		}
 		  default:
         return message.SyntaxError();

@@ -428,6 +428,12 @@
       "status": "on"
     },
     {
+      "cmd": "white_list_id_mode",
+      "author": "Ntkhang",
+      "update": "08/15/2024",
+      "status": "on"
+    },
+    {
       "cmd": "ytb_mirai",
       "author": "dipto",
       "update": "08/15/2024",

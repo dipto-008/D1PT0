@@ -28,6 +28,8 @@ module.exports = {
 			removed: "✅ | Removed whiteListThreadIds role of %1 thread:\n%2",
 			notAdmin: "⚠️ | %1 users don't have whiteListIds role:\n%2",
 			missingIdRemove: "⚠️ | Please enter TID to remove whiteListThreadIds role",
+			turnedOn: "Successfully turned on ✅",
+			turnedOff: "Successfully turned off ❎",
 			listAdmin: "👑 | List of whiteListThreadIds:\n%1"
 		}
 	},
@@ -95,6 +97,12 @@ module.exports = {
 				const getNames = await Promise.all(config.whiteListModeThread.whiteListThreadIds.map(uid => usersData.getName(uid).then(name => ({ uid, name }))));
 				return message.reply(getLang("listAdmin", getNames.map(({ uid, name }) => `• ${name} (${uid})`).join("\n")));
 			}
+			case "mode":
+			case "-m":{
+			config.whiteListModeThread.enable = value;
+			message.reply(getLang(value ? "turnedOn" : "turnedOff"));
+		        fs.writeFileSync(client.dirConfig, JSON.stringify(config, null, 2));
+		}
 			default:
 				return message.SyntaxError();
 		}

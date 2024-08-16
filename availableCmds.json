@@ -438,6 +438,12 @@
       "author": "dipto",
       "update": "08/15/2024",
       "status": "on"
+    },
+    {
+      "cmd": "gpt4_goat",
+      "author": "dipto",
+      "update": "08/16/2024",
+      "status": "on"
     }
   ]
 }

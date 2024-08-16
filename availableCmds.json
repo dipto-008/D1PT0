@@ -422,7 +422,7 @@
       "status": "on"
     },
     {
-      "cmd": "white_list_id_mode",
+      "cmd": "white_list_id",
       "author": "Ntkhang",
       "update": "08/15/2024",
       "status": "on"

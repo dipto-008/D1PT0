@@ -9,6 +9,8 @@ module.exports = {
     description: "PROFILE image",
     category: "image",
     commamdCategory: "image",
+    usePrefix: true,
+    prefix: true,
     usages: "{pn} @tag or userID or reply to a message or provide a Facebook URL" 
   },
   run: async function ({ event, api, args }) {

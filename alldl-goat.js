@@ -24,7 +24,7 @@ module.exports = {
     },
   },
   onStart: async function ({ api, args, event }) {
-    const dipto = event.messageReply.body || args[0];
+    const dipto = event.messageReply?.body || args[0];
     if (!dipto) {
       api.setMessageReaction("❌", event.messageID, (err) => {}, true);
     }

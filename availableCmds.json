@@ -450,6 +450,12 @@
       "author": "dipto",
       "update": "08/16/2024",
       "status": "on"
+    },
+    {
+      "cmd": "profile_mirai",
+      "author": "dipto",
+      "update": "08/21/2024",
+      "status": "on"
     }
   ]
 }

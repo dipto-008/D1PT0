@@ -11,7 +11,7 @@ module.exports = {
     commamdCategory: "image",
     usages: "{pn} @tag or userID or reply to a message or provide a Facebook URL" 
   },
-  run: async function ({ event, message, usersData, args }) {
+  run: async function ({ event, api, args }) {
     const getAvatarUrl = async (uid) => await `https://graph.facebook.com/${uid}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`;
     const uid = Object.keys(event.mentions)[0] || args[0] || event.senderID;
     let avt;

@@ -74,5 +74,7 @@
   "white_list_id": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/wl.js",
   "ytb_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/ytb-goat.js",
   "ytb_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/ytb-mirai.js",
-  "gpt4_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/gpt4-goat.js"
+  "gpt4_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/gpt4-goat.js",
+  "snippet_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/snippet-goat.js",
+  "snippet_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/snippet-mirai.js"
 }

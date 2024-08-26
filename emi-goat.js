@@ -1,3 +1,9 @@
+const baseApiUrl = async () => {
+  const base = await axios.get(
+    `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
+  );
+  return base.data.api;
+};
 module.exports = {
   config: {
     name: "emi",
@@ -20,9 +26,7 @@ module.exports = {
         return api.sendMessage("Please provide a prompt.");
       }
       const wait = await api.sendMessage("𝗪𝗮𝗶𝘁 𝗸𝗼𝗿𝗼 𝗕𝗮𝗯𝘆 <😘", event.threadID);
-      const response = `${
-        global.GoatBot.config.api
-      }/emi?prompt=${encodeURIComponent(prompt)}`;
+      const response = `${await baseApiUrl()}/emi?prompt=${encodeURIComponent(prompt)}`;
       await api.sendMessage(
         {
           body: `✅ | Generated your images`,

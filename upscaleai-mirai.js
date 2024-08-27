@@ -18,7 +18,7 @@ module.exports = {
 		category: "utility",
 	},
 
-	run: async function ({ message, args, event, api }) {
+	run: async function ({  args, event, api }) {
 		let imageUrl;
 
 		if (event.type === "message_reply") {
@@ -35,20 +35,20 @@ module.exports = {
 		} else if (args[0]?.match(/(https?:\/\/.*\.(?:png|jpg|jpeg))/g)) {
 			imageUrl = args[0];
 		} else {
-			return api.sendMessage({ body: "❌ | Reply to an image." }, event.threadID);
+			return api.sendMessage({ body: "❌ | Reply to an image." }, event.threadID,event.messageID);
 		}
 
 		try {
 			const url = await tinyurl.shorten(imageUrl);
 			const k = await a.get(`${await baseApiUrl()}/4k?imageUrl=${url}`);
 
-			message.reply("✅ | Please wait...");
+			api.sendMessage("✅ | Please wait...",event.threadID,event.messageID);
 
 			const resultUrl = k.data.dipto;
 
-			message.reply({ body: "✅ | Image Upscaled.", attachment: (await a.get(resultUrl,{responseType: 'stream'})).data });
+			api.sendMessage({ body: "✅ | Image Upscaled.", attachment: (await a.get(resultUrl,{responseType: 'stream'})).data },event.threadID,event.messageID);
 		} catch (error) {
-			message.reply("❌ | Error: " + error.message);
+			api.sendMessage("❌ | Error: " + error.message,event.threadID,event.messageID);
 		}
 	}
 };

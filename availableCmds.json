@@ -498,6 +498,17 @@
       "author": "dipto",
       "update": "08/26/2024",
       "status": "on"
+    },{
+      "cmd": "upscaleai_goat",
+      "author": "dipto",
+      "update": "08/27/2024",
+      "status": "on"
+    },{
+      "cmd": "upscaleai_mirai",
+      "author": "dipto",
+      "update": "08/27/2024",
+      "status": "on"
     }
+    
   ]
 }

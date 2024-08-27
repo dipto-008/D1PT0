@@ -12,13 +12,15 @@ module.exports = {
 		name: "upscaleai",
 		aliases: ["4k", "upscale"],
 		version: "1.0",
-		credits: "JARiF",
+		credits: "JARiF||Romim",
 		permission: 0,
 		description: "Upscale your image.",
-		category: "utility",
+		commandCategory:: "utility",
+		prefix: true,
+		usePrefix: true
 	},
 
-	run: async function ({  args, event, api }) {
+	run: async ({  args, event, api }) => {
 		let imageUrl;
 
 		if (event.type === "message_reply") {
@@ -29,7 +31,7 @@ module.exports = {
 			} else {
 				return api.sendMessage(
 					{ body: "❌ | Reply must be an image." },
-					event.threadID
+					event.threadID,event.messageID
 				);
 			}
 		} else if (args[0]?.match(/(https?:\/\/.*\.(?:png|jpg|jpeg))/g)) {

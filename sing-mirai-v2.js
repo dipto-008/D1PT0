@@ -20,7 +20,7 @@ module.exports.config = {
     prefix: true,
     usages: "{pn} [<song name>|<song link>]:"+ "\n   Example:"+"\n{pn} chipi chipi chapa chapa"
   }
-  module.exports.run: async ({api,args, event,commandName, message }) =>{
+  module.exports.run = async ({api,args, event,commandName, message }) =>{
     const checkurl = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))((\w|-){11})(?:\S+)?$/;
     let videoID;
     const urlYtb = checkurl.test(args[0]);
@@ -66,7 +66,7 @@ global.client.handleReply.push({
       });
     },event.messageID);
   }
- module.exports.handleReply: async ({ event, api, handleReply }) => {
+ module.exports.handleReply = async ({ event, api, handleReply }) => {
     try {
     const { result } = handleReply;
     const choice = parseInt(event.body);

@@ -65,7 +65,7 @@ module.exports = {
       }
     } catch (error) {
       api.setMessageReaction("❎", event.messageID, (err) => {}, true);
-      api.sendMessage(error, event.threadID, event.messageID);
+      api.sendMessage(error.message, event.threadID, event.messageID);
     }
   },
 };

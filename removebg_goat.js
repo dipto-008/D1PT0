@@ -17,7 +17,7 @@ module.exports = {
 config: {
 name: "removebg",
 aliases: ["rbg"],
-version: "1.0"
+version: "1.0",
 role: 0,
 author: "Mesbah Saxx", // khing Aryan and Aiyan mahi fan
 category: "utility",

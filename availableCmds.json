@@ -516,6 +516,18 @@
       "author": "dipto",
       "update": "08/27/2024",
       "status": "on"
+    },
+    {
+      "cmd": "quiz_2_mirai",
+      "author": "dipto",
+      "update": "09/20/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "quiz_2_goat",
+      "author": "dipto",
+      "update": "09/20/2024",
+      "status": "on"
     }    
   ]
 }

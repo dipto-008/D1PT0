@@ -386,27 +386,24 @@
       "status": "on"
     },
     {
-
-
       "cmd": "art_goat",
       "author": "Nazrul",
       "update": "21/09/2024",
       "status": "on"
     },
     {
-
       "cmd": "art_mirai",
       "author": "Nazrul",
       "update": "21/09/2024",
       "status": "on"
 },
-      "cmd": "sing_goat_v3",
+      {
+      "cmd": "font_mirai",
       "author": "dipto",
       "update": "08/15/2024",
       "status": "on"
     },
-    {
-      "cmd": "font_mirai",
+    "cmd": "sing_goat_v3",
       "author": "dipto",
       "update": "08/15/2024",
       "status": "on"
@@ -553,7 +550,6 @@
       "cmd": "removebg_mirai",
       "author": "Mesbah Saxx",
       "update": "09/21/2024",
-
       "status": "on"
     }
   ]

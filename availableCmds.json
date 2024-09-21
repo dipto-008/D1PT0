@@ -402,8 +402,8 @@
       "author": "dipto",
       "update": "08/15/2024",
       "status": "on"
-    },
-    "cmd": "sing_goat_v3",
+    },{
+      "cmds":"sing_goat_v3",
       "author": "dipto",
       "update": "08/15/2024",
       "status": "on"

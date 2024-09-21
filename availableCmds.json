@@ -337,7 +337,6 @@
       "status": "on"
     },
     {
-
       "cmd": "spamkick_goat",
       "author": "Dipto",
       "update": "03/09/2024",
@@ -347,8 +346,8 @@
       "cmd": "spamkick_mirai",
       "author": "Dipto",
       "update": "13/08/2024",
-       "status": "on"
-      },
+      "status": "on"
+    },
     {
       "cmd": "quiz_goat",
       "author": "Mesbah Bb'e",
@@ -396,14 +395,15 @@
       "author": "Nazrul",
       "update": "21/09/2024",
       "status": "on"
-},
-      {
+    },
+    {
       "cmd": "font_mirai",
       "author": "dipto",
       "update": "08/15/2024",
       "status": "on"
-    },{
-      "cmds":"sing_goat_v3",
+    },
+    {
+      "cmds": "sing_goat_v3",
       "author": "dipto",
       "update": "08/15/2024",
       "status": "on"

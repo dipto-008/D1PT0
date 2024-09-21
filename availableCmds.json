@@ -403,7 +403,7 @@
       "status": "on"
     },
     {
-      "cmds": "sing_goat_v3",
+      "cmd": "sing_goat_v3",
       "author": "dipto",
       "update": "08/15/2024",
       "status": "on"

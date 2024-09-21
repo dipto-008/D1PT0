@@ -528,6 +528,18 @@
       "author": "dipto",
       "update": "09/20/2024",
       "status": "on"
-    }    
+    },
+    {
+      "cmd": "removebg_goat",
+      "author": "Mesbah Saxx",
+      "update": "09/21/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "removebg_mirai",
+      "author": "Mesbah Saxx",
+      "update": "09/21/2024",
+      "status": "on"
+    }
   ]
 }

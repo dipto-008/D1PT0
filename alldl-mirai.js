@@ -1,6 +1,5 @@
 const axios = require("axios");
 const fs = require("fs-extra");
-const path = require("path");
 const tinyurl = require("tinyurl");
 const baseApiUrl = async () => {
   const base = await axios.get(
@@ -32,7 +31,7 @@ module.exports = {
   },
 
   run: async function ({ api, args, event }) {
-    const dipto = event.messageReply.body || args[0];
+    const dipto = event.messageReply?.body || args[0];
 
     if (!dipto) {
       api.setMessageReaction("❌", event.messageID, (err) => {}, true);
@@ -43,8 +42,7 @@ module.exports = {
       const { data } = await axios.get(
         `${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`
       );
-      const ext = path.extname(data.result);
-      const filePath = __dirname + `/cache/vid${ext}`;
+      const filePath = __dirname + `/cache/vid.mp4`;
       const vid = (
         await axios.get(data.result, { responseType: "arraybuffer" })
       ).data;

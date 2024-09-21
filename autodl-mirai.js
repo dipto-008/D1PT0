@@ -103,7 +103,7 @@ module.exports.handleEvent = async function ({ api, event, client, __GLOBAL }) {
       );
     }
   } catch (e) {
-    api.sendMessage(`${e}`, event.threadID, event.messageID);
+    api.sendMessage(`${e.message}`, event.threadID, event.messageID);
   }
 };
 module.exports.run = function ({ api, event, client, __GLOBAL }) {};

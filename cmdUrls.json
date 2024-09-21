@@ -41,6 +41,7 @@
   "pinterest_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/pinterest-goat.js",
   "pinterest_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/pinterest-mirai.js",
   "profile_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/profile_goat.js",
+  "profile_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/profile-mirai.js",
   "runmocky_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/runmocky-goat.js",
   "runmocky_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/runmocky-mirai.js",
   "ss_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/ss-goat.js",
@@ -55,7 +56,6 @@
   "prayer_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/prayer_mirai.js",
  "spamkick_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/spamkick-goat.js",
   "spamkick_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/spamkick-mirai.js",
-
   "lyrics_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/lyrics-mirai.js",
   "lyrics_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/lyrics-goat.js",
   "quiz_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/quiz_goat.js",
@@ -63,7 +63,34 @@
   "sing_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/sing-goat.js",
   "sing_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/sing-mirai.js",
   "sing_goat_v2": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/sing-goat-v2.js",
-  "art_goat": "https://raw.githubusercontent.com/Nazrul002/D1PT0/refs/heads/main/Art-goat.js",
-  "art_mirai": "https://raw.githubusercontent.com/Nazrul002/D1PT0/refs/heads/main/Art-mirai.js"
+
+  "art_goat": "https://raw.githubusercontent.com/dipto-008/D1PT0/main/Art-goat.js",
+  "art_mirai": "https://raw.githubusercontent.com/dipto-008/D1PT0/main/Art-mirai.js",
+
+  "sing_goat_v3":"https://raw.githubusercontent.com/Blankid018/D1PT0/main/song-goat-v3.js",
+  "sing_mirai_v2": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/sing-mirai-v2.js",
+  "prompt_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/prompt-mirai.js",
+  "font_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/font-mirai.js",
+  "font_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/font-goat.js",
+  "prompt_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/prompt-goat.js",
+  "white_list_thread": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/wlt.js",
+  "white_list_id_mode": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/wl-mode.js",
+  "white_list_id": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/wl.js",
+  "ytb_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/ytb-goat.js",
+  "ytb_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/ytb-mirai.js",
+  "gpt4_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/gpt4-goat.js",
+  "snippet_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/snippet-goat.js",
+  "snippet_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/snippet-mirai.js",
+  "manga_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/manga-goat.js",
+  "autotimer_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/autotimer-goat.js",
+  "emi_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/emi-goat.js",
+  "flux_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/flux-goat.js",
+  "upscaleai_mirai": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/upscaleai-mirai.js",
+  "upscaleai_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/upscaleai-goat.js",
+  "xl_31_goat": "https://raw.githubusercontent.com/Blankid018/D1PT0/main/xl_3_1-goat.js",
+  "quiz_2_mirai": "https://raw.githubusercontent.com/dipto-008/D1PT0/main/quiz2-mirai.js",
+  "quiz_2_goat": "https://raw.githubusercontent.com/dipto-008/D1PT0/main/quiz2-goat.js",
+  "removebg_goat": "https://raw.githubusercontent.com/dipto-008/D1PT0/main/removebg_goat.js",
+  "removebg_mirai": "https://raw.githubusercontent.com/dipto-008/D1PT0/main/removebg_mirai.js"
 
 }

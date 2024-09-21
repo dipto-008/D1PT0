@@ -38,8 +38,8 @@ module.exports = {
         try {
             let tid;
             let color = "red";
-            let bgColor = "";
-            let adminColor = "";
+            let bgColor = "https://telegra.ph/file/404fd6686c995d8db9ebf.jpg";
+            let adminColor = "yellow";
             let memberColor = "";
 
             for (let i = 0; i < args.length; i++) {

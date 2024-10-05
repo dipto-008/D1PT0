@@ -1,6 +1,13 @@
 const axios = require("axios");
 
-module.exports = {
+const baseApiUrl = async () => {
+  const base = await axios.get(
+    `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`
+  );
+  return base.data.api;
+};
+
+(module.exports = {
   config: {
     name: "quiz2",
     aliases: ["qz2"],
@@ -24,7 +31,7 @@ module.exports = {
 
     try {
       const response = await axios.get(
-        `${global.api.dipto}/quiz2?category=${category}&q=random`,
+        `${await baseApiUrl()}/quiz2?category=${category}&q=random`,
       );
 
       const quizData = response.data.question;
@@ -107,5 +114,4 @@ global.GoatBot.onReply.set(Reply.messageID, Reply);
         break;
     }
   },
-};
-        
+});

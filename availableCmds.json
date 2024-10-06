@@ -563,6 +563,18 @@
       "author": "Nazrul",
       "update": "10/03/2024",
       "status": "on"
+    },
+    {
+      "cmd": "image_data_goat",
+      "author": "Nazrul",
+      "update": "10/06/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "image_data_mirai",
+      "author": "Nazrul",
+      "update": "10/06/2024",
+      "status": "on"
     }
   ]
 }

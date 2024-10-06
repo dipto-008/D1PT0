@@ -1,3 +1,11 @@
+const axios = require("axios");
+const baseApiUrl = async () => {
+  const base = await axios.get(
+    `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
+  );
+  return base.data.api;
+};
+
 module.exports = {
   config: {
     name: "spy",
@@ -40,7 +48,7 @@ module.exports = {
           : uid2 || uid1;
     }
     const response = await require("axios").get(
-      `${global.api.dipto}/baby?list=all`
+      `${await baseApiUrl()}/baby?list=all`
     );
     const dataa = response.data || { teacher: { teacherList: [] } };
     let babyTeach = 0;

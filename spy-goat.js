@@ -73,11 +73,8 @@ module.exports = {
     }
 
     const money = (await usersData.get(uid)).money;
-    const allUser = await usersData.getAll();
-    allUser.sort((a, b) => b.exp - a.exp);
-    const rank = allUser.findIndex((user) => user.userID == uid) + 1;
-      allUser.sort((a, b) => b.money - a.money);
-    const moneyRank = allUser.findIndex((user) => user.userID == uid) + 1;
+    const allUser = await usersData.getAll(), rank = allUser.slice().sort((a, b) => b.exp - a.exp).findIndex(user => user.userID === uid) + 1, moneyRank = allUser.slice().sort((a, b) => b.money - a.money).findIndex(user => user.userID === uid) + 1;
+
     const position = userInfo[uid].type;
 
     const userInformation = `

@@ -46,7 +46,7 @@ module.exports = {
           ? event.messageReply.senderID
           : uid2 || uid1;
     }
-    const response = await require("axios").get(
+    const response = await axios.get(
       `${await baseApiUrl()}/baby?list=all`
     );
     const dataa = response.data || { teacher: { teacherList: [] } };
@@ -72,11 +72,8 @@ module.exports = {
     }
 
     const money = (await Users.get(uid)).money;
-    const allUser = await Users.getAll();
-    allUser.sort((a, b) => b.exp - a.exp);
-    const rank = allUser.findIndex((user) => user.userID == uid) + 1;
-      allUser.sort((a, b) => b.money - a.money);
-    const moneyRank = allUser.findIndex((user) => user.userID == uid) + 1;
+const allUser = await Users.getAll(), rank = allUser.slice().sort((a, b) => b.exp - a.exp).findIndex(user => user.userID === uid) + 1, moneyRank = allUser.slice().sort((a, b) => b.money - a.money).findIndex(user => user.userID === uid) + 1;
+
     const position = userInfo[uid].type;
 
     const userInformation = `

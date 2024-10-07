@@ -587,6 +587,18 @@
       "author": "Nazrul",
       "update": "10/06/2024",
       "status": "on"
+    },
+    {
+      "cmd": "tikstalk_mirai",
+      "author": "Xnil",
+      "update": "10/06/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "tikstalk_goat",
+      "author": "Xnil",
+      "update": "10/06/2024",
+      "status": "on"
     }
   ]
 }

@@ -49,6 +49,18 @@
       "status": "on"
     },
     {
+      "cmd": "spy_mirai",
+      "author": "Dipto",
+      "update": "06/10/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "spy_goat",
+      "author": "Dipto",
+      "update": "06/10/2024",
+      "status": "on"
+    },
+    {
       "cmd": "baby_continuous_chat_goat",
       "author": "Dipto",
       "update": "07/01/2024",
@@ -562,6 +574,18 @@
       "cmd": "catbox_mirai",
       "author": "Nazrul",
       "update": "10/03/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "image_data_goat",
+      "author": "Nazrul",
+      "update": "10/06/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "image_data_mirai",
+      "author": "Nazrul",
+      "update": "10/06/2024",
       "status": "on"
     }
   ]

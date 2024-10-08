@@ -43,7 +43,9 @@ module.exports = {
         api.setMessageReaction("⏳", event.messageID, (err) => {}, true);
 
         const path = __dirname + `/cache/diptoo.mp4`;
-
+          if(!fs.existsSync(path)){
+        fs.mkdir(__dirname + '/cache');
+      }
         const { data } = await axios.get(
           `${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`,
         );

@@ -9,7 +9,7 @@ const baseApiUrl = async () => {
 module.exports.config = {
   name: "fluxpro",
   version: "2.0",
-  role: 0,
+  role: 2,
   author: "Dipto",
   description: "Generate images with Flux.1 Pro",
   category: "𝗜𝗠𝗔𝗚𝗘 𝗚𝗘𝗡𝗘𝗥𝗔𝗧𝗢𝗥",
@@ -37,10 +37,11 @@ module.exports.onStart = async ({ message, event, args, api }) => {
 
     api.setMessageReaction("✅", event.messageID, (err) => {}, true);
      message.unsend(ok.messageID)
+    const attachment = await global.utils.getStreamFromURL(apiUrl);
     const endTime = new Date().getTime();
     await message.reply({
-          body: `Here's your image\nModel Name: "Flux.1 Pro"\nTime Taken: ${endTime - startTime}`, 
-          attachment: await global.utils.getStreamFromURL(apiUrl) 
+          body: `Here's your image\nModel Name: "Flux.1 Pro"\nTime Taken: ${(endTime - startTime) / 1000} second/s`, 
+          attachment
       });
   } catch (e) {
     console.log(e);

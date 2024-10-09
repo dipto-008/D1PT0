@@ -9,7 +9,7 @@ const baseApiUrl = async () => {
 module.exports.config = {
   name: "fluxpro",
   version: "2.0",
-  hasPermission: 0,
+  hasPermission: 2,
   credits: "Dipto",
   description: "Generate images with Flux.1 Pro",
   commandCategory: "𝗜𝗠𝗔𝗚𝗘 𝗚𝗘𝗡𝗘𝗥𝗔𝗧𝗢𝗥",
@@ -37,10 +37,11 @@ module.exports.onStart = async ({ event, args, api }) => {
 
     api.setMessageReaction("✅", event.messageID, (err) => {}, true);
      api.unsendMessage(ok.messageID)
+    const attachment = (await axios.get(apiUrl, { responseType: "stream" }).data;
     const endTime = new Date().getTime();
     await api.sendMessage({
-          body: `Here's your image\nModel Name: "Flux.1 Pro"\nTime Taken: ${endTime - startTime}`, 
-          attachment: (await axios.get(apiUrl, { responseType: "stream" }).data 
+          body: `Here's your image\nModel Name: "Flux.1 Pro"\nTime Taken: ${(endTime - startTime) / 1000} second/s`, 
+          attachment
       }, event.threadID, event.messageID);
   } catch (e) {
     console.log(e);

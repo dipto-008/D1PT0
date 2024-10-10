@@ -2,7 +2,6 @@ const axios = require('axios');
 
 const baseApiUrl = async () => {
     const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
-    console.log(base.data.api);
     return base.data.api;
 };
 
@@ -116,10 +115,38 @@ module.exports.run = async function ({ api, event, args, Users }) {
     }
 
     const response = await axios.get(`${link}?text=${dipto}`);
-    return api.sendMessage(response.data.reply, event.threadID, event.messageID);
+    return api.sendMessage(response.data.reply, event.threadID,
+        (error, info) => {
+          global.client.handleReply.push({
+            name: this.config.name,
+            type: "reply",
+            messageID: info.messageID,
+            author: event.senderID,
+            link: response.data.reply,
+          });
+        }, event.messageID);
 
   } catch (e) {
     console.error('Error in command execution:', e);
     return api.sendMessage(`error: ${e.message}`, event.threadID, event.messageID);
   }
 };
+
+module.exports.handleReply = async function ({ api, event, handleReply }) {
+  if (event.type == "message_reply") {
+    const reply = event.body.toLowerCase();
+    if (isNaN(reply)) {
+      const response = await axios.get(
+        `${link}?text=${encodeURIComponent(reply)}`,
+      );
+      const ok = response.data.reply;
+      await api.sendMessage(ok, event.threadID, (error, info) => {
+          global.client.handleReply.push({
+            name: this.config.name,
+            type: "reply",
+            messageID: info.messageID,
+            author: event.senderID,
+            link: ok
+          });
+        }, event.messageID,
+      )}}};

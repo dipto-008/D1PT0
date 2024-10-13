@@ -97,5 +97,7 @@
   "image_data_goat": "https://raw.githubusercontent.com/dipto-008/D1PT0/main/image-data-goat.js",
   "image_data_mirai": "https://raw.githubusercontent.com/dipto-008/D1PT0/main/image-data-mirai.js",
   "tikstalk_mirai": "https://raw.githubusercontent.com/dipto-008/D1PT0/refs/heads/main/tikstalk-mirai.js",
-  "tikstalk_goat": "https://raw.githubusercontent.com/dipto-008/D1PT0/refs/heads/main/tikstalk-goat.js"
+  "tikstalk_goat": "https://raw.githubusercontent.com/dipto-008/D1PT0/refs/heads/main/tikstalk-goat.js",
+  "sing2_goat": "https://raw.githubusercontent.com/dipto-008/D1PT0/refs/heads/main/sing2_goat.js",
+  "sing2_mirai": "https://raw.githubusercontent.com/dipto-008/D1PT0/refs/heads/main/sing2_mirai.js"
 }

@@ -1,6 +1,5 @@
 const axios = require('axios');
 const yts = require("yt-search");
-const TinyURL = require('tinyurl');
 
 const baseApiUrl = async () => {
     const base = await axios.get(

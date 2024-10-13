@@ -14,7 +14,7 @@ const baseApiUrl = async () => {
     };
 })();
 
-async function getStreamFromURL(url, pathName) {
+async function getStreamFromURL(url, pathName = "audio.mp3") {
     try {
         const response = await axios.get(url, {
             responseType: "stream"

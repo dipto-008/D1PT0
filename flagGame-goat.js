@@ -22,7 +22,7 @@ module.exports = {
       en: "{pn}",
     },
   },
-  onReply: async function ({ api, event, Reply, usersData }) {
+  onReply: async function ({ api, event, Reply, usersData , threadsData }) {
     const { country, attempts } = Reply;
     const maxAttempts = 5;
     if (event.type == "message_reply") {
@@ -76,7 +76,7 @@ module.exports = {
     }
   },
 
-  onStart: async function ({ api, args, event }) {
+  onStart: async function ({ api, args, event,threadsData }) {
     try {
       if (!args[0]) {
         const response = await axios.get(

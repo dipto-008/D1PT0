@@ -15,14 +15,15 @@ const config = {
 
 const onStart = async ({ api, args, event }) => {
        try {
-       const ID = Object.keys(event.mentions)[0] || event.messageReply.senderID;
+       const ID = event.messageReply.senderID || args[0];
        const mentionedUser = await api.getUserInfo(ID);
        if (mentionedUser && mentionedUser[ID]) {
        const userName = mentionedUser[ID].name;
+       const text = args.join(" ");
        await api.sendMessage({
-        body: `${userName}` + args.join(" "),
+        body: `${userName} ${text}`,
         mentions: [{
-            tag: `${userName}`,
+            tag: userName,
             id: ID 
          }]
        }, event.threadID, event.messageID);

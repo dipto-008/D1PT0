@@ -47,6 +47,16 @@ module.exports = {
               exp: userData.exp + getExp,
               data: userData.data,
             });
+            const grp = await threadsData.get(event.threadID);
+            const userID = event.senderID;
+            if (!grp.data.flagWins) {
+              grp.data.flagWins = {};
+            }
+            if (!grp.data.flagWins[userID]) {
+              grp.data.flagWins[userID] = 0;
+            }
+            grp.data.flagWins[userID] += 1;
+            await threadsData.set(event.threadID, grp);
           } catch (err) {
             console.log("Error: ", err.message);
           } finally {
@@ -92,6 +102,23 @@ module.exports = {
           },
           event.messageID,
         );
+      }else if (args[0] === "list") {
+        const threadData = await threadsData.get(event.threadID);
+        const { data } = threadData;
+        const flagWins = data.flagWins || {};
+
+        const flagStatsArray = Object.entries(flagWins);
+        flagStatsArray.sort((a, b) => b[1] - a[1]);
+
+        let message = "Flag Game Rankings:\n\n";
+        let i = 0;
+        for (const [userID, winCount] of flagStatsArray) {
+          const userName = await usersData.getName(userID);
+          message += `${i + 1}. ${userName}: ${winCount} wins\n`;
+          i++;
+        }
+
+        return api.sendMessage(message, event.threadID, event.messageID);
       }
     } catch (error) {
       console.error(`Error: ${error.message}`);

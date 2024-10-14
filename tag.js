@@ -1,5 +1,5 @@
 const config = {
-        name: "tag2",
+        name: "tag",
         version: "1.6.9",
         author: "Dipto",
         credits: "Dipto",

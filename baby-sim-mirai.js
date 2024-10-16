@@ -4,13 +4,12 @@ const baseApiUrl = async () => {
     const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
     return base.data.api;
 };
-const link = `${await baseApiUrl()}/baby`;
 
 module.exports.config = {
   name: "baby",
   version: "6.9.0",
   credits: "dipto",
-  countDown: 0,
+  cooldowns: 0,
   hasPermission: 0,
   description: "better than all sim simi",
   commandCategory: "chat",
@@ -21,6 +20,7 @@ module.exports.config = {
 
 module.exports.run = async function ({ api, event, args, Users }) {
   try {
+    const link = `${await baseApiUrl()}/baby`;
     const dipto = args.join(" ").toLowerCase();
     const uid = event.senderID;
 
@@ -122,12 +122,13 @@ module.exports.run = async function ({ api, event, args, Users }) {
             messageID: info.messageID,
             author: event.senderID,
             lnk: a,
+            apiUrl: link
           });
         }, event.messageID);
 
   } catch (e) {
     console.error('Error in command execution:', e);
-    return api.sendMessage(`error: ${e.message}`, event.threadID, event.messageID);
+    return api.sendMessage(`Error: ${e.message}`, event.threadID, event.messageID);
   }
 };
 
@@ -136,10 +137,7 @@ try{
   if (event.type == "message_reply") {
     const reply = event.body.toLowerCase();
     if (isNaN(reply)) {
-      const response = await axios.get(
-        `${link}?text=${encodeURIComponent(reply)}`,
-      );
-      const b = response.data.reply;
+      const b = (await axios.get(`${handleReply.apiUrl}?text=${encodeURIComponent(reply)}`)).data.reply;
       await api.sendMessage(b, event.threadID, (error, info) => {
           global.client.handleReply.push({
             name: this.config.name,

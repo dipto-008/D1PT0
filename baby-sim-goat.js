@@ -3,7 +3,6 @@ const baseApiUrl = async () => {
   const base = await axios.get('https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json');
   return base.data.api;
 };
-const link = `${await baseApiUrl()}/baby`;
 
 module.exports.config = {
   name: "bby",
@@ -20,6 +19,7 @@ module.exports.config = {
 };
 
 module.exports.onStart = async ({ api, event, args, usersData }) => {
+  const link = `${await baseApiUrl()}/baby`;
   const dipto = args.join(" ").toLowerCase();
   const uid = event.senderID;
   let command, comd, final;
@@ -111,7 +111,8 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
         type: "reply",
         messageID: info.messageID,
         author: event.senderID,
-        d,
+        d, 
+        apiUrl: link
       });
     }, event.messageID);
 
@@ -121,9 +122,10 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
   }
 };
 
-module.exports.onReply = async ({ api, event }) => {
+module.exports.onReply = async ({ api, event, Reply }) => {
+  try{
   if (event.type == "message_reply") {
-    const a = (await axios.get(`${link}?text=${encodeURIComponent(event.body.toLowerCase())}`)).data.reply;
+    const a = (await axios.get(`${Reply.apiUrl}?text=${encodeURIComponent(event.body?.toLowerCase())}`)).data.reply;
     await api.sendMessage(a, event.threadID, (error, info) => {
       global.GoatBot.onReply.set(info.messageID, {
         commandName: this.config.name,
@@ -133,5 +135,7 @@ module.exports.onReply = async ({ api, event }) => {
         a
       });
     }, event.messageID);
-  }
-};
+  }  
+  }catch(err){
+      return api.sendMessage(`Error: ${err.message}`, event.threadID, event.messageID);
+    }};

@@ -5,7 +5,7 @@ const baseApiUrl = async () => {
 };
 
 module.exports.config = {
-  name: "baby",
+  name: "bby",
   aliases: ["baby", "bbe", "babe"],
   version: "6.9.0",
   author: "dipto",
@@ -104,14 +104,14 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
       return api.sendMessage(data, event.threadID, event.messageID);
     }
 
-    const data = (await axios.get(`${link}?text=${dipto}`)).data.reply;
-    api.sendMessage(data, event.threadID, (error, info) => {
+    const d = (await axios.get(`${link}?text=${dipto}`)).data.reply;
+    api.sendMessage(d, event.threadID, (error, info) => {
       global.GoatBot.onReply.set(info.messageID, {
         commandName: this.config.name,
         type: "reply",
         messageID: info.messageID,
         author: event.senderID,
-        link: data,
+        d,
       });
     }, event.messageID);
 
@@ -123,15 +123,14 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
 
 module.exports.onReply = async ({ api, event }) => {
   if (event.type == "message_reply") {
-    const response = await axios.get(`${link}?text=${encodeURIComponent(event.body.toLowerCase())}`);
-    const ok = response.data.reply;
-    await api.sendMessage(ok, event.threadID, (error, info) => {
+    const a = (await axios.get(`${link}?text=${encodeURIComponent(event.body.toLowerCase())}`)).data.reply;
+    await api.sendMessage(a, event.threadID, (error, info) => {
       global.GoatBot.onReply.set(info.messageID, {
         commandName: this.config.name,
         type: "reply",
         messageID: info.messageID,
         author: event.senderID,
-        link: ok
+        a
       });
     }, event.messageID);
   }

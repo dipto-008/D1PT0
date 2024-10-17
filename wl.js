@@ -52,7 +52,7 @@ module.exports = {
       case "add":
       case "-a":
       case "+": {
-        if (args[1]) {
+        if (args[1] = '+') {
           let uids = [];
           if (Object.keys(event.mentions).length > 0)
             uids = Object.keys(event.mentions);
@@ -103,7 +103,7 @@ module.exports = {
       case "rm":
       case "-r":
       case "-": {
-        if (args[1]) {
+        if (args[1] = '-') {
           let uids = [];
           if (Object.keys(event.mentions).length > 0)
             uids = Object.keys(event.mentions)[0];

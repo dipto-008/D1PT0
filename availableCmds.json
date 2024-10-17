@@ -439,20 +439,14 @@
       "status": "on"
     },
     {
-      "cmd": "white_list_thread",
-      "author": "Ntkhang",
+      "cmd": "whitelist_thread",
+      "author": "NTKhang",
       "update": "08/15/2024",
       "status": "on"
     },
     {
-      "cmd": "white_list_id",
-      "author": "Ntkhang",
-      "update": "08/15/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "white_list_id_mode",
-      "author": "Ntkhang",
+      "cmd": "whitelist_id",
+      "author": "NTKhang",
       "update": "08/15/2024",
       "status": "on"
     },

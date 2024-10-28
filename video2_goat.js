@@ -82,7 +82,7 @@ async function onStart({ api, args, event }) {
 
         await api.sendMessage({
             body: `🔖 - 𝚃𝚒𝚝𝚕𝚎: ${title}\n✨ - 𝚀𝚞𝚊𝚕𝚒𝚝𝚢: ${quality}\n\n📥 - 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍 𝙻𝚒𝚗𝚔: ${shortenedLink}`,
-            attachment: await global.utils.getStreamFromURL(downloadLink, title+'.mp3')
+            attachment: await global.utils.getStreamFromURL(downloadLink, title+'.mp4')
         }, event.threadID, event.messageID);
     } catch (e) {
         api.sendMessage(e.message || "An error occurred.", event.threadID, event.messageID);

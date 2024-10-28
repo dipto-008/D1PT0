@@ -38,10 +38,10 @@ function getVideoID(url) {
 }
 
 const config = {
-    name: "sing2",
+    name: "video2",
     author: "Mesbah Saxx",
     credits: "Mesbah Saxx",
-    version: "1.2.0",
+    version: "1.0.0",
     role: 0,
     hasPermssion: 0,
     description: "",
@@ -73,7 +73,7 @@ async function onStart({ api, args, event }) {
             videoID = videoData.videoId;
         }
 
-        const { data: { title, quality, downloadLink } } = await axios.get(`${global.apis.diptoApi}/ytDl3?link=${videoID}&format=mp3`);
+        const { data: { title, quality, downloadLink } } = await axios.get(`${global.apis.diptoApi}/ytDl3?link=${videoID}&format=mp4`);
 
         api.unsendMessage(w.messageID);
         
@@ -82,7 +82,7 @@ async function onStart({ api, args, event }) {
 
         await api.sendMessage({
             body: `🔖 - 𝚃𝚒𝚝𝚕𝚎: ${title}\n✨ - 𝚀𝚞𝚊𝚕𝚒𝚝𝚢: ${quality}\n\n📥 - 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍 𝙻𝚒𝚗𝚔: ${shortenedLink}`,
-            attachment: await global.utils.getStreamFromURL(downloadLink, title+'.mp3')
+            attachment: await global.utils.getStreamFromURL(downloadLink, title+'.mp4')
         }, event.threadID, event.messageID);
     } catch (e) {
         api.sendMessage(e.message || "An error occurred.", event.threadID, event.messageID);

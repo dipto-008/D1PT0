@@ -73,7 +73,7 @@ async function onStart({ api, args, event }) {
             videoID = videoData.videoId;
         }
 
-        const { data: { title, quality, downloadLink } } = await axios.get(`${global.apis.diptoApi}/ytDl3?link=${videoID}&format=mp3`);
+        const { data: { title, quality, downloadLink } } = await axios.get(`${global.apis.diptoApi}/ytDl3?link=${videoID}&format=mp4`);
 
         api.unsendMessage(w.messageID);
         

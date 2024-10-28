@@ -41,7 +41,7 @@ const config = {
     name: "sing2",
     author: "Mesbah Saxx",
     credits: "Mesbah Saxx",
-    version: "1.0.1",
+    version: "1.2.0",
     role: 0,
     hasPermssion: 0,
     description: "",

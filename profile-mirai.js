@@ -8,7 +8,7 @@ module.exports = {
     hasPermssion: 0,
     description: "PROFILE image",
     category: "image",
-    commamdCategory: "image",
+    commandCategory: "image",
     usePrefix: true,
     prefix: true,
     usages: "{pn} @tag or userID or reply to a message or provide a Facebook URL" 

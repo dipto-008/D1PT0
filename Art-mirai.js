@@ -7,14 +7,14 @@ const baseApiUrl = async () => {
   return base.data.api;
 };
 
-(module.exports = {
+module.exports = {
   config: {
     name: "art",
     version: "1.6.9",
     credits: "Nazrul",
-    hasPermission: 0,
+    hasPermssion: 0,
     description: "{pn} - Enhance your photos with  artful transformations!",
-    Prefix: true,
+    prefix: true,
     usePrefix: true,
     commandCategory: "art",
     cooldowns: 5,
@@ -60,4 +60,4 @@ const baseApiUrl = async () => {
       await api.sendMessage(`Error: ${error.message}`, event.threadID, event.messageID);
     }
   }
-});
+};

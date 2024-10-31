@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>亗ㅤƊᎥᎮㅤƬᴏㅤ亗</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script
+		integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer">/*! odometer 0.4.7 */
+(function(){var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G=[].slice;q='<span class="odometer-value"></span>',n='<span class="odometer-ribbon"><span class="odometer-ribbon-inner">'+q+"</span></span>",d='<span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner">'+n+"</span></span>",g='<span class="odometer-formatting-mark"></span>',c="(,ddd).dd",h=/^\(?([^)]*)\)?(?:(.)(d+))?$/,i=30,f=2e3,a=20,j=2,e=.5,k=1e3/i,b=1e3/a,o="transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd",y=document.createElement("div").style,p=null!=y.transition||null!=y.webkitTransition||null!=y.mozTransition||null!=y.oTransition,w=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame,l=window.MutationObserver||window.WebKitMutationObserver||window.MozMutationObserver,s=function(a){var b;return b=document.createElement("div"),b.innerHTML=a,b.children[0]},v=function(a,b){return a.className=a.className.replace(new RegExp("(^| )"+b.split(" ").join("|")+"( |$)","gi")," ")},r=function(a,b){return v(a,b),a.className+=" "+b},z=function(a,b){var c;return null!=document.createEvent?(c=document.createEvent("HTMLEvents"),c.initEvent(b,!0,!0),a.dispatchEvent(c)):void 0},u=function(){var a,b;return null!=(a=null!=(b=window.performance)&&"function"==typeof b.now?b.now():void 0)?a:+new Date},x=function(a,b){return null==b&&(b=0),b?(a*=Math.pow(10,b),a+=.5,a=Math.floor(a),a/=Math.pow(10,b)):Math.round(a)},A=function(a){return 0>a?Math.ceil(a):Math.floor(a)},t=function(a){return a-x(a)},C=!1,(B=function(){var a,b,c,d,e;if(!C&&null!=window.jQuery){for(C=!0,d=["html","text"],e=[],b=0,c=d.length;c>b;b++)a=d[b],e.push(function(a){var b;return b=window.jQuery.fn[a],window.jQuery.fn[a]=function(a){var c;return null==a||null==(null!=(c=this[0])?c.odometer:void 0)?b.apply(this,arguments):this[0].odometer.update(a)}}(a));return e}})(),setTimeout(B,0),m=function(){function a(b){var c,d,e,g,h,i,l,m,n,o,p=this;if(this.options=b,this.el=this.options.el,null!=this.el.odometer)return this.el.odometer;this.el.odometer=this,m=a.options;for(d in m)g=m[d],null==this.options[d]&&(this.options[d]=g);null==(h=this.options).duration&&(h.duration=f),this.MAX_VALUES=this.options.duration/k/j|0,this.resetFormat(),this.value=this.cleanValue(null!=(n=this.options.value)?n:""),this.renderInside(),this.render();try{for(o=["innerHTML","innerText","textContent"],i=0,l=o.length;l>i;i++)e=o[i],null!=this.el[e]&&!function(a){return Object.defineProperty(p.el,a,{get:function(){var b;return"innerHTML"===a?p.inside.outerHTML:null!=(b=p.inside.innerText)?b:p.inside.textContent},set:function(a){return p.update(a)}})}(e)}catch(q){c=q,this.watchForMutations()}}return a.prototype.renderInside=function(){return this.inside=document.createElement("div"),this.inside.className="odometer-inside",this.el.innerHTML="",this.el.appendChild(this.inside)},a.prototype.watchForMutations=function(){var a,b=this;if(null!=l)try{return null==this.observer&&(this.observer=new l(function(){var a;return a=b.el.innerText,b.renderInside(),b.render(b.value),b.update(a)})),this.watchMutations=!0,this.startWatchingMutations()}catch(c){a=c}},a.prototype.startWatchingMutations=function(){return this.watchMutations?this.observer.observe(this.el,{childList:!0}):void 0},a.prototype.stopWatchingMutations=function(){var a;return null!=(a=this.observer)?a.disconnect():void 0},a.prototype.cleanValue=function(a){var b;return"string"==typeof a&&(a=a.replace(null!=(b=this.format.radix)?b:".","<radix>"),a=a.replace(/[.,]/g,""),a=a.replace("<radix>","."),a=parseFloat(a,10)||0),x(a,this.format.precision)},a.prototype.bindTransitionEnd=function(){var a,b,c,d,e,f,g=this;if(!this.transitionEndBound){for(this.transitionEndBound=!0,b=!1,e=o.split(" "),f=[],c=0,d=e.length;d>c;c++)a=e[c],f.push(this.el.addEventListener(a,function(){return b?!0:(b=!0,setTimeout(function(){return g.render(),b=!1,z(g.el,"odometerdone")},0),!0)},!1));return f}},a.prototype.resetFormat=function(){var a,b,d,e,f,g,i,j;if(a=null!=(i=this.options.format)?i:c,a||(a="d"),d=h.exec(a),!d)throw new Error("Odometer: Unparsable digit format");return j=d.slice(1,4),g=j[0],f=j[1],b=j[2],e=(null!=b?b.length:void 0)||0,this.format={repeating:g,radix:f,precision:e}},a.prototype.render=function(a){var b,c,d,e,f,g,h;for(null==a&&(a=this.value),this.stopWatchingMutations(),this.resetFormat(),this.inside.innerHTML="",f=this.options.theme,b=this.el.className.split(" "),e=[],g=0,h=b.length;h>g;g++)c=b[g],c.length&&((d=/^odometer-theme-(.+)$/.exec(c))?f=d[1]:/^odometer(-|$)/.test(c)||e.push(c));return e.push("odometer"),p||e.push("odometer-no-transitions"),e.push(f?"odometer-theme-"+f:"odometer-auto-theme"),this.el.className=e.join(" "),this.ribbons={},this.formatDigits(a),this.startWatchingMutations()},a.prototype.formatDigits=function(a){var b,c,d,e,f,g,h,i,j,k;if(this.digits=[],this.options.formatFunction)for(d=this.options.formatFunction(a),j=d.split("").reverse(),f=0,h=j.length;h>f;f++)c=j[f],c.match(/0-9/)?(b=this.renderDigit(),b.querySelector(".odometer-value").innerHTML=c,this.digits.push(b),this.insertDigit(b)):this.addSpacer(c);else for(e=!this.format.precision||!t(a)||!1,k=a.toString().split("").reverse(),g=0,i=k.length;i>g;g++)b=k[g],"."===b&&(e=!0),this.addDigit(b,e)},a.prototype.update=function(a){var b,c=this;return a=this.cleanValue(a),(b=a-this.value)?(v(this.el,"odometer-animating-up odometer-animating-down odometer-animating"),b>0?r(this.el,"odometer-animating-up"):r(this.el,"odometer-animating-down"),this.stopWatchingMutations(),this.animate(a),this.startWatchingMutations(),setTimeout(function(){return c.el.offsetHeight,r(c.el,"odometer-animating")},0),this.value=a):void 0},a.prototype.renderDigit=function(){return s(d)},a.prototype.insertDigit=function(a,b){return null!=b?this.inside.insertBefore(a,b):this.inside.children.length?this.inside.insertBefore(a,this.inside.children[0]):this.inside.appendChild(a)},a.prototype.addSpacer=function(a,b,c){var d;return d=s(g),d.innerHTML=a,c&&r(d,c),this.insertDigit(d,b)},a.prototype.addDigit=function(a,b){var c,d,e,f;if(null==b&&(b=!0),"-"===a)return this.addSpacer(a,null,"odometer-negation-mark");if("."===a)return this.addSpacer(null!=(f=this.format.radix)?f:".",null,"odometer-radix-mark");if(b)for(e=!1;;){if(!this.format.repeating.length){if(e)throw new Error("Bad odometer format without digits");this.resetFormat(),e=!0}if(c=this.format.repeating[this.format.repeating.length-1],this.format.repeating=this.format.repeating.substring(0,this.format.repeating.length-1),"d"===c)break;this.addSpacer(c)}return d=this.renderDigit(),d.querySelector(".odometer-value").innerHTML=a,this.digits.push(d),this.insertDigit(d)},a.prototype.animate=function(a){return p&&"count"!==this.options.animation?this.animateSlide(a):this.animateCount(a)},a.prototype.animateCount=function(a){var c,d,e,f,g,h=this;if(d=+a-this.value)return f=e=u(),c=this.value,(g=function(){var i,j,k;return u()-f>h.options.duration?(h.value=a,h.render(),void z(h.el,"odometerdone")):(i=u()-e,i>b&&(e=u(),k=i/h.options.duration,j=d*k,c+=j,h.render(Math.round(c))),null!=w?w(g):setTimeout(g,b))})()},a.prototype.getDigitCount=function(){var a,b,c,d,e,f;for(d=1<=arguments.length?G.call(arguments,0):[],a=e=0,f=d.length;f>e;a=++e)c=d[a],d[a]=Math.abs(c);return b=Math.max.apply(Math,d),Math.ceil(Math.log(b+1)/Math.log(10))},a.prototype.getFractionalDigitCount=function(){var a,b,c,d,e,f,g;for(e=1<=arguments.length?G.call(arguments,0):[],b=/^\-?\d*\.(\d*?)0*$/,a=f=0,g=e.length;g>f;a=++f)d=e[a],e[a]=d.toString(),c=b.exec(e[a]),e[a]=null==c?0:c[1].length;return Math.max.apply(Math,e)},a.prototype.resetDigits=function(){return this.digits=[],this.ribbons=[],this.inside.innerHTML="",this.resetFormat()},a.prototype.animateSlide=function(a){var b,c,d,f,g,h,i,j,k,l,m,n,o,p,q,s,t,u,v,w,x,y,z,B,C,D,E;if(s=this.value,j=this.getFractionalDigitCount(s,a),j&&(a*=Math.pow(10,j),s*=Math.pow(10,j)),d=a-s){for(this.bindTransitionEnd(),f=this.getDigitCount(s,a),g=[],b=0,m=v=0;f>=0?f>v:v>f;m=f>=0?++v:--v){if(t=A(s/Math.pow(10,f-m-1)),i=A(a/Math.pow(10,f-m-1)),h=i-t,Math.abs(h)>this.MAX_VALUES){for(l=[],n=h/(this.MAX_VALUES+this.MAX_VALUES*b*e),c=t;h>0&&i>c||0>h&&c>i;)l.push(Math.round(c)),c+=n;l[l.length-1]!==i&&l.push(i),b++}else l=function(){E=[];for(var a=t;i>=t?i>=a:a>=i;i>=t?a++:a--)E.push(a);return E}.apply(this);for(m=w=0,y=l.length;y>w;m=++w)k=l[m],l[m]=Math.abs(k%10);g.push(l)}for(this.resetDigits(),D=g.reverse(),m=x=0,z=D.length;z>x;m=++x)for(l=D[m],this.digits[m]||this.addDigit(" ",m>=j),null==(u=this.ribbons)[m]&&(u[m]=this.digits[m].querySelector(".odometer-ribbon-inner")),this.ribbons[m].innerHTML="",0>d&&(l=l.reverse()),o=C=0,B=l.length;B>C;o=++C)k=l[o],q=document.createElement("div"),q.className="odometer-value",q.innerHTML=k,this.ribbons[m].appendChild(q),o===l.length-1&&r(q,"odometer-last-value"),0===o&&r(q,"odometer-first-value");return 0>t&&this.addDigit("-"),p=this.inside.querySelector(".odometer-radix-mark"),null!=p&&p.parent.removeChild(p),j?this.addSpacer(this.format.radix,this.digits[j-1],"odometer-radix-mark"):void 0}},a}(),m.options=null!=(E=window.odometerOptions)?E:{},setTimeout(function(){var a,b,c,d,e;if(window.odometerOptions){d=window.odometerOptions,e=[];for(a in d)b=d[a],e.push(null!=(c=m.options)[a]?(c=m.options)[a]:c[a]=b);return e}},0),m.init=function(){var a,b,c,d,e,f;if(null!=document.querySelectorAll){for(b=document.querySelectorAll(m.options.selector||".odometer"),f=[],c=0,d=b.length;d>c;c++)a=b[c],f.push(a.odometer=new m({el:a,value:null!=(e=a.innerText)?e:a.textContent}));return f}},null!=(null!=(F=document.documentElement)?F.doScroll:void 0)&&null!=document.createEventObject?(D=document.onreadystatechange,document.onreadystatechange=function(){return"complete"===document.readyState&&m.options.auto!==!1&&m.init(),null!=D?D.apply(this,arguments):void 0}):document.addEventListener("DOMContentLoaded",function(){return m.options.auto!==!1?m.init():void 0},!1),"function"==typeof define&&define.amd?define(["jquery"],function(){return m}):"undefined"!=typeof exports&&null!==exports?module.exports=m:window.Odometer=m}).call(this);</script>
+	<link
+		integrity="sha512-kMPqFnKueEwgQFzXLEEl671aHhQqrZLS5IP3HzqdfozaST/EgU+/wkM07JCmXFAt9GO810I//8DBonsJUzGQsQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdn.tailwindcss.com/"></script>
+	<link crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  position: relative;
+}
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+  *display: inline;
+}
+.odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-default .odometer-digit {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  position: relative;
+}
+.odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-default .odometer-digit {
+  *display: inline;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer, .odometer.odometer-theme-default .odometer-digit .odometer-digit-spacer {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  visibility: hidden;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer, .odometer.odometer-theme-default .odometer-digit .odometer-digit-spacer {
+  *display: inline;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
+  text-align: left;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon, .odometer.odometer-theme-default .odometer-digit .odometer-ribbon {
+  display: block;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner, .odometer.odometer-theme-default .odometer-digit .odometer-ribbon-inner {
+  display: block;
+  -webkit-backface-visibility: hidden;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-value, .odometer.odometer-theme-default .odometer-digit .odometer-value {
+  display: block;
+  -webkit-transform: translateZ(0);
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value, .odometer.odometer-theme-default .odometer-digit .odometer-value.odometer-last-value {
+  position: absolute;
+}
+.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner {
+  -webkit-transition: -webkit-transform 2s;
+  -moz-transition: -moz-transform 2s;
+  -ms-transition: -ms-transform 2s;
+  -o-transition: -o-transform 2s;
+  transition: transform 2s;
+}
+.odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down .odometer-ribbon-inner {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+  -webkit-transition: -webkit-transform 2s;
+  -moz-transition: -moz-transform 2s;
+  -ms-transition: -ms-transform 2s;
+  -o-transition: -o-transform 2s;
+  transition: transform 2s;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+  font-family: "Helvetica Neue", sans-serif;
+  line-height: 1.1em;
+}
+.odometer.odometer-auto-theme .odometer-value, .odometer.odometer-theme-default .odometer-value {
+  text-align: center;
+}
+  body {
+  margin: 0;
+  background: url(https://wallpapercave.com/wp/wp3416331.jpg);
+  padding: 2rem;
+  font-family: Inter, sans-serif;
+}
+
+a.link {
+  border: none;
+  position: absolute;
+  bottom: 1rem;
+  width: auto;
+  right: 1rem;
+}
+a {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  font-family: Inter, sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: block;
+  font-size: 1.25rem;
+  padding: 1rem 1.5rem;
+  float: left;
+  width: 100%;
+}
+.card {
+  box-shadow: none;
+  backface-visibility: visible;
+  background: transparent;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+  transform-style: preserve-3d;
+  padding: 0;
+  height: auto;
+  /* margin: 0 2rem 4rem 0; */
+  width: 26rem;
+  height: 32rem;
+  float: left;
+  transition: all 0.2s ease-out;
+  border: none;
+  letter-spacing: 1px;
+}
+.flip,
+.unflip {
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 100px;
+  line-height: 1rem;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+.blastoise .flip,
+.blastoise .unflip {
+  background: #1b29ed;
+  box-shadow: 0 2px 20px #0b1485;
+}
+.unflip {
+  top: auto;
+  background: #2d2d62;
+  bottom: 1rem;
+}
+.flip:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.blastoise .flip:hover,
+.blastoise .unflip:hover {
+  background: #0f1cc5;
+}
+.inner-card-backface {
+  transform: rotateX(0) rotateY(0deg) scale(1) translateZ(-4px);
+  border-radius: 14px;
+  background: linear-gradient(45deg, #0b0b2a, #0b0b2a);
+  position: absolute;
+  top: 0;
+  color: white;
+  padding: 2rem;
+  box-sizing: border-box;
+  transition: all 0.15s ease-out;
+  will-change: transform, filter;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.card.flipped {
+  transform: rotateY(180deg);
+}
+.card .flip-inner-card {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.flip-inner-card h3 {
+  font-size: 1.25rem;
+  margin-top: 0;
+}
+.flip-inner-card p {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+.card .inner-card {
+  font-size: 2rem;
+  color: white;
+  padding: 1rem 2rem;
+  line-height: 3rem;
+  will-change: transform, filter;
+  float: none;
+  background: black;
+  background-size: calc(100% + 6px) auto;
+  background-position: -3px -3px;
+  margin: 0;
+  transition: all 0.15s ease-out;
+  height: auto;
+  border-radius: 14px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+  margin: 0px auto;
+  transform: rotateX(0deg) rotateY(0deg) scale(1);
+  top: 0;
+  height: 100%;
+  filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.3));
+  font-weight: 500;
+  perspective-origin: 0 0;
+  letter-spacing: 0;
+}
+.card .glare {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.1s ease-out;
+  opacity: 0.6;
+  pointer-events: none;
+  height: 100%;
+  border-radius: 14px;
+  z-index: 9999;
+  mix-blend-mode: hard-light;
+  background: radial-gradient(circle at 50% 50%, rgb(199 198 243), transparent);
+}
+
+.card .top-section {
+  background: linear-gradient(45deg, hsl(0deg 58% 51%), hsl(249deg 100% 54%));
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 14px 14px 0 0;
+  width: 100%;
+  height: 35%;
+  z-index: 99;
+}
+
+.user-2 .top-section {
+  background: linear-gradient(45deg, hsl(224deg 58% 51%), hsl(166deg 100% 54%));
+}
+.card .user-icon {
+  position: absolute;
+  left: calc(50% - 64px);
+  top: calc(35% - 72px);
+  z-index: 99;
+}
+.card .user-icon img {
+  width: 128px;
+  height: 128px;
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  transform: scale(1);
+  transition: all 0.1s ease-out;
+}
+
+.card .user-icon img:hover {
+  transform: scale(1.08);
+}
+.card .glare {
+  opacity: 0;
+}
+.card.animated .glare {
+  opacity: 0.3;
+}
+
+.card.animated.user .glare {
+  opacity: 0.15;
+}
+
+.card .name {
+  color: white;
+  font-size: 1.53rem;
+}
+
+.card .bottom-section {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  background: #0b0b2a;
+  width: 100%;
+  height: 65%;
+  box-sizing: border-box;
+  padding-top: 64px;
+  text-align: center;
+}
+
+.bottom-section .followers, .bottom-section .following  {
+  font-size: 2.5rem;
+  opacity: 0.4;
+  display: block;
+}
+
+.small {
+	font-size: 0.5rem;
+  opacity: 0.4;
+  display: block;
+  line-height: 1rem;
+}
+
+.stats {
+	display: flex;
+	justify-content: space-around;
+}
+
+.buttons {
+  float: left;
+  width: calc(100% - 2rem);
+  position: absolute;
+  bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  left: 1rem;
+}
+  .button2 {
+  float: right;
+  width: calc(100% - 2rem);
+  position: down;
+  bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  left: 1rem;
+  }
+
+.xs {
+  text-align: center;
+	font-size: 1rem;
+	line-height: 1.2rem;	
+	width: 100%;
+}
+
+.sm {
+  text-align: center;
+	font-size: 0.8rem;
+	line-height: 1.25rem;	
+	opacity: 1;
+	width: 100%;
+}
+
+.buttons > a {
+  border: none;
+  width: auto;
+  background: #2d2d62;
+  padding: 0;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  line-height: 1rem;
+  transition: all 0.1s ease-out;
+  transform: scale(1);
+  padding: 0.75rem 1rem;
+  margin: 0 1rem 0 0;
+  border-radius: 100px;
+  text-decoration: none;
+}
+.buttons .main {
+  background: #3d26e7;
+}
+.buttons > .main:hover {
+  background: #614df1;
+}
+.buttons > a:hover {
+  background: #494989;
+}
+.buttons .message svg {
+  margin: 0 0.5rem 0 0;
+}
+.buttons .message {
+  margin: 0;
+	width: 110%;
+}
+.button2 > a {
+  border: none;
+  width: auto;
+  background: #2d2d62;
+  padding: 0;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  line-height: 1rem;
+  transition: all 0.1s ease-out;
+  transform: scale(1);
+  padding: 0.75rem 1rem;
+  margin: 0 1rem 0 0;
+  border-radius: 100px;
+  text-decoration: none;
+}
+.button2 .main {
+  background: #3d26e7;
+}
+.button2 > .main:hover {
+  background: #614df1;
+}
+.button2 > a:hover {
+  background: #494989;
+}
+.button2 .message svg {
+  margin: 0 0.5rem 0 0;
+}
+.button2 .message {
+  margin: 0;
+	width: 110%;
+}
+
+
+.text-container {
+	    padding-inline: 1rem;
+    text-align: left;
+						gap: 12px;	
+						    display: flex;
+    flex-direction: column;
+}
+</style>
+</head>
+
+<body class="h-screen w-screen flex items-center justify-center">
+	<div class="card user user-2">
+     </span>
+             <span class="user-icon">
+               <img src="https://i.ibb.co/xDb9JyD/IMG20230413174510-01.jpg"
+                 id="profilePic" />
+             </span>
+		<span class="inner-card">
+			<span class="user-details">
+				<span class="top-section">
+				</span>
+				<span class="bottom-section">
+					<span class="name">亗ㅤƊᎥᎮㅤƬᴏㅤ亗</span>
+<div class="text-container">
+						<p class="small xs">
+						 𝗛𝗲𝘆 𝗚𝘂𝘆'𝘀, 𝗪𝗵𝗮𝘁'𝘀 𝘂𝗽 ?
+						</p>
+					</div>
+
+					<span class="buttons">
+						<a href="https://www.facebook.com/dipto008" target="_blank" class="message">𝗙𝗮𝗰𝗲𝗕𝗼𝗼𝗸</a>
+              <span class="button2">
+						<a href="https://m.me/dipto008" target="_blank" class="message">𝗠𝗲𝘀𝘀𝗲𝗻𝗴𝗲𝗿</a>
+					</span>
+				</span>
+			</span>
+			<span class="glare"></span>
+		</span>
+	</div>
+	<script>
+    let calculateAngle = function(e, item, parent) {
+	let dropShadowColor = `rgba(0, 0, 0, 0.3)`;
+	if (parent.getAttribute("data-filter-color") !== null) {
+		dropShadowColor = parent.getAttribute("data-filter-color");
+	}
+
+	parent.classList.add("animated");
+	// Get the x position of the users mouse, relative to the button itself
+	let x = Math.abs(item.getBoundingClientRect().x - e.clientX);
+	// Get the y position relative to the button
+	let y = Math.abs(item.getBoundingClientRect().y - e.clientY);
+
+	// Calculate half the width and height
+	let halfWidth = item.getBoundingClientRect().width / 2;
+	let halfHeight = item.getBoundingClientRect().height / 2;
+
+	// Use this to create an angle. I have divided by 6 and 4 respectively so the effect looks good.
+	// Changing these numbers will change the depth of the effect.
+	let calcAngleX = (x - halfWidth) / 6;
+	let calcAngleY = (y - halfHeight) / 14;
+
+	let gX = (1 - x / (halfWidth * 2)) * 100;
+	let gY = (1 - y / (halfHeight * 2)) * 100;
+
+	item.querySelector(
+		".glare"
+	).style.background = `radial-gradient(circle at ${gX}% ${gY}%, rgb(199 198 243), transparent)`;
+	// And set its container's perspective.
+	parent.style.perspective = `${halfWidth * 6}px`;
+	item.style.perspective = `${halfWidth * 6}px`;
+
+	// Set the items transform CSS property
+	item.style.transform = `rotateY(${calcAngleX}deg) rotateX(${-calcAngleY}deg) scale(1.04)`;
+	parent.querySelector(
+		".inner-card-backface"
+	).style.transform = `rotateY(${calcAngleX}deg) rotateX(${-calcAngleY}deg) scale(1.04) translateZ(-4px)`;
+
+	if (parent.getAttribute("data-custom-perspective") !== null) {
+		parent.style.perspective = `${parent.getAttribute(
+			"data-custom-perspective"
+		)}`;
+	}
+
+	// Reapply this to the shadow, with different dividers
+	let calcShadowX = (x - halfWidth) / 3;
+	let calcShadowY = (y - halfHeight) / 6;
+
+	// Add a filter shadow - this is more performant to animate than a regular box shadow.
+	item.style.filter = `drop-shadow(${-calcShadowX}px ${-calcShadowY}px 15px ${dropShadowColor})`;
+};
+
+document.querySelectorAll(".card").forEach(function(item) {
+	if (item.querySelector(".flip") !== null) {
+		item.querySelector(".flip").addEventListener("click", function() {
+			item.classList.add("flipped");
+		});
+	}
+	if (item.querySelector(".unflip") !== null) {
+		item.querySelector(".unflip").addEventListener("click", function() {
+			item.classList.remove("flipped");
+		});
+	}
+	item.addEventListener("mouseenter", function(e) {
+		calculateAngle(e, this.querySelector(".inner-card"), this);
+	});
+
+	item.addEventListener("mousemove", function(e) {
+		calculateAngle(e, this.querySelector(".inner-card"), this);
+	});
+
+	item.addEventListener("mouseleave", function(e) {
+		let dropShadowColor = `rgba(0, 0, 0, 0.3)`;
+		if (item.getAttribute("data-filter-color") !== null) {
+			dropShadowColor = item.getAttribute("data-filter-color");
+		}
+		item.classList.remove("animated");
+		item.querySelector(
+			".inner-card"
+		).style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
+		item.querySelector(
+			".inner-card-backface"
+		).style.transform = `rotateY(0deg) rotateX(0deg) scale(1.01) translateZ(-4px)`;
+		item.querySelector(
+			".inner-card"
+		).style.filter = `drop-shadow(0 10px 15px ${dropShadowColor})`;
+	});
+});
+  </script>
+</body>
+
+</html>

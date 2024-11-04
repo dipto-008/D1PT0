@@ -38,6 +38,7 @@ module.exports = {
       const quizData = response.data.question;
       const { question, correctAnswer, options } = quizData;
       const { a, b, c, d } = options;
+      let uid = event.senderID;
       const namePlayerReact = await api.getUserInfo(uid)[uid].name;
       const quizMsg = {
         body: `\n╭──✦ ${question}\n├‣ 𝗔) ${a}\n├‣ 𝗕) ${b}\n├‣ 𝗖) ${c}\n├‣ 𝗗) ${d}\n╰──────────────────‣\n𝚁𝚎𝚙𝚕𝚢 𝚝𝚘 𝚝𝚑𝚒𝚜 𝚖𝚎𝚜𝚜𝚊𝚐𝚎 𝚠𝚒𝚝𝚑 𝚢𝚘𝚞𝚛 𝚊𝚗𝚜𝚠𝚎𝚛.`,

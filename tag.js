@@ -15,7 +15,7 @@ const config = {
 
 const onStart = async ({ api, args, event }) => {
        try {
-       const ID = event.messageReply.senderID || args[0];
+       const ID = event.messageReply?.senderID || args[0] || event.senderID;
        const mentionedUser = await api.getUserInfo(ID);
        if (mentionedUser && mentionedUser[ID]) {
        const userName = mentionedUser[ID].name;

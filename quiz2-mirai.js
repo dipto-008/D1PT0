@@ -70,7 +70,7 @@ module.exports = {
     }
   },
 
-  handleReply: async ({ event, api, handleReply, usersData }) => {
+  handleReply: async ({ event, api, handleReply, Users }) => {
 const { correctAnswer, nameUser, author } = handleReply;
     if (event.senderID !== author)
       return api.sendMessage(
@@ -93,17 +93,17 @@ const { correctAnswer, nameUser, author } = handleReply;
           .catch(console.error);
           let rewardCoins = 300;
           let rewardExp = 100;
-      /*    let userData = await usersData.get(author);
-          await usersData.set(author, {
+          let userData = await Users.get(author);
+          await Users.set(author, {
           money: userData.money + rewardCoins,
             exp: userData.exp + rewardExp,
             data: userData.data,
-          });*/
+          });
           let correctMsg = `Congratulations, ${nameUser}! 🌟🎉\n\nYou're a Quiz Champion! 🏆\n\nKeep up the great work! 🚀`;
           api.sendMessage(correctMsg, event.threadID, event.messageID);
         } else {
           handleReply.attempts += 1;
-global.GoatBot.handleReply.push(handleReply.messageID, handleReply);
+global.client.handleReply.push(handleReply.messageID, handleReply);
           api.sendMessage(
             `❌ | Wrong Answer. You have ${maxAttempts - handleReply.attempts} attempts left.\n✅ | Try Again!`,
             event.threadID,

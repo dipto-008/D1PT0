@@ -7,12 +7,12 @@ const baseApiUrl = async () => {
   return base.data.api;
 };
 
-(module.exports = {
+module.exports = {
   config: {
     name: "quiz2",
     aliases: ["qz2"],
     version: "1.0",
-    author: "asif",
+    author: "Dipto",
     countDown: 0,
     role: 0,
     category: "game",
@@ -114,4 +114,4 @@ global.GoatBot.onReply.set(Reply.messageID, Reply);
         break;
     }
   },
-});
+};

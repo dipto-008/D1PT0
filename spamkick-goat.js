@@ -22,7 +22,7 @@ module.exports.onChat = async ({ api, event, usersData, commandName }) => {
     threadInfo.users[senderID].count++;
     const timePassed = Date.now() - threadInfo.users[senderID].time;
     const messages = threadInfo.users[senderID].count;
-    const timeLimit = 80000;
+    const timeLimit = 100000;
     const messageLimit = 14; //Limit of message
 
     if (messages > messageLimit && timePassed < timeLimit) {
@@ -51,11 +51,12 @@ module.exports.onChat = async ({ api, event, usersData, commandName }) => {
 
 };
 
-module.exports.onReaction = async ({ api, event, Reaction, threadsData, usersData }) => {
+module.exports.onReaction = async ({ api, event, Reaction, threadsData, usersData , role }) => {
     const { uid, messageID } = Reaction;
     const { adminIDs, approvalMode } = await threadsData.get(event.threadID);
     const botID = api.getCurrentUserID();
-
+    if(role == 1) return;
+ if(!global.GoatBot.config.adminBot.includes(event.senderID)) return;
     var msg = "";
 
       try {

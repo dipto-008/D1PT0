@@ -109,7 +109,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
     }
 
     if (['amar name ki', 'amr nam ki', 'amar nam ki', 'amr name ki'].some(phrase => dipto.includes(phrase))) {
-      const response = await axios.get(`${link}?text=amar name ki&senderID=${uid}`);
+      const response = await axios.get(`${link}?text=amar name ki&senderID=${uid}&key=intro`);
       return api.sendMessage(response.data.reply, event.threadID, event.messageID);
     }
 

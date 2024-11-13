@@ -10,9 +10,10 @@ module.exports.config = {
   version: "6.9.0",
   credits: "dipto",
   cooldowns: 0,
-  hasPermission: 0,
+  hasPermssion: 0,
   description: "better than all sim simi",
   commandCategory: "chat",
+  category: "chat",
   usePrefix: true,
   prefix: true,
   usages: `[anyMessage] OR\nteach [YourMessage] - [Reply1], [Reply2], [Reply3]... OR\nteach [react] [YourMessage] - [react1], [react2], [react3]... OR\nremove [YourMessage] OR\nrm [YourMessage] - [indexNumber] OR\nmsg [YourMessage] OR\nlist OR\nall OR\nedit [YourMessage] - [NewMessage]`,
@@ -32,7 +33,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
 
     if (args[0] === 'remove') {
       const fina = dipto.replace("remove ", "");
-      const respons = await axios.get(`${link}?remove=${fina}`);
+      const respons = await axios.get(`${link}?remove=${fina}&senderID=${uid}`);
       return api.sendMessage(respons.data.message, event.threadID, event.messageID);
     }
 
@@ -49,8 +50,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
         const teachers = await Promise.all(data.map(async (item) => {
           const number = Object.keys(item)[0];
           const value = item[number];
-          const userData = await Users.getData(number);
-          const name = userData.name;
+          const name = await Users.getName(number) || "unknown";
           return { name, value };
         }));
         teachers.sort((a, b) => b.value - a.value);
@@ -84,8 +84,8 @@ module.exports.run = async function ({ api, event, args, Users }) {
         return api.sendMessage('❌ | Invalid format! Use [YourMessage] - [Reply1], [Reply2], [Reply3]... OR remove [YourMessage] OR list OR edit [YourMessage] - [NewReply]', event.threadID, event.messageID);
       }
       const re = await axios.get(`${link}?teach=${final}&reply=${command}&senderID=${uid}`);
-      const userData = await Users.getData(re.data.teacher);
-      return api.sendMessage(`✅ Replies added ${re.data.message}\nTeacher: ${userData.name}\nTeachs: ${re.data.teachs}`, event.threadID, event.messageID);
+      const name = await Users.getName(re.data.teacher) || "";
+      return api.sendMessage(`✅ Replies added ${re.data.message}\nTeacher: ${name || "unknown"}\nTeachs: ${re.data.teachs}`, event.threadID, event.messageID);
     }
 
     if (args[0] === 'teach' && args[1] === 'amar') {
@@ -113,7 +113,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
       return api.sendMessage(response.data.reply, event.threadID, event.messageID);
     }
 
-     const a = (await axios.get(`${link}?text=${dipto}`)).data.reply;
+     const a = (await axios.get(`${link}?text=${dipto}&senderID=${uid}`)).data.reply;
     return api.sendMessage(a, event.threadID,
         (error, info) => {
           global.client.handleReply.push({
@@ -137,7 +137,7 @@ try{
   if (event.type == "message_reply") {
     const reply = event.body.toLowerCase();
     if (isNaN(reply)) {
-      const b = (await axios.get(`${handleReply.apiUrl}?text=${encodeURIComponent(reply)}`)).data.reply;
+      const b = (await axios.get(`${handleReply.apiUrl}?text=${encodeURIComponent(reply)}&senderID=${event.senderID}`)).data.reply;
       await api.sendMessage(b, event.threadID, (error, info) => {
           global.client.handleReply.push({
             name: this.config.name,

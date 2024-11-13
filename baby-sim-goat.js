@@ -99,8 +99,8 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
       return api.sendMessage(`✅ Replies added ${tex}`, event.threadID, event.messageID);
     }
 
-    if (dipto.includes('amar name ki') || dipto.includes('amr nam ki') || dipto.includes('amar nam ki') || dipto.includes('amr name ki')) {
-      const data = (await axios.get(`${link}?text=amar name ki&senderID=${uid}`)).data.reply;
+    if (dipto.includes('amar name ki') || dipto.includes('amr nam ki') || dipto.includes('amar nam ki') || dipto.includes('amr name ki') || dipto.includes('whats my name')) {
+      const data = (await axios.get(`${link}?text=amar name ki&senderID=${uid}&key=intro`)).data.reply;
       return api.sendMessage(data, event.threadID, event.messageID);
     }
 

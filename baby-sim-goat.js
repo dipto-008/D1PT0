@@ -14,7 +14,7 @@ module.exports.config = {
   description: "better then all sim simi",
   category: "chat",
   guide: {
-    en: "{pn}[anyMessage] OR\nteach [YourMessage] - [Reply1], [Reply2], [Reply3]... OR\nteach [react] [YourMessage] - [react1], [react2], [react3]... OR\nremove [YourMessage] OR\nrm [YourMessage] - [indexNumber] OR\nmsg [YourMessage] OR\nlist OR \nall OR\nedit [YourMessage] - [NeeMessage]"
+    en: "{pn} [anyMessage] OR\nteach [YourMessage] - [Reply1], [Reply2], [Reply3]... OR\nteach [react] [YourMessage] - [react1], [react2], [react3]... OR\nremove [YourMessage] OR\nrm [YourMessage] - [indexNumber] OR\nmsg [YourMessage] OR\nlist OR \nall OR\nedit [YourMessage] - [NeeMessage]"
   }
 };
 
@@ -32,7 +32,7 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
 
     if (args[0] === 'remove') {
       const fina = dipto.replace("remove ", "");
-      const dat = (await axios.get(`${link}?remove=${fina}`)).data.message;
+      const dat = (await axios.get(`${link}?remove=${fina}&senderID=${uid}`)).data.message;
       return api.sendMessage(dat, event.threadID, event.messageID);
     }
 
@@ -69,7 +69,7 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
     if (args[0] === 'edit') {
       const command = dipto.split(' - ')[1];
       if (command.length < 2) return api.sendMessage('❌ | Invalid format! Use edit [YourMessage] - [NewReply]', event.threadID, event.messageID);
-      const dA = (await axios.get(`${link}?edit=${args[1]}&replace=${command}`)).data.message;
+      const dA = (await axios.get(`${link}?edit=${args[1]}&replace=${command}&senderID=${uid}`)).data.message;
       return api.sendMessage(`changed ${dA}`, event.threadID, event.messageID);
     }
 
@@ -104,7 +104,7 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
       return api.sendMessage(data, event.threadID, event.messageID);
     }
 
-    const d = (await axios.get(`${link}?text=${dipto}`)).data.reply;
+    const d = (await axios.get(`${link}?text=${dipto}&senderID=${uid}`)).data.reply;
     api.sendMessage(d, event.threadID, (error, info) => {
       global.GoatBot.onReply.set(info.messageID, {
         commandName: this.config.name,
@@ -125,7 +125,7 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
 module.exports.onReply = async ({ api, event, Reply }) => {
   try{
   if (event.type == "message_reply") {
-    const a = (await axios.get(`${Reply.apiUrl}?text=${encodeURIComponent(event.body?.toLowerCase())}`)).data.reply;
+    const a = (await axios.get(`${Reply.apiUrl}?text=${encodeURIComponent(event.body?.toLowerCase())}&senderID=${event.senderID}`)).data.reply;
     await api.sendMessage(a, event.threadID, (error, info) => {
       global.GoatBot.onReply.set(info.messageID, {
         commandName: this.config.name,

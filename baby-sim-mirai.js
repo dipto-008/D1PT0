@@ -156,8 +156,6 @@ try{
 module.exports.handleEvent = async function ({ api, event }) {
 try{
   if (event.type == "message_reply") {
-
-    if (isNaN(reply)) {
     const body = event.body ? event.body.toLowerCase() : ""
     if(body.startsWith("baby") || body.startsWith("bby") || body.startsWith("janu")){
     const a = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(body.replace(/^\S+\s*/, ""))}&senderID=${event.senderID}&font=1`)).data.reply;     
@@ -170,7 +168,7 @@ try{
             lnk: a
           });
         }, event.messageID,
-      )}}}
+      )}}
 }catch(err){
     return api.sendMessage(`Error: ${err.message}`, event.threadID, event.messageID);
 }};

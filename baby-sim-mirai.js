@@ -137,7 +137,7 @@ try{
   if (event.type == "message_reply") {
     const reply = event.body.toLowerCase();
     if (isNaN(reply)) {
-      const b = (await axios.get(`${handleReply.apiUrl}?text=${encodeURIComponent(reply)}&senderID=${event.senderID}&font=1`)).data.reply;
+      const b = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}&senderID=${event.senderID}&font=1`)).data.reply;
       await api.sendMessage(b, event.threadID, (error, info) => {
           global.client.handleReply.push({
             name: this.config.name,

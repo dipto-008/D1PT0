@@ -56,7 +56,6 @@ module.exports.onReaction = async ({ api, event, Reaction, threadsData, usersDat
     const { adminIDs, approvalMode } = await threadsData.get(event.threadID);
     const botID = api.getCurrentUserID();
     if (role < 1) return;
- if(!global.GoatBot.config.adminBot.includes(event.senderID)) return;
     var msg = "";
 
       try {

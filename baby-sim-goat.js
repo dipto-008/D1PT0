@@ -139,3 +139,24 @@ module.exports.onReply = async ({ api, event, Reply }) => {
   }catch(err){
       return api.sendMessage(`Error: ${err.message}`, event.threadID, event.messageID);
     }};
+
+module.exports.onChat = async ({ api, event }) => {
+  try{
+  if (event.type == "message_reply") {
+    const body = event.body ? event.body.toLowerCase() : ""
+    if(body.startsWith("baby") || body.startsWith("bby") || body.startsWith("janu")){
+    const a = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(body)}&senderID=${event.senderID}&font=1`)).data.reply;
+    await api.sendMessage(a, event.threadID, (error, info) => {
+      global.GoatBot.onReply.set(info.messageID, {
+        commandName: this.config.name,
+        type: "reply",
+        messageID: info.messageID,
+        author: event.senderID,
+        a
+      });
+    }, event.messageID);
+    }
+  }  
+  }catch(err){
+      return api.sendMessage(`Error: ${err.message}`, event.threadID, event.messageID);
+    }};

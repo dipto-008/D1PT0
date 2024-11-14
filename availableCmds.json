@@ -617,7 +617,18 @@
       "author": "Mostakim",
       "update": "10/22/2024",
       "status": "on"
+    },
+    {
+       "cmd": "coverphoto_goat",
+      "author": "Dipto",
+      "update": "11/15/2024",
+      "status": "on"
+    },
+    {
+       "cmd": "coverphoto_mirai",
+      "author": "Dipto",
+      "update": "11/15/2024",
+      "status": "on"
     }
- 
   ]
 }

@@ -7,7 +7,7 @@ const baseApiUrl = async () => {
 
 module.exports.config = {
   name: "baby",
-  version: "6.9.0",
+  version: "6.9.9",
   credits: "dipto",
   cooldowns: 0,
   hasPermssion: 0,
@@ -155,10 +155,11 @@ try{
    
 module.exports.handleEvent = async function ({ api, event }) {
 try{
-  if (event.type == "message_reply") {
     const body = event.body ? event.body.toLowerCase() : ""
     if(body.startsWith("baby") || body.startsWith("bby") || body.startsWith("janu")){
-    const a = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(body.replace(/^\S+\s*/, ""))}&senderID=${event.senderID}&font=1`)).data.reply;     
+        const arr = body.replace(/^\S+\s*/, "")
+      if(!arr) return message.reply("Yes 😀, i am here ")
+    const a = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(arr)}&senderID=${event.senderID}&font=1`)).data.reply;     
         await api.sendMessage(a, event.threadID, (error, info) => {
           global.client.handleReply.push({
             name: this.config.name,
@@ -168,7 +169,7 @@ try{
             lnk: a
           });
         }, event.messageID,
-      )}}
+      )}
 }catch(err){
     return api.sendMessage(`Error: ${err.message}`, event.threadID, event.messageID);
 }};

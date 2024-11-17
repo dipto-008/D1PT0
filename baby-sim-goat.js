@@ -142,7 +142,6 @@ module.exports.onReply = async ({ api, event, Reply }) => {
 
 module.exports.onChat = async ({ api, event,message }) => {
   try{
-  if (event.type == "message_reply") {
     const body = event.body ? event.body.toLowerCase() : ""
     if(body.startsWith("baby") || body.startsWith("bby") || body.startsWith("janu")){
       const arr = body.replace(/^\S+\s*/, "")
@@ -158,7 +157,6 @@ module.exports.onChat = async ({ api, event,message }) => {
       });
     }, event.messageID);
     }
-  }  
   }catch(err){
       return api.sendMessage(`Error: ${err.message}`, event.threadID, event.messageID);
     }};

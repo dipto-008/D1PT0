@@ -24,7 +24,7 @@ const config = {
 
 const onStart = () => {};
 const onChat = async ({ api, event }) => {
-  let dipto = event.body ? event.body : "";
+  let dipto = event.body ? event.body : "", ex, cp;
   try {
     if (
       dipto.startsWith("https://vt.tiktok.com") ||
@@ -34,15 +34,31 @@ const onChat = async ({ api, event }) => {
       dipto.startsWith("https://youtu.be/") ||
       dipto.startsWith("https://youtube.com/") ||
       dipto.startsWith("https://x.com/") ||
+      dipto.startsWith("https://youtube.com/")
+      dipto.startsWith("https://www.instagram.com/p/") ||
+      dipto.startsWith("https://pin.it/") ||
       dipto.startsWith("https://twitter.com/") ||
       dipto.startsWith("https://vm.tiktok.com") ||
       dipto.startsWith("https://fb.watch")
     ) {
       api.setMessageReaction("⌛", event.messageID, true);
       const w = await api.sendMessage("Wait Bby <😘", event.threadID);
-      const path = __dirname + `/diptoo.mp4`;
       const response = await axios.get(`${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`);
       const d = response.data;
+      if (d.result.includes(".jpg")) {
+        ex = ".jpg";
+        cp = "Here's your Photo <😘";
+      } else if (d.result.includes(".png")) {
+        ex = ".png";
+        cp = "Here's your Photo <😘";
+      } else if (d.result.includes(".jpeg")) {
+        ex = ".jpeg";
+        cp = "Here's your Photo <😘";
+      } else {
+        ex = ".mp4";
+        cp = d.cp;
+      }
+      const path = __dirname + `/cache/video${ex}`;
       fs.writeFileSync(path, Buffer.from((await axios.get(d.result, { responseType: "arraybuffer" })).data, "binary"));
       const shortUrl = await tinyurl.shorten(d.result);
       api.setMessageReaction("✅", event.messageID, true);

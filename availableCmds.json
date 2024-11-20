@@ -37,15 +37,9 @@
       "status": "on"
     },
     {
-      "cmd": "autodl_goat",
+      "cmd": "autodl_goat_x_mirai",
       "author": "Dipto",
-      "update": "06/17/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "autodl_mirai",
-      "author": "Dipto",
-      "update": "06/17/2024",
+      "update": "11/20/2024",
       "status": "on"
     },
     {

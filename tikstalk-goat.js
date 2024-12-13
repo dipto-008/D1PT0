@@ -4,7 +4,7 @@ const baseApiUrl = async () => {
   const base = await axios.get(
     `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
   );
-  return base.data.mostakim;
+  return base.data.xnil;
 };
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     name: "tikstalk",
     aliases: ["stalktik"],
     version: "1.0",
-    author: "𝐌𝐨𝐬𝐭𝐚𝐤𝐢𝐦",
+    author: "xnil6x",
     countDown: 5,
     role: 0,
     shortDescription: "Get TikTok user info",
@@ -34,7 +34,7 @@ module.exports = {
 
     try {
       const response = await axios.get(
-        `${await baseApiUrl()}/tikstalk?username=${userName}`);
+        `${await baseApiUrl()}/xnil/tikstalk?uniqueid=${userName}`);
 
       if (!response.data || !response.data.id) {
         return api.sendMessage("User not found or invalid response.", event.threadID);

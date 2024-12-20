@@ -1,6 +1,8 @@
 {
- "api": "https://rest-api-2-d3np.onrender.com/dipto",
-  "apis":[
+ "api": "https://www.noobs-api.rf.gd/dipto",
+ "apis":[
+    "https://www.noobs-api.rf.gd/dipto",
+    "https://rest-api-2-d3np.onrender.com/dipto",
     "https://www.noobs-api.000.pe/dipto",
     "https://2l8v4r-10000.csb.app/dipto",
     "https://www.noobs-apis.42web.io",

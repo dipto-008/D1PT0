@@ -12,13 +12,13 @@ module.exports.config = {
     version: "3.0",
     credits: "Dipto",
     cooldowns: 1,
-    hasPermission: 0,
+    hasPermssion: 0,
     description: "Guess the flag name",
     commandCategory: "game",
     category: "game",
     usages: "-flagGame",
     usePrefix: true,
-    ptefix: true,
+    prefix: true,
 };
 
 module.exports.handleReply = async function ({

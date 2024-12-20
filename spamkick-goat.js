@@ -4,12 +4,14 @@ module.exports.config = {
   role: 0, 
   author: "Dipto",
   usePrefix: true,
-  description: { en:"Automatically kick a user who spams messages in a group chat"},
+  description: { 
+      en: "Automatically kick a user who spams messages in a group chat"
+  },
   category: "group",
   guide: { en:"[on/off] or [settings]"},
-  cooldowns: 5
+  countDown: 5
 };
-module.exports.onChat = async ({ api, event, usersData }) => {
+module.exports.onChat = async ({ api, event, usersData, commandName }) => {
   const { senderID, threadID } = event;
   if (!global.antispam) global.antispam = new Map();
 
@@ -24,13 +26,21 @@ module.exports.onChat = async ({ api, event, usersData }) => {
     const messageLimit = 14; //Limit of message
 
     if (messages > messageLimit && timePassed < timeLimit) {
-      api.removeUserFromGroup(senderID, threadID, (err) => {
+      if(global.GoatBot.config.adminBot.includes(senderID)) return;
+      api.removeUserFromGroup(senderID, threadID, async (err) => {
         if (err) {
           console.error(err);
         } else {
-          api.sendMessage({body: `${await usersData.getName(senderID)} has been removed for spamming.\nUser ID: ${senderID}`}, threadID);
+          api.sendMessage({body: `${await usersData.getName(senderID)} has been removed for spamming.\nUser ID: ${senderID}\n React in this message to add him again.`}, threadID, (error,info) => {
+              global.GoatBot.onReaction.set(info.messageID, { 
+                  commandName, 
+                  uid: senderID,
+                  messageID: info.messageID
+        });
+          });
         }
       });
+
       threadInfo.users[senderID] = { count: 1, time: Date.now() };
     } else if (timePassed > timeLimit) {
       threadInfo.users[senderID] = { count: 1, time: Date.now() };
@@ -38,12 +48,39 @@ module.exports.onChat = async ({ api, event, usersData }) => {
   }
 
   global.antispam.set(threadID, threadInfo);
+
 };
 
-module.exports.onStart = async ({ api, event, args, client, __GLOBAL }) => {
+module.exports.onReaction = async ({ api, event, Reaction, threadsData, usersData , role }) => {
+    const { uid, messageID } = Reaction;
+    const { adminIDs, approvalMode } = await threadsData.get(event.threadID);
+    const botID = api.getCurrentUserID();
+    if (role < 1) return;
+    var msg = "";
+
+      try {
+          await api.addUserToGroup(uid, event.threadID);
+          if (approvalMode === true && !adminIDs.includes(botID)){
+              msg += `Successfully added ${await usersData.getName(uid)} to approval list.`;
+              await api.unsendMessage(messageID);
+          }
+          else{
+              msg += `Successfully added ${await usersData.getName(uid)} to this group.`;
+              await api.unsendMessage(messageID);
+          }
+      }
+      catch (err) {
+          msg += `Failed to add ${await usersData.getName(uid)} to this group.`;
+      }
+      console.log(msg);
+  }
+
+
+
+module.exports.onStart = async ({ api, event, args }) => {
   switch (args[0]) {
       case "on":
-        if (!global.antispam) global.antispam = new Map();
+if (!global.antispam) global.antispam = new Map();
         global.antispam.set(event.threadID, { users: {} });
         api.sendMessage("Spam kick has been turned on for this Group.", event.threadID,event.messageID);
         break;

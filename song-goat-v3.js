@@ -88,7 +88,7 @@ global.GoatBot.onReply.set(info.messageID, {
     }
     } catch (error) {
       console.log(error);
-      api.sendMessage("⭕ Sorry, audio size was less than 26MB",event.threadID,event.messageID)
+      api.sendMessage("⭕ Sorry, audio size was less than 26MB\n"+downloadLink,event.threadID,event.messageID)
     }   
  }
 };

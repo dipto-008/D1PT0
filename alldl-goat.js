@@ -1,6 +1,5 @@
 const axios = require("axios");
 const fs = require("fs-extra");
-const path = require("path");
 const baseApiUrl = async () => {
   const base = await axios.get(
     `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
@@ -31,8 +30,10 @@ module.exports = {
     try {
       api.setMessageReaction("⏳", event.messageID, (err) => {}, true);
       const { data } = await axios.get(`${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`);
-      const ext = path.extname(data.result) || 'mp4';
-      const filePath = __dirname + `/cache/vid${ext}`;
+      const filePath = __dirname + `/cache/vid.mp4`;
+      if(!fs.existsSync(filePath)){
+        fs.mkdir(__dirname + '/cache');
+      }
       const vid = (
         await axios.get(data.result, { responseType: "arraybuffer" })
       ).data;
@@ -65,7 +66,7 @@ module.exports = {
       }
     } catch (error) {
       api.setMessageReaction("❎", event.messageID, (err) => {}, true);
-      api.sendMessage(error, event.threadID, event.messageID);
+      api.sendMessage(error.message, event.threadID, event.messageID);
     }
   },
 };

@@ -1,3 +1,4 @@
+const axios = require('axios');
 const baseApiUrl = async () => {
   const base = await axios.get(
     `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
@@ -27,21 +28,15 @@ module.exports = {
       }
       const wait = await api.sendMessage("𝗪𝗮𝗶𝘁 𝗸𝗼𝗿𝗼 𝗕𝗮𝗯𝘆 <😘", event.threadID);
       const response = `${await baseApiUrl()}/emi?prompt=${encodeURIComponent(prompt)}`;
-      await api.sendMessage(
-        {
+      await api.sendMessage({
           body: `✅ | Generated your images`,
-          attachment: await global.utils.getStreamFromURL(response),
-        },
-        event.threadID,
-        event.messageID
-      );
-      await api.unsendMessage(wait.messageID);
+          attachment: await global.utils.getStreamFromURL(response)
+        },event.threadID,event.messageID);
+         api.unsendMessage(wait.messageID);
     } catch (e) {
       console.error(e);
-      await api.sendMessage(
-        `Failed to genarate photo!!!!\nError: ${e.message}`,
-        event.threadID
-      );
+      await api.sendMessage(`Failed to genarate photo!!!!\nError: ${e.message}`,
+        event.threadID,event.messageID);
     }
   },
 };

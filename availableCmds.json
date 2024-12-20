@@ -37,39 +37,45 @@
       "status": "on"
     },
     {
-      "cmd": "autodl_goat",
+      "cmd": "autodl_goat_x_mirai",
       "author": "Dipto",
-      "update": "06/17/2024",
+      "update": "11/20/2024",
       "status": "on"
     },
     {
-      "cmd": "autodl_mirai",
+      "cmd": "spy_mirai",
       "author": "Dipto",
-      "update": "06/17/2024",
+      "update": "10/06/2024",
       "status": "on"
     },
     {
-      "cmd": "baby_continuous_chat_goat",
+      "cmd": "spy_goat",
       "author": "Dipto",
-      "update": "07/01/2024",
+      "update": "10/06/2024",
+      "status": "on"
+    },
+        {
+      "cmd": "fluxpro_mirai",
+      "author": "Dipto",
+      "update": "10/09/2024",
       "status": "on"
     },
     {
-      "cmd": "baby_continuous_chat_mirai",
+      "cmd": "fluxpro_goat",
       "author": "Dipto",
-      "update": "07/01/2024",
+      "update": "10/09/2024",
       "status": "on"
     },
     {
       "cmd": "baby_sim_goat",
       "author": "Dipto",
-      "update": "06/20/2024",
+      "update": "10/11/2024",
       "status": "on"
     },
     {
       "cmd": "baby_sim_mirai",
       "author": "Dipto",
-      "update": "06/20/2024",
+      "update": "10/11/2024",
       "status": "on"
     },
     {
@@ -337,18 +343,17 @@
       "status": "on"
     },
     {
-
       "cmd": "spamkick_goat",
       "author": "Dipto",
-      "update": "13/08/2024",
+      "update": "13/11/2024",
       "status": "on"
     },
     {
       "cmd": "spamkick_mirai",
       "author": "Dipto",
       "update": "13/08/2024",
-       "status": "on"
-      },
+      "status": "on"
+    },
     {
       "cmd": "quiz_goat",
       "author": "Mesbah Bb'e",
@@ -386,13 +391,25 @@
       "status": "on"
     },
     {
-      "cmd": "sing_goat_v3",
+      "cmd": "art_goat",
+      "author": "Nazrul",
+      "update": "21/09/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "art_mirai",
+      "author": "Nazrul",
+      "update": "21/09/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "font_mirai",
       "author": "dipto",
       "update": "08/15/2024",
       "status": "on"
     },
     {
-      "cmd": "font_mirai",
+      "cmd": "sing_goat_v3",
       "author": "dipto",
       "update": "08/15/2024",
       "status": "on"
@@ -416,20 +433,14 @@
       "status": "on"
     },
     {
-      "cmd": "white_list_thread",
-      "author": "Ntkhang",
+      "cmd": "whitelist_thread",
+      "author": "NTKhang",
       "update": "08/15/2024",
       "status": "on"
     },
     {
-      "cmd": "white_list_id",
-      "author": "Ntkhang",
-      "update": "08/15/2024",
-      "status": "on"
-    },
-    {
-      "cmd": "white_list_id_mode",
-      "author": "Ntkhang",
+      "cmd": "whitelist_id",
+      "author": "NTKhang",
       "update": "08/15/2024",
       "status": "on"
     },
@@ -491,6 +502,126 @@
       "cmd": "emi_goat",
       "author": "dipto",
       "update": "08/26/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "flux_goat",
+      "author": "dipto",
+      "update": "08/26/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "upscaleai_goat",
+      "author": "dipto",
+      "update": "08/27/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "upscaleai_mirai",
+      "author": "dipto",
+      "update": "08/27/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "xl_31_goat",
+      "author": "dipto",
+      "update": "08/27/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "quiz_2_mirai",
+      "author": "dipto",
+      "update": "09/20/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "quiz_2_goat",
+      "author": "dipto",
+      "update": "09/20/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "removebg_goat",
+      "author": "Mesbah Saxx",
+      "update": "09/21/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "removebg_mirai",
+      "author": "Mesbah Saxx",
+      "update": "09/21/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "catbox_goat",
+      "author": "Nazrul",
+      "update": "10/03/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "catbox_mirai",
+      "author": "Nazrul",
+      "update": "10/03/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "image_data_goat",
+      "author": "Nazrul",
+      "update": "10/06/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "image_data_mirai",
+      "author": "Nazrul",
+      "update": "10/06/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "tikstalk_mirai",
+      "author": "Xnil",
+      "update": "10/06/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "tikstalk_goat",
+      "author": "Xnil",
+      "update": "10/06/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "sing2_goat",
+      "author": "Mesbah Saxx",
+      "update": "10/14/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "sing2_mirai",
+      "author": "Mesbah Saxx",
+      "update": "10/14/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "tag_goat_x_mirai",
+      "author": "Dipto",
+      "update": "10/14/2024",
+      "status": "on"
+    },
+    {
+      "cmd": "4k_goat",
+      "author": "Mostakim",
+      "update": "10/22/2024",
+      "status": "on"
+    },
+    {
+       "cmd": "coverphoto_goat",
+      "author": "Dipto",
+      "update": "11/15/2024",
+      "status": "on"
+    },
+    {
+       "cmd": "coverphoto_mirai",
+      "author": "Dipto",
+      "update": "11/15/2024",
       "status": "on"
     }
   ]

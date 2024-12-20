@@ -11,7 +11,7 @@ module.exports.config = {
   version: "1.0",
   credits: "Mesbah Bb'e",
   usePrefix: true,
-  prefix, true,
+  prefix: true,
   cooldowns: 5,
   hasPermssion: 0,
   description: "View Prayer time",

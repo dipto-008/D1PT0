@@ -7,19 +7,19 @@ const baseApiUrl = async () => {
 };
 async function getAvatarUrls(userIDs) {
     let avatarURLs = [];
-    try {
-        for (let userID of userIDs) {
+
+    for (let userID of userIDs) {
+        try {
             const shortUrl = `https://graph.facebook.com/${userID}/picture?height=1500&width=1500&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`;
             const d = await axios.get(shortUrl);
             let url = d.request.res.responseUrl;
             avatarURLs.push(url);
+        } catch (error) {
+            avatarURLs.push(
+"https://i.ibb.co/qk0bnY8/363492156-824459359287620-3125820102191295474-n-png-nc-cat-1-ccb-1-7-nc-sid-5f2048-nc-eui2-Ae-HIhi-I.png");
         }
-        return avatarURLs;
-    } catch (error) {
-        return avatarURLs.push(
-            "https://i.ibb.co/qk0bnY8/363492156-824459359287620-3125820102191295474-n-png-nc-cat-1-ccb-1-7-nc-sid-5f2048-nc-eui2-Ae-HIhi-I.png",
-        );
     }
+    return avatarURLs;
 }
 module.exports = {
     config: {
@@ -81,10 +81,7 @@ module.exports = {
             };
 
             if (data2) {
-                var waitingMsg = await api.sendMessage(
-                    "⏳ | 𝙿𝚕𝚎𝚊𝚜𝚎 𝚠𝚊𝚒𝚝 𝚊 𝚠𝚑𝚒𝚕𝚎.",
-                    event.threadID,
-                );
+                var waitingMsg = await api.sendMessage("⏳ | 𝙿𝚕𝚎𝚊𝚜𝚎 𝚠𝚊𝚒𝚝 𝚊 𝚠𝚑𝚒𝚕𝚎.",event.threadID);
                 api.setMessageReaction(
                     "⏳",
                     event.messageID,
@@ -102,8 +99,7 @@ module.exports = {
                     "✅",
                     event.messageID,
                     (err) => {},
-                    true,
-                );
+                    true);
                 message.unsend(waitingMsg.messageID);
                 message.reply({
                     body: `𝙷𝚎𝚛𝚎 𝚒𝚜 𝚢𝚘𝚞𝚛 𝚐𝚛𝚘𝚞𝚙 𝚒𝚖𝚊𝚐𝚎 <😘`,

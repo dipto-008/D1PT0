@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const baseApiUrl = async () => {
   const base = await axios.get(
-    `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
+    `https://raw.githubusercontent.com/Mostakim0978/D1PT0/refs/heads/main/baseApiUrl.json`,
   );
   return base.data.api;
 };
@@ -215,10 +215,10 @@ module.exports.run = async function ({ api, event, args }) {
   }
   try {
     const response = await axios.get(
-      `${await baseApiUrl()}/imgur?url=${encodeURIComponent(URL)}`,
+      `${await baseApiUrl()}/drive?url=${encodeURIComponent(URL)}`,
     );
-    const imgurLink = response.data.data;
-    const fileExtension = path.extname(imgurLink);
+    const imgurLink = response.data.fileUrl;
+    const fileExtension = ".mp4" //path.extname(imgurLink);
     let query2;
     if (
       fileExtension === ".jpg" ||
@@ -337,7 +337,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
       const imgUrl = res.data.data;
       const imgRes = await axios.get(imgUrl, { responseType: "arraybuffer" });
       const ex = path.extname(imgUrl);
-      const filename = __dirname + `/cache/d1p${ex}`;
+      const filename = __dirname + `/cache/dipto_${Date.now()}.mp4`;
       fs.writeFileSync(filename, Buffer.from(imgRes.data, "binary"));
 
       api.sendMessage(

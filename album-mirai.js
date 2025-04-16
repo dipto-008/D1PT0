@@ -335,7 +335,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
     try {
       const res = await axios.get(`${await baseApiUrl()}/album?type=${query}`);
       const imgUrl = res.data.data;
-      const imgRes = await axios.get(imgUrl, { responseType: "arraybuffer" });
+      const imgRes = await axios.get(imgUrl, { responseType: "arraybuffer", headers: { 'User-Agent': 'Mozilla/5.0' } });
       const ex = path.extname(imgUrl);
       const filename = __dirname + `/cache/dipto_${Date.now()}.mp4`;
       fs.writeFileSync(filename, Buffer.from(imgRes.data, "binary"));

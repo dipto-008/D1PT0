@@ -61,7 +61,7 @@ const onChat = async ({ api, event }) => {
       const path = __dirname + `/cache/video${ex}`;
       fs.writeFileSync(path, Buffer.from((await axios.get(d.result, { responseType: "arraybuffer" })).data, "binary"));
       const tinyUrlResponse = await axios.get(`https://tinyurl.com/api-create.php?url=${d.result}`);
-      api.setMessageReaction("✅", event.messageID, true);
+      api.setMessageReaction("✅", event.messageID, {}, true);
       api.unsendMessage(w.messageID);
       await api.sendMessage({
           body: `${d.cp || null}\n✅ | Link: ${tinyUrlResponse.data || null}`,
@@ -70,7 +70,7 @@ const onChat = async ({ api, event }) => {
       )
     }
   } catch (err) {
-    api.setMessageReaction("❌", event.messageID, true);
+    api.setMessageReaction("❌", event.messageID, {}, true);
     console.log(err);
     api.sendMessage(`Error: ${err.message}`, event.threadID, event.messageID);
   }

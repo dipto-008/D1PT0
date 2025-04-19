@@ -41,7 +41,7 @@ const onChat = async ({ api, event }) => {
       dipto.startsWith("https://vm.tiktok.com") ||
       dipto.startsWith("https://fb.watch")
     ) {
-      api.setMessageReaction("⌛", event.messageID, true);
+      api.setMessageReaction("⌛", event.messageID, {}, true);
       const w = await api.sendMessage("Wait Bby <😘", event.threadID);
       const response = await axios.get(`${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`);
       const d = response.data;

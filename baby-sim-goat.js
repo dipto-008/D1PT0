@@ -41,7 +41,7 @@ module.exports.onStart = async ({
         }
 
         if (args[0] === 'rm' && dipto.includes('-')) {
-            const [fi, f] = dipto.replace("rm ", "").split(' - ');
+            const [fi, f] = dipto.replace("rm ", "").split(/\s*-\s*/);
             const da = (await axios.get(`${link}?remove=${fi}&index=${f}`)).data.message;
             return api.sendMessage(da, event.threadID, event.messageID);
         }
@@ -74,14 +74,14 @@ module.exports.onStart = async ({
         }
 
         if (args[0] === 'edit') {
-            const command = dipto.split(' - ')[1];
+            const command = dipto.split(/\s*-\s*/)[1];
             if (command.length < 2) return api.sendMessage('❌ | Invalid format! Use edit [YourMessage] - [NewReply]', event.threadID, event.messageID);
             const dA = (await axios.get(`${link}?edit=${args[1]}&replace=${command}&senderID=${uid}`)).data.message;
             return api.sendMessage(`changed ${dA}`, event.threadID, event.messageID);
         }
 
         if (args[0] === 'teach' && args[1] !== 'amar' && args[1] !== 'react') {
-            [comd, command] = dipto.split(' - ');
+            [comd, command] = dipto.split(/\s*-\s*/);
             final = comd.replace("teach ", "");
             if (command.length < 2) return api.sendMessage('❌ | Invalid format!', event.threadID, event.messageID);
             const re = await axios.get(`${link}?teach=${final}&reply=${command}&senderID=${uid}`);
@@ -91,7 +91,7 @@ module.exports.onStart = async ({
         }
 
         if (args[0] === 'teach' && args[1] === 'amar') {
-            [comd, command] = dipto.split(' - ');
+            [comd, command] = dipto.split(/\s*-\s*/);
             final = comd.replace("teach ", "");
             if (command.length < 2) return api.sendMessage('❌ | Invalid format!', event.threadID, event.messageID);
             const tex = (await axios.get(`${link}?teach=${final}&senderID=${uid}&reply=${command}&key=intro`)).data.message;
@@ -99,7 +99,7 @@ module.exports.onStart = async ({
         }
 
         if (args[0] === 'teach' && args[1] === 'react') {
-            [comd, command] = dipto.split(' - ');
+            [comd, command] = dipto.split(/\s*-\s*/);
             final = comd.replace("teach react ", "");
             if (command.length < 2) return api.sendMessage('❌ | Invalid format!', event.threadID, event.messageID);
             const tex = (await axios.get(`${link}?teach=${final}&react=${command}`)).data.message;

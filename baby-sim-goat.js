@@ -52,7 +52,7 @@ module.exports.onStart = async ({
                 const teachers = await Promise.all(data.teacher.teacherList.map(async (item) => {
                     const number = Object.keys(item)[0];
                     const value = item[number];
-                    const name = (await usersData.get(number)).name;
+                    const name = (await usersData.get(number))?.name || "Not found";
                     return {
                         name,
                         value
@@ -62,8 +62,8 @@ module.exports.onStart = async ({
                 const output = teachers.map((t, i) => `${i + 1}/ ${t.name}: ${t.value}`).join('\n');
                 return api.sendMessage(`Total Teach = ${data.length}\n👑 | List of Teachers of baby\n${output}`, event.threadID, event.messageID);
             } else {
-                const d = (await axios.get(`${link}?list=all`)).data.length;
-                return api.sendMessage(`Total Teach = ${d}`, event.threadID, event.messageID);
+                const d = (await axios.get(`${link}?list=all`)).data;
+                return api.sendMessage(`❇️ | Total Teach = ${d.length || "api off"}\n♻️ | Total Response = ${d.responseLength || "api off"}`, event.threadID, event.messageID);
             }
         }
 

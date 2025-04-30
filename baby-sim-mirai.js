@@ -38,7 +38,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
     }
 
     if (args[0] === 'rm' && dipto.includes('-')) {
-      const [fi, f] = dipto.replace("rm ", "").split(' - ');
+      const [fi, f] = dipto.replace("rm ", "").split(/\s*-\s*/);
       const respons = await axios.get(`${link}?remove=${fi}&index=${f}`);
       return api.sendMessage(respons.data.message, event.threadID, event.messageID);
     }
@@ -69,7 +69,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
     }
 
     if (args[0] === 'edit') {
-      const command = dipto.split(' - ')[1];
+      const command = dipto.split(/\s*-\s*/)[1];
       if (command.length < 2) {
         return api.sendMessage('❌ | Invalid format! Use edit [YourMessage] - [NewReply]', event.threadID, event.messageID);
       }
@@ -78,18 +78,18 @@ module.exports.run = async function ({ api, event, args, Users }) {
     }
 
     if (args[0] === 'teach' && args[1] !== 'amar' && args[1] !== 'react') {
-      const [comd, command] = dipto.split(' - ');
+      const [comd, command] = dipto.split(/\s*-\s*/);
       const final = comd.replace("teach ", "");
       if (command.length < 2) {
         return api.sendMessage('❌ | Invalid format! Use [YourMessage] - [Reply1], [Reply2], [Reply3]... OR remove [YourMessage] OR list OR edit [YourMessage] - [NewReply]', event.threadID, event.messageID);
       }
       const re = await axios.get(`${link}?teach=${final}&reply=${command}&senderID=${uid}`);
-      const name = await Users.getName(re.data.teacher) || "";
+      const name = (await Users.getUser(re.data.teacher))?.name || "";
       return api.sendMessage(`✅ Replies added ${re.data.message}\nTeacher: ${name || "unknown"}\nTeachs: ${re.data.teachs}`, event.threadID, event.messageID);
     }
 
     if (args[0] === 'teach' && args[1] === 'amar') {
-      const [comd, command] = dipto.split(' - ');
+      const [comd, command] = dipto.split(/\s*-\s*/);
       const final = comd.replace("teach ", "");
       if (command.length < 2) {
         return api.sendMessage('❌ | Invalid format! Use [YourMessage] - [Reply1], [Reply2], [Reply3]... OR remove [YourMessage] OR list OR edit [YourMessage] - [NewReply]', event.threadID, event.messageID);
@@ -99,7 +99,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
     }
 
     if (args[0] === 'teach' && args[1] === 'react') {
-      const [comd, command] = dipto.split(' - ');
+      const [comd, command] = dipto.split(/\s*-\s*/);
       const final = comd.replace("teach react ", "");
       if (command.length < 2) {
         return api.sendMessage('❌ | Invalid format! Use [teach] [YourMessage] - [Reply1], [Reply2], [Reply3]... OR [teach] [react] [YourMessage] - [react1], [react2], [react3]... OR remove [YourMessage] OR list OR edit [YourMessage] - [NewReply]', event.threadID, event.messageID);

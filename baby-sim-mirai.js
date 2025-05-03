@@ -50,7 +50,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
         const teachers = await Promise.all(data.map(async (item) => {
           const number = Object.keys(item)[0];
           const value = item[number];
-          const name = await Users.getName(number) || "unknown";
+          const name = await Users.getNameUser(number).catch(()=>{}) || "unknown";
           return { name, value };
         }));
         teachers.sort((a, b) => b.value - a.value);
@@ -84,7 +84,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
         return api.sendMessage('❌ | Invalid format! Use [YourMessage] - [Reply1], [Reply2], [Reply3]... OR remove [YourMessage] OR list OR edit [YourMessage] - [NewReply]', event.threadID, event.messageID);
       }
       const re = await axios.get(`${link}?teach=${final}&reply=${command}&senderID=${uid}`);
-      const name = (await Users.getUser(re.data.teacher))?.name || "";
+      const name = await Users.getNameUser(re.data.teacher).catch(() => {}) || "unknown";
       return api.sendMessage(`✅ Replies added ${re.data.message}\nTeacher: ${name || "unknown"}\nTeachs: ${re.data.teachs}`, event.threadID, event.messageID);
     }
 

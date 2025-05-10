@@ -5,7 +5,7 @@ const baseApiUrl = async () => {
 
 module.exports.config = {
     name: "bby",
-    aliases: ["baby", "bbe", "babe"],
+    aliases: ["baby", "bbe", "babe", "sam"],
     version: "6.9.0",
     author: "dipto",
     countDown: 0,
@@ -52,7 +52,7 @@ module.exports.onStart = async ({
                 const teachers = await Promise.all(data.teacher.teacherList.map(async (item) => {
                     const number = Object.keys(item)[0];
                     const value = item[number];
-                    const name = (await usersData.get(number))?.name || "Not found";
+                    const name = await usersData.getName(number).catch(() => number) || "Not found";
                     return {
                         name,
                         value

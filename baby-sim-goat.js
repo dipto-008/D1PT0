@@ -49,7 +49,9 @@ module.exports.onStart = async ({
         if (args[0] === 'list') {
             if (args[1] === 'all') {
                 const data = (await axios.get(`${link}?list=all`)).data;
-                const teachers = await Promise.all(data.teacher.teacherList.map(async (item) => {
+                const limit = parseInt(args[2]) || 100;
+                const limited = data?.teacher?.teacherList?.slice(0, limit)
+                const teachers = await Promise.all(limited.map(async (item) => {
                     const number = Object.keys(item)[0];
                     const value = item[number];
                     const name = await usersData.getName(number).catch(() => number) || "Not found";

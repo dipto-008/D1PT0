@@ -32,7 +32,7 @@ module.exports = {
     } 
     try {
       const response = await axios.get(
-        `${await baseApiUrl()}/quiz2?category=${category}&q=random`,
+        `${await baseApiUrl()}/quiz?category=${category}&q=random`,
       );
 
       const quizData = response.data.question;

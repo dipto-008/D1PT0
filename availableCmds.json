@@ -641,6 +641,12 @@
       "author": "Mostakim",
       "update": "5/26/2025",
       "status": "on"
+    },
+    {
+       "cmd": "uptime_goat",
+      "author": "Mostakim",
+      "update": "5/26/2025",
+      "status": "on"
     }
   ]
 }

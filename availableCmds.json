@@ -611,6 +611,36 @@
       "author": "nyx",
       "update": "11/15/2024",
       "status": "on"
+    },
+    {
+       "cmd": "hack_goat",
+      "author": "Mostakim",
+      "update": "5/26/2025",
+      "status": "on"
+    },
+     {
+       "cmd": "help_goat",
+      "author": "Mostakim",
+      "update": "5/26/2025",
+      "status": "on"
+    },
+     {
+       "cmd": "slot_goat",
+      "author": "Mostakim",
+      "update": "5/26/2025",
+      "status": "on"
+    },
+   {
+       "cmd": "bank_goat",
+      "author": "Mostakim",
+      "update": "5/26/2025",
+      "status": "on"
+    },
+     {
+       "cmd": "balance_goat",
+      "author": "Mostakim",
+      "update": "5/26/2025",
+      "status": "on"
     }
   ]
 }

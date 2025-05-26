@@ -103,5 +103,6 @@
   "bank_goat": "https://raw.githubusercontent.com/dipto-008/D1PT0/refs/heads/main/bank_goat.js",
   "hack_goat": "https://raw.githubusercontent.com/dipto-008/D1PT0/refs/heads/main/hack_goat.js",
   "help_goat": :"https://raw.githubusercontent.com/dipto-008/D1PT0/refs/heads/main/help_goat.js",
-  "slot_goat": "https://raw.githubusercontent.com/dipto-008/D1PT0/refs/heads/main/slot_goat.js"
+  "slot_goat": "https://raw.githubusercontent.com/dipto-008/D1PT0/refs/heads/main/slot_goat.js",
+  "prefix":"https://raw.githubusercontent.com/dipto-008/D1PT0/refs/heads/main/prefix.js"
 }

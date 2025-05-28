@@ -25,7 +25,7 @@ module.exports.run = async ({ api, event,args }) =>{
       return api.sendMessage('Please reply to an image.', event.threadID, event.messageID);
     }
     try {
-      const prom = (await axios.get(`${await baseApiUrl()}/prompt?url=${encodeURIComponent(dip)}`)).data.data[0].response;
+      const prom = (await axios.get(`${await baseApiUrl()}/prompt?url=${encodeURIComponent(dip)}`)).data.prompt;
          api.sendMessage(prom, event.threadID, event.messageID);
     } catch (error) {
       console.error(error);

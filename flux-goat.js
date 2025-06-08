@@ -1,4 +1,5 @@
 const axios = require("axios");
+
 module.exports.config = {
   name: "flux",
   version: "2.0",
@@ -12,29 +13,25 @@ module.exports.config = {
 
 module.exports.onStart = async ({ message, event, args, api }) => {
   try {
-  const prompt = args.join(" ");
-  /*let prompt2, ratio;
-  if (prompt.includes("--ratio")) {
-    const parts = prompt.split("--ratio");
-    prompt2 = parts[0].trim();
-    ratio = parts[1].trim();
-  } else {
-    prompt2 = prompt;
-    ratio = "1:1";
-  }*/
-    const ok = message.reply('wait baby <😘')
-    api.setMessageReaction("⌛", event.messageID, (err) => {}, true);
-    const { data } = await axios.get(
-      `https://www.noobs-api.000.pe/dipto/flux?prompt=${prompt}`
-    );
-    api.setMessageReaction("✅", event.messageID, (err) => {}, true);
-     message.unsend(ok.messageID)
+    const prompt = args.join(" ");
+    const waitMsg = await message.reply('wait baby <😘');
+    api.setMessageReaction("⌛", event.messageID, () => {}, true);
+
+    
+    const response = await axios.get(`https://www.noobs-api.rf.gd/dipto/flux?prompt=${encodeURIComponent(prompt)}`, {
+      responseType: 'stream',
+    });
+
+    api.setMessageReaction("✅", event.messageID, () => {}, true);
+    message.unsend(waitMsg.messageID);
+
     await message.reply({
-          body: `Here's your image`, 
-          attachment: await global.utils.getStreamFromURL(data.data) 
-      });
+      body: `Here's your image`,
+      attachment: response.data,
+    });
+
   } catch (e) {
-    console.log(e);
+    console.log("Flux Error:", e);
     message.reply("Error: " + e.message);
   }
 };

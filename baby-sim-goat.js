@@ -136,6 +136,9 @@ module.exports.onReply = async ({
     event,
     Reply
 }) => {
+   
+    if ([api.getCurrentUserID()].includes(event.senderID)) return;
+  
     try {
         if (event.type == "message_reply") {
             const a = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(event.body?.toLowerCase())}&senderID=${event.senderID}&font=1`)).data.reply;

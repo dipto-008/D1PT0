@@ -30,7 +30,7 @@ module.exports = {
         countDown: 5,
         role: 0,
         description: "𝗚𝗲𝘁 𝗚𝗿𝗼𝘂𝗽 𝗜𝗺𝗮𝗴𝗲",
-        category: "𝗜𝗠𝗔𝗚𝗘",
+        category: "image",
         guide: "{pn} --color [color] --bgcolor [color] --admincolor [color] --membercolor [color]",
     },
 
@@ -90,7 +90,7 @@ module.exports = {
                 );
             }
             const { data } = await axios.post(
-                `${await baseApiUrl()}/groupPhoto`,
+                `${await baseApiUrl()}/gcimg`,
                 data2,
             );
 

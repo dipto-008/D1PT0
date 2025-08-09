@@ -20,7 +20,7 @@ const config = {
     usages: "art [mention | reply image]"
   };
 
- const onStart = async function ({ event, message, args, api }) {
+ const onStart = async function ({ event, args, api }) {
     try {
       const { senderID, mentions, type, messageReply } = event;
       const message = {};

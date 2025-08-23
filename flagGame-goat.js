@@ -76,7 +76,7 @@ module.exports = {
     }
   },
 
-  onStart: async function ({ api, args, event,threadsData }) {
+  onStart: async function ({ api, args, event, usersData, threadsData }) {
     try {
       if (!args[0]) {
         const response = await axios.get(
